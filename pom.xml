@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -10,7 +11,7 @@
 
 	<groupId>com.nhl.bootique.linkrest</groupId>
 	<artifactId>bootique-linkrest</artifactId>
-	<version>0.8-SNAPSHOT</version>
+	<version>0.5-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>LinkRest Integration with Bootique</name>
@@ -18,6 +19,8 @@
 
 	<properties>
 		<bootique-version>0.10</bootique-version>
+		<bootique-cayenne-version>0.9</bootique-cayenne-version>
+		<bootique-jersey-version>0.9-SNAPSHOT</bootique-jersey-version>
 		<link-rest-version>1.21</link-rest-version>
 	</properties>
 
@@ -35,9 +38,19 @@
 				<version>${bootique-version}</version>
 			</dependency>
 			<dependency>
-			    <groupId>com.nhl.link.rest</groupId>
-			    <artifactId>link-rest</artifactId>
-			    <version>${link-rest-version}</version>
+				<groupId>com.nhl.bootique.cayenne</groupId>
+				<artifactId>bootique-cayenne</artifactId>
+				<version>${bootique-cayenne-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.nhl.bootique.jersey</groupId>
+				<artifactId>bootique-jersey</artifactId>
+				<version>${bootique-jersey-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.nhl.link.rest</groupId>
+				<artifactId>link-rest</artifactId>
+				<version>${link-rest-version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -59,6 +72,16 @@
 		<dependency>
 			<groupId>com.nhl.bootique</groupId>
 			<artifactId>bootique</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.nhl.bootique.cayenne</groupId>
+			<artifactId>bootique-cayenne</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.nhl.bootique.jersey</groupId>
+			<artifactId>bootique-jersey</artifactId>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
