@@ -19,8 +19,11 @@ import com.nhl.link.rest.DataResponse;
 import com.nhl.link.rest.LinkRest;
 import com.nhl.link.rest.annotation.LrAttribute;
 import com.nhl.link.rest.annotation.LrId;
+import com.nhl.link.rest.annotation.listener.SelectServerParamsApplied;
+import com.nhl.link.rest.processor.ProcessingStage;
+import com.nhl.link.rest.runtime.processor.select.SelectContext;
 
-public class LinkRestModuleIT extends BQLinkRestTest {
+public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 
 	@Override
 	protected JerseyModule createJerseyModule() {
@@ -36,7 +39,7 @@ public class LinkRestModuleIT extends BQLinkRestTest {
 	public void testLRRequest() {
 		Response response = target("/r1").request().get();
 		assertEquals(Status.OK.getStatusCode(), response.getStatus());
-		assertEquals("{\"data\":[{\"id\":1}],\"total\":1}", response.readEntity(String.class));
+		assertEquals("{\"data\":[{\"id\":1,\"name\":\"xyz\"}],\"total\":1}", response.readEntity(String.class));
 	}
 
 	@Path("/r1")
@@ -47,7 +50,7 @@ public class LinkRestModuleIT extends BQLinkRestTest {
 
 		@GET
 		public DataResponse<E1> get(@Context UriInfo uriInfo) {
-			return LinkRest.select(E1.class, config).uri(uriInfo).select();
+			return LinkRest.select(E1.class, config).uri(uriInfo).listener(new PojoListener()).select();
 		}
 	}
 
@@ -74,4 +77,20 @@ public class LinkRestModuleIT extends BQLinkRestTest {
 			this.name = name;
 		}
 	}
+
+	public static class PojoListener {
+
+		@SelectServerParamsApplied
+		public ProcessingStage<SelectContext<E1>, E1> doSomethingWithTheFlow(SelectContext<E1> context) {
+
+			E1 e1 = new E1();
+			e1.setId(1);
+			e1.setName("xyz");
+			context.getResponse().withObject(e1);
+
+			// stop further processing
+			return null;
+		}
+	}
+
 }
