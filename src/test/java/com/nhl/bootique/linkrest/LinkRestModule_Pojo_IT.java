@@ -81,7 +81,7 @@ public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 	public static class PojoListener {
 
 		@SelectServerParamsApplied
-		public ProcessingStage<SelectContext<E1>, E1> doSomethingWithTheFlow(SelectContext<E1> context) {
+		public ProcessingStage<SelectContext<E1>, E1> altBackend(SelectContext<E1> context) {
 
 			E1 e1 = new E1();
 			e1.setId(1);
