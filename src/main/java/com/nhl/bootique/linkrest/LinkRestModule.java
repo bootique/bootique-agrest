@@ -7,7 +7,7 @@ import org.apache.cayenne.configuration.server.ServerRuntime;
 import com.google.inject.Binder;
 import com.google.inject.Provides;
 import com.nhl.bootique.ConfigModule;
-import com.nhl.bootique.jersey.JerseyBinder;
+import com.nhl.bootique.jersey.JerseyModule;
 import com.nhl.link.rest.meta.LrEntity;
 import com.nhl.link.rest.runtime.LinkRestBuilder;
 import com.nhl.link.rest.runtime.LinkRestRuntime;
@@ -26,7 +26,7 @@ public class LinkRestModule extends ConfigModule {
 	public void configure(Binder binder) {
 		// 'BQLinkRestFeature' is an injectable wrapper around
 		// LinkRestRuntime...
-		JerseyBinder.contributeTo(binder).features(BQLinkRestFeature.class);
+		JerseyModule.contributeFeatures(binder).addBinding().to(BQLinkRestFeature.class);
 
 		// init adapter set without binding any adapters
 		LinkRestBinder.contributeTo(binder).adapters();
