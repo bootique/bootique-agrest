@@ -12,6 +12,10 @@ import com.nhl.link.rest.meta.LrEntity;
 import com.nhl.link.rest.meta.LrEntityBuilder;
 import com.nhl.link.rest.runtime.adapter.LinkRestAdapter;
 
+/**
+ * @deprecated since 0.6 in favor of the static "contribute" methods on
+ *             {@link LinkRestModule}.
+ */
 public class LinkRestBinder {
 
 	public static LinkRestBinder contributeTo(Binder binder) {

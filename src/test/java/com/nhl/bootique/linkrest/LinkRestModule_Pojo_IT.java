@@ -20,6 +20,7 @@ import com.nhl.link.rest.LinkRest;
 import com.nhl.link.rest.annotation.LrAttribute;
 import com.nhl.link.rest.annotation.LrId;
 import com.nhl.link.rest.annotation.listener.SelectServerParamsApplied;
+import com.nhl.link.rest.meta.LrEntityBuilder;
 import com.nhl.link.rest.processor.ProcessingStage;
 import com.nhl.link.rest.runtime.processor.select.SelectContext;
 
@@ -32,7 +33,7 @@ public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 
 	@Override
 	protected Module createExtrasModule() {
-		return b -> LinkRestBinder.contributeTo(b).extraEntityTypes(E1.class);
+		return b -> LinkRestModule.contributeExtraEntities(b).addBinding().toInstance(LrEntityBuilder.build(E1.class));
 	}
 
 	@Test
