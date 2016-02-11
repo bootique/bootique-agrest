@@ -64,6 +64,13 @@
 				<groupId>com.nhl.link.rest</groupId>
 				<artifactId>link-rest</artifactId>
 				<version>${link-rest-version}</version>
+				<!-- Ensure cayenne version from bootique-cayenne is used -->
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.cayenne</groupId>
+						<artifactId>cayenne-server</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.glassfish.jersey.test-framework</groupId>
