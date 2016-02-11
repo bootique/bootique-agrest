@@ -27,7 +27,7 @@ import com.nhl.link.rest.runtime.processor.select.SelectContext;
 public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 
 	@Override
-	protected JerseyModule createJerseyModule() {
+	protected JerseyModule.Builder createJerseyModule() {
 		return super.createJerseyModule().resource(R1.class);
 	}
 

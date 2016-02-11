@@ -36,8 +36,8 @@ public abstract class BQLinkRestTest extends JerseyTest {
 		when(serverRuntimeMock.getDataDomain()).thenReturn(ddMock);
 		when(serverRuntimeMock.getChannel()).thenReturn(ddMock);
 
-		this.injector = Guice.createInjector(createMockCayenneModule(), createJerseyModule(), createLinkRestModule(),
-				createExtrasModule(), createBootiqueModule());
+		this.injector = Guice.createInjector(createMockCayenneModule(), createJerseyModule().build(),
+				createLinkRestModule(), createExtrasModule(), createBootiqueModule());
 		return injector.getInstance(ResourceConfig.class);
 	}
 
@@ -53,8 +53,8 @@ public abstract class BQLinkRestTest extends JerseyTest {
 		return new LinkRestModule();
 	}
 
-	protected JerseyModule createJerseyModule() {
-		return new JerseyModule();
+	protected JerseyModule.Builder createJerseyModule() {
+		return JerseyModule.builder();
 	}
 
 	/**
