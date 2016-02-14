@@ -32,7 +32,7 @@ public class LinkRestModule extends ConfigModule {
 	 * an LrEntity from an annotated Java class using the following code:
 	 * 
 	 * <pre>
-	 * LrEntity<?> e = LrEntityBuilder.build(MyClass.class);
+	 * LrEntity&lt;?&gt; e = LrEntityBuilder.build(MyClass.class);
 	 * </pre>
 	 * 
 	 * @since 0.6
