@@ -61,6 +61,7 @@ public class LinkRestModule extends ConfigModule {
 
 		// trigger extension points creation and provide default contributions
 		LinkRestModule.contributeAdapters(binder);
+		LinkRestModule.contributeExtraEntities(binder);
 	}
 
 	@Provides
