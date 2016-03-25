@@ -17,10 +17,10 @@
 	<description>Provides LinkRest integration with Bootique</description>
 
 	<properties>
-		<bootique-version>0.12</bootique-version>
-		<bootique-cayenne-version>0.12</bootique-cayenne-version>
-		<bootique-jersey-version>0.11</bootique-jersey-version>
-		<link-rest-version>1.21</link-rest-version>
+		<bootique-version>0.15-SNAPSHOT</bootique-version>
+		<bootique-cayenne-version>0.14-SNAPSHOT</bootique-cayenne-version>
+		<bootique-jersey-version>0.14-SNAPSHOT</bootique-jersey-version>
+		<link-rest-version>1.23-SNAPSHOT</link-rest-version>
 
 		<!-- Used for tests only; runtime jersey comes as a transient dependency 
 			from bootique-jersey-version -->
@@ -32,6 +32,19 @@
 		<url>https://github.com/nhl/bootique-linkrest</url>
 		<tag>HEAD</tag>
 	</scm>
+	
+	<repositories>
+		<repository>
+			<id>linkrest-snapshots</id>
+			<url>http://maven.objectstyle.org/nexus/content/repositories/linkrest-snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<dependencyManagement>
 		<dependencies>
