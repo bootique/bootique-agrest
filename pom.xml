@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -20,7 +21,7 @@
 		<bootique-version>0.15-SNAPSHOT</bootique-version>
 		<bootique-cayenne-version>0.14-SNAPSHOT</bootique-cayenne-version>
 		<bootique-jersey-version>0.14-SNAPSHOT</bootique-jersey-version>
-		<link-rest-version>1.23-SNAPSHOT</link-rest-version>
+		<link-rest-version>1.23</link-rest-version>
 
 		<!-- Used for tests only; runtime jersey comes as a transient dependency 
 			from bootique-jersey-version -->
@@ -32,7 +33,7 @@
 		<url>https://github.com/nhl/bootique-linkrest</url>
 		<tag>HEAD</tag>
 	</scm>
-	
+
 	<repositories>
 		<repository>
 			<id>linkrest-snapshots</id>
@@ -84,6 +85,11 @@
 						<artifactId>cayenne-server</artifactId>
 					</exclusion>
 				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>com.nhl.link.rest</groupId>
+				<artifactId>link-rest-java8</artifactId>
+				<version>${link-rest-version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.glassfish.jersey.test-framework</groupId>
@@ -152,6 +158,11 @@
 		<dependency>
 			<groupId>com.nhl.link.rest</groupId>
 			<artifactId>link-rest</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.nhl.link.rest</groupId>
+			<artifactId>link-rest-java8</artifactId>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>

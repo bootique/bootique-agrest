@@ -1,3 +1,7 @@
-0.7:
+## 0.8:
+
+* #2 Upgrade to LinkRest 1.23
+
+## 0.7:
 
 * #1 Error on startup: No implementation for java.util.Set<com.nhl.link.rest.meta.LrEntity<?>> was bound

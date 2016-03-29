@@ -14,6 +14,7 @@ import com.nhl.link.rest.meta.LrEntity;
 import com.nhl.link.rest.runtime.LinkRestBuilder;
 import com.nhl.link.rest.runtime.LinkRestRuntime;
 import com.nhl.link.rest.runtime.adapter.LinkRestAdapter;
+import com.nhl.link.rest.runtime.adapter.java8.Java8Adapter;
 
 public class LinkRestModule extends ConfigModule {
 
@@ -60,7 +61,7 @@ public class LinkRestModule extends ConfigModule {
 		JerseyModule.contributeFeatures(binder).addBinding().to(BQLinkRestFeature.class);
 
 		// trigger extension points creation and provide default contributions
-		LinkRestModule.contributeAdapters(binder);
+		LinkRestModule.contributeAdapters(binder).addBinding().to(Java8Adapter.class);
 		LinkRestModule.contributeExtraEntities(binder);
 	}
 
