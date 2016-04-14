@@ -27,13 +27,11 @@ import com.nhl.link.rest.runtime.processor.select.SelectContext;
 public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 
 	@Override
-	protected JerseyModule.Builder createJerseyModule() {
-		return super.createJerseyModule().resource(R1.class);
-	}
-
-	@Override
 	protected Module createExtrasModule() {
-		return b -> LinkRestModule.contributeExtraEntities(b).addBinding().toInstance(LrEntityBuilder.build(E1.class));
+		return b -> {
+			LinkRestModule.contributeExtraEntities(b).addBinding().toInstance(LrEntityBuilder.build(E1.class));
+			JerseyModule.contributeResources(b).addBinding().to(R1.class);
+		};
 	}
 
 	@Test
