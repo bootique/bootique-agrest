@@ -41,6 +41,8 @@ public class LinkRestModule extends ConfigModule {
 	 *            DI binder passed to the Module that invokes this method.
 	 * @return {@link Multibinder} for contributing LrEntity's.
 	 */
+	// TODO: deprecate once we upgrade to LR 1.24. In 1.24 Pojos are available
+	// automatically. See https://github.com/nhl/link-rest/issues/164
 	public static Multibinder<LrEntity<?>> contributeExtraEntities(Binder binder) {
 		TypeLiteral<LrEntity<?>> tl = new TypeLiteral<LrEntity<?>>() {
 		};
