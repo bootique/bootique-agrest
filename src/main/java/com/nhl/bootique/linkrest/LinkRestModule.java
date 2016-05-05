@@ -6,6 +6,7 @@ import org.apache.cayenne.configuration.server.ServerRuntime;
 
 import com.google.inject.Binder;
 import com.google.inject.Provides;
+import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 import com.google.inject.multibindings.Multibinder;
 import com.nhl.bootique.ConfigModule;
@@ -40,9 +41,9 @@ public class LinkRestModule extends ConfigModule {
 	 * @param binder
 	 *            DI binder passed to the Module that invokes this method.
 	 * @return {@link Multibinder} for contributing LrEntity's.
+	 * @deprecated since 0.10 as LinkRest 1.24 no longer requires explicit
+	 *             registration of extra entities.
 	 */
-	// TODO: deprecate once we upgrade to LR 1.24. In 1.24 Pojos are available
-	// automatically. See https://github.com/nhl/link-rest/issues/164
 	public static Multibinder<LrEntity<?>> contributeExtraEntities(Binder binder) {
 		TypeLiteral<LrEntity<?>> tl = new TypeLiteral<LrEntity<?>>() {
 		};
@@ -67,8 +68,9 @@ public class LinkRestModule extends ConfigModule {
 		LinkRestModule.contributeExtraEntities(binder);
 	}
 
+	@Singleton
 	@Provides
-	public LinkRestRuntime createLinkRestRuntime(ServerRuntime serverRuntime, Set<LinkRestAdapter> adapters,
+	LinkRestRuntime provideLinkRestRuntime(ServerRuntime serverRuntime, Set<LinkRestAdapter> adapters,
 			Set<LrEntity<?>> extraEntities) {
 		LinkRestBuilder builder = LinkRestBuilder.builder(serverRuntime);
 
