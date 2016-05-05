@@ -1,3 +1,7 @@
+## 0.10
+
+* #5 Upgrade to LinkRest 1.24
+
 ## 0.9:
 
 * #3 Upgrading to bootique-jersey 0.15
