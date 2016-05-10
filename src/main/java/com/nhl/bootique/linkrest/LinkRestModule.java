@@ -68,6 +68,7 @@ public class LinkRestModule extends ConfigModule {
 		LinkRestModule.contributeExtraEntities(binder);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Singleton
 	@Provides
 	LinkRestRuntime provideLinkRestRuntime(ServerRuntime serverRuntime, Set<LinkRestAdapter> adapters,
