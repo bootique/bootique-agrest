@@ -2,6 +2,8 @@ package com.nhl.bootique.linkrest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Collections;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Configuration;
@@ -20,7 +22,6 @@ import com.nhl.link.rest.LinkRest;
 import com.nhl.link.rest.annotation.LrAttribute;
 import com.nhl.link.rest.annotation.LrId;
 import com.nhl.link.rest.annotation.listener.SelectServerParamsApplied;
-import com.nhl.link.rest.meta.LrEntityBuilder;
 import com.nhl.link.rest.processor.ProcessingStage;
 import com.nhl.link.rest.runtime.processor.select.SelectContext;
 
@@ -29,7 +30,6 @@ public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 	@Override
 	protected Module createExtrasModule() {
 		return b -> {
-			LinkRestModule.contributeExtraEntities(b).addBinding().toInstance(LrEntityBuilder.build(E1.class));
 			JerseyModule.contributeResources(b).addBinding().to(R1.class);
 		};
 	}
@@ -85,7 +85,7 @@ public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 			E1 e1 = new E1();
 			e1.setId(1);
 			e1.setName("xyz");
-			context.getResponse().withObject(e1);
+			context.setObjects(Collections.singletonList(e1));
 
 			// stop further processing
 			return null;
