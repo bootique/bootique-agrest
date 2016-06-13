@@ -29,27 +29,6 @@ public class LinkRestModule extends ConfigModule {
 		return Multibinder.newSetBinder(binder, LinkRestAdapter.class);
 	}
 
-	/**
-	 * Allows to bind extra {@link LrEntity} objects. Most often you'd produce
-	 * an LrEntity from an annotated Java class using the following code:
-	 * 
-	 * <pre>
-	 * LrEntity&lt;?&gt; e = LrEntityBuilder.build(MyClass.class);
-	 * </pre>
-	 * 
-	 * @since 0.6
-	 * @param binder
-	 *            DI binder passed to the Module that invokes this method.
-	 * @return {@link Multibinder} for contributing LrEntity's.
-	 * @deprecated since 0.10 as LinkRest 1.24 no longer requires explicit
-	 *             registration of extra entities.
-	 */
-	public static Multibinder<LrEntity<?>> contributeExtraEntities(Binder binder) {
-		TypeLiteral<LrEntity<?>> tl = new TypeLiteral<LrEntity<?>>() {
-		};
-		return Multibinder.newSetBinder(binder, tl);
-	}
-
 	public LinkRestModule() {
 	}
 
@@ -65,18 +44,14 @@ public class LinkRestModule extends ConfigModule {
 
 		// trigger extension points creation and provide default contributions
 		LinkRestModule.contributeAdapters(binder).addBinding().to(Java8Adapter.class);
-		LinkRestModule.contributeExtraEntities(binder);
 	}
 
-	@SuppressWarnings("deprecation")
 	@Singleton
 	@Provides
-	LinkRestRuntime provideLinkRestRuntime(ServerRuntime serverRuntime, Set<LinkRestAdapter> adapters,
-			Set<LrEntity<?>> extraEntities) {
+	LinkRestRuntime provideLinkRestRuntime(ServerRuntime serverRuntime, Set<LinkRestAdapter> adapters) {
 		LinkRestBuilder builder = LinkRestBuilder.builder(serverRuntime);
 
 		adapters.forEach(a -> builder.adapter(a));
-		extraEntities.forEach(e -> builder.extraEntity(e));
 
 		return builder.build();
 	}

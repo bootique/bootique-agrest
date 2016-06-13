@@ -1,6 +1,7 @@
 ## 0.10
 
 * #5 Upgrade to LinkRest 1.24
+* #6 Upgrade to Bootique 0.17 and LinkRest 2.0
 
 ## 0.9:
 
