@@ -1,21 +1,17 @@
 package com.nhl.bootique.linkrest;
 
-import java.util.Set;
-
-import org.apache.cayenne.configuration.server.ServerRuntime;
-
 import com.google.inject.Binder;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
-import com.google.inject.TypeLiteral;
 import com.google.inject.multibindings.Multibinder;
 import com.nhl.bootique.ConfigModule;
 import com.nhl.bootique.jersey.JerseyModule;
-import com.nhl.link.rest.meta.LrEntity;
 import com.nhl.link.rest.runtime.LinkRestBuilder;
 import com.nhl.link.rest.runtime.LinkRestRuntime;
 import com.nhl.link.rest.runtime.adapter.LinkRestAdapter;
-import com.nhl.link.rest.runtime.adapter.java8.Java8Adapter;
+import org.apache.cayenne.configuration.server.ServerRuntime;
+
+import java.util.Set;
 
 public class LinkRestModule extends ConfigModule {
 
@@ -43,7 +39,7 @@ public class LinkRestModule extends ConfigModule {
 		JerseyModule.contributeFeatures(binder).addBinding().to(BQLinkRestFeature.class);
 
 		// trigger extension points creation and provide default contributions
-		LinkRestModule.contributeAdapters(binder).addBinding().to(Java8Adapter.class);
+		LinkRestModule.contributeAdapters(binder);
 	}
 
 	@Singleton

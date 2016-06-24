@@ -1,3 +1,7 @@
+## 0.11
+
+* #7 Remove noop LinkRest Java8Adapter
+
 ## 0.10
 
 * #5 Upgrade to LinkRest 1.24
