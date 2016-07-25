@@ -17,9 +17,9 @@
 	<description>Provides LinkRest integration with Bootique</description>
 
 	<properties>
-		<bootique-version>0.17</bootique-version>
-		<bootique-cayenne-version>0.14</bootique-cayenne-version>
-		<bootique-jersey-version>0.15</bootique-jersey-version>
+		<bootique-version>0.18-SNAPSHOT</bootique-version>
+		<bootique-cayenne-version>0.15-SNAPSHOT</bootique-cayenne-version>
+		<bootique-jersey-version>0.17-SNAPSHOT</bootique-jersey-version>
 		<link-rest-version>2.0</link-rest-version>
 
 		<!-- Used for tests only; runtime jersey comes as a transient dependency 

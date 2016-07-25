@@ -1,6 +1,7 @@
 ## 0.11
 
 * #7 Remove noop LinkRest Java8Adapter
+* #8 Upgrade to Bootique 0.18 / Bootique Jersey 0.17 / Bootique Cayenne 0.15
 
 ## 0.10
 
