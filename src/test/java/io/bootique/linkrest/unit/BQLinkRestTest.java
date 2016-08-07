@@ -1,22 +1,21 @@
-package com.nhl.bootique.linkrest.unit;
+package io.bootique.linkrest.unit;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
-import javax.ws.rs.core.Application;
-
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Module;
+import io.bootique.config.ConfigurationFactory;
+import io.bootique.jersey.JerseyModule;
+import io.bootique.linkrest.LinkRestModule;
 import org.apache.cayenne.access.DataDomain;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.apache.cayenne.map.EntityResolver;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.google.inject.Module;
-import com.nhl.bootique.config.ConfigurationFactory;
-import com.nhl.bootique.jersey.JerseyModule;
-import com.nhl.bootique.linkrest.LinkRestModule;
+import javax.ws.rs.core.Application;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public abstract class BQLinkRestTest extends JerseyTest {
 

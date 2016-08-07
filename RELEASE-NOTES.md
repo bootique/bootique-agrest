@@ -1,3 +1,7 @@
+## 0.12
+
+* #9 Move to io.bootique namespace
+
 ## 0.11
 
 * #7 Remove noop LinkRest Java8Adapter

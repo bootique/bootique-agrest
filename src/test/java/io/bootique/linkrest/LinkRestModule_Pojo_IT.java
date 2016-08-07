@@ -1,8 +1,16 @@
-package com.nhl.bootique.linkrest;
+package io.bootique.linkrest;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Collections;
+import com.google.inject.Module;
+import com.nhl.link.rest.DataResponse;
+import com.nhl.link.rest.LinkRest;
+import com.nhl.link.rest.annotation.LrAttribute;
+import com.nhl.link.rest.annotation.LrId;
+import com.nhl.link.rest.annotation.listener.SelectServerParamsApplied;
+import com.nhl.link.rest.processor.ProcessingStage;
+import com.nhl.link.rest.runtime.processor.select.SelectContext;
+import io.bootique.jersey.JerseyModule;
+import io.bootique.linkrest.unit.BQLinkRestTest;
+import org.junit.Test;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,19 +19,9 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
+import java.util.Collections;
 
-import org.junit.Test;
-
-import com.google.inject.Module;
-import com.nhl.bootique.jersey.JerseyModule;
-import com.nhl.bootique.linkrest.unit.BQLinkRestTest;
-import com.nhl.link.rest.DataResponse;
-import com.nhl.link.rest.LinkRest;
-import com.nhl.link.rest.annotation.LrAttribute;
-import com.nhl.link.rest.annotation.LrId;
-import com.nhl.link.rest.annotation.listener.SelectServerParamsApplied;
-import com.nhl.link.rest.processor.ProcessingStage;
-import com.nhl.link.rest.runtime.processor.select.SelectContext;
+import static org.junit.Assert.assertEquals;
 
 public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 

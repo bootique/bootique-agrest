@@ -1,7 +1,7 @@
-package com.nhl.bootique.linkrest;
+package io.bootique.linkrest;
 
 import com.google.inject.Module;
-import com.nhl.bootique.BQModuleProvider;
+import io.bootique.BQModuleProvider;
 
 public class LinkRestModuleProvider implements BQModuleProvider {
 

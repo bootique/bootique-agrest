@@ -1,10 +1,10 @@
-package com.nhl.bootique.linkrest;
-
-import javax.ws.rs.core.Feature;
-import javax.ws.rs.core.FeatureContext;
+package io.bootique.linkrest;
 
 import com.google.inject.Inject;
 import com.nhl.link.rest.runtime.LinkRestRuntime;
+
+import javax.ws.rs.core.Feature;
+import javax.ws.rs.core.FeatureContext;
 
 /**
  * An injectable wrapper around {@link LinkRestRuntime} feature.

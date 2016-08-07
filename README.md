@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/nhl/bootique-linkrest.svg)](https://travis-ci.org/nhl/bootique-linkrest)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.nhl.bootique.linkrest/bootique-linkrest/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.nhl.bootique.linkrest/bootique-linkrest/)
+[![Build Status](https://travis-ci.org/bootique/bootique-linkrest.svg)](https://travis-ci.org/bootique/bootique-linkrest)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.bootique.linkrest/bootique-linkrest/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.bootique.linkrest/bootique-linkrest/)
 
-[LinkRest](https://github.com/nhl/link-rest) Integration Bundle for [Bootique](https://github.com/nhl/bootique).
+[LinkRest](https://github.com/nhl/link-rest) integration module for [Bootique](http://bootique.io).

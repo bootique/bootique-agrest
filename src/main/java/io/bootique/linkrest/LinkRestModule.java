@@ -1,14 +1,14 @@
-package com.nhl.bootique.linkrest;
+package io.bootique.linkrest;
 
 import com.google.inject.Binder;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.multibindings.Multibinder;
-import com.nhl.bootique.ConfigModule;
-import com.nhl.bootique.jersey.JerseyModule;
 import com.nhl.link.rest.runtime.LinkRestBuilder;
 import com.nhl.link.rest.runtime.LinkRestRuntime;
 import com.nhl.link.rest.runtime.adapter.LinkRestAdapter;
+import io.bootique.ConfigModule;
+import io.bootique.jersey.JerseyModule;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 
 import java.util.Set;
