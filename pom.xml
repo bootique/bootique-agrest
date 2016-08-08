@@ -17,15 +17,29 @@
 	<description>Provides LinkRest integration with Bootique</description>
 
 	<properties>
-		<bootique-version>0.19-SNAPSHOT</bootique-version>
-		<bootique-cayenne-version>0.16-SNAPSHOT</bootique-cayenne-version>
-		<bootique-jersey-version>0.18-SNAPSHOT</bootique-jersey-version>
+		<bootique-version>0.19</bootique-version>
+		<bootique-cayenne-version>0.16</bootique-cayenne-version>
+		<bootique-jersey-version>0.18</bootique-jersey-version>
 		<link-rest-version>2.0</link-rest-version>
 
 		<!-- Used for tests only; runtime jersey comes as a transient dependency 
 			from bootique-jersey-version -->
 		<jersey-version>2.21</jersey-version>
 	</properties>
+
+	<scm>
+        <developerConnection>scm:git:ssh://git@github.com/bootique/bootique-linkrest</developerConnection>
+        <url>https://github.com/bootique/bootique-linkrest</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray-bootique-releases</id>
+            <name>bintray-bootique-releases</name>
+            <url>https://api.bintray.com/maven/bootique/releases/bootique-linkrest/;publish=1</url>
+        </repository>
+    </distributionManagement>
 
 	<repositories>
 		<repository>
