@@ -1,3 +1,7 @@
+## 0.13
+
+* #10 Upgrade to BQ 0.19 and LR 2.1
+
 ## 0.12
 
 * #9 Move to io.bootique namespace
