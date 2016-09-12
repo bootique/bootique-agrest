@@ -1,6 +1,6 @@
 ## 0.13
 
-* #10 Upgrade to BQ 0.19 and LR 2.1
+* #10 Upgrade to BQ 0.20 and LR 2.1
 
 ## 0.12
 

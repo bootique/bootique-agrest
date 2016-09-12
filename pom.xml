@@ -18,8 +18,8 @@
 
 	<properties>
 		<bootique-version>0.20-SNAPSHOT</bootique-version>
-		<bootique-cayenne-version>0.16</bootique-cayenne-version>
-		<bootique-jersey-version>0.18</bootique-jersey-version>
+		<bootique-cayenne-version>0.17-SNAPSHOT</bootique-cayenne-version>
+		<bootique-jersey-version>0.19-SNAPSHOT</bootique-jersey-version>
 		<link-rest-version>2.1</link-rest-version>
 
 		<!-- Used for tests only; runtime jersey comes as a transient dependency 
