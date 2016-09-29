@@ -1,6 +1,7 @@
 ## 0.13
 
 * #10 Upgrade to BQ 0.20 and LR 2.1
+* #11 Upgrade to LinkRest 2.2
 
 ## 0.12
 
