@@ -10,7 +10,7 @@
 
 	<groupId>io.bootique.linkrest</groupId>
 	<artifactId>bootique-linkrest</artifactId>
-	<version>0.13</version>
+	<version>0.14-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>bootique-linkrest: LinkRest Integration with Bootique</name>
@@ -30,7 +30,7 @@
 	<scm>
         <developerConnection>scm:git:ssh://git@github.com/bootique/bootique-linkrest</developerConnection>
         <url>https://github.com/bootique/bootique-linkrest</url>
-        <tag>bootique-linkrest-0.13</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
