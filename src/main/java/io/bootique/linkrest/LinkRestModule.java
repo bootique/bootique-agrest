@@ -1,6 +1,9 @@
 package io.bootique.linkrest;
 
 import com.google.inject.Binder;
+import com.google.inject.Binding;
+import com.google.inject.Injector;
+import com.google.inject.Key;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.multibindings.Multibinder;
@@ -44,10 +47,19 @@ public class LinkRestModule extends ConfigModule {
 
 	@Singleton
 	@Provides
-	LinkRestRuntime provideLinkRestRuntime(ServerRuntime serverRuntime, Set<LinkRestAdapter> adapters) {
-		LinkRestBuilder builder = LinkRestBuilder.builder(serverRuntime);
+	LinkRestRuntime provideLinkRestRuntime(Injector injector, Set<LinkRestAdapter> adapters) {
 
-		adapters.forEach(a -> builder.adapter(a));
+		LinkRestBuilder builder;
+
+		Binding<ServerRuntime> binding = injector.getExistingBinding(Key.get(ServerRuntime.class));
+		if (binding == null) {
+			builder = new LinkRestBuilder().cayenneService(new PojoCayennePersister());
+		} else {
+			ServerRuntime cayenneRuntime = binding.getProvider().get();
+			builder = new LinkRestBuilder().cayenneRuntime(cayenneRuntime);
+		}
+
+		adapters.forEach(builder::adapter);
 
 		return builder.build();
 	}
