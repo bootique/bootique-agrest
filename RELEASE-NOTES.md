@@ -1,3 +1,7 @@
+## 0.14
+
+* #12 Should not fail when Cayenne is not present in app
+
 ## 0.13
 
 * #10 Upgrade to BQ 0.20 and LR 2.1
