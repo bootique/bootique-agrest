@@ -1,6 +1,7 @@
 ## 0.14
 
 * #12 Should not fail when Cayenne is not present in app
+* #14 Upgrade to LinkRest 2.3
 
 ## 0.13
 
