@@ -3,6 +3,7 @@
 * #12 Should not fail when Cayenne is not present in app
 * #14 Upgrade to LinkRest 2.3
 * #15 Ensure Jackson version is defined by Bootique core module, not Link Rest
+* #16 Upgrade to bootique 0.21, bootique-cayenne 0.18 and Cayenne 4.0.M4
 
 ## 0.13
 
