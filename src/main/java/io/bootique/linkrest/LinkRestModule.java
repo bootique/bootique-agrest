@@ -18,49 +18,59 @@ import java.util.Set;
 
 public class LinkRestModule extends ConfigModule {
 
-	/**
-	 * @since 0.6
-	 * @param binder
-	 *            DI binder passed to the Module that invokes this method.
-	 * @return {@link Multibinder} for contributed LinkRest adapters.
-	 */
-	public static Multibinder<LinkRestAdapter> contributeAdapters(Binder binder) {
-		return Multibinder.newSetBinder(binder, LinkRestAdapter.class);
-	}
+    /**
+     * @param binder DI binder passed to the Module that invokes this method.
+     * @return an instance of {@link LinkRestModuleExtender} that can be used to load LinkMove custom extensions.
+     * @since 0.15
+     */
+    public static LinkRestModuleExtender extend(Binder binder) {
+        return new LinkRestModuleExtender(binder);
+    }
 
-	public LinkRestModule() {
-	}
+    /**
+     * @param binder DI binder passed to the Module that invokes this method.
+     * @return {@link Multibinder} for contributed LinkRest adapters.
+     * @since 0.6
+     * @deprecated since 0.15 call {@link #extend(Binder)} and then call
+     * {@link LinkRestModuleExtender#addAdapter(Class)} or similar methods.
+     */
+    @Deprecated
+    public static Multibinder<LinkRestAdapter> contributeAdapters(Binder binder) {
+        return Multibinder.newSetBinder(binder, LinkRestAdapter.class);
+    }
 
-	public LinkRestModule(String configPrefix) {
-		super(configPrefix);
-	}
+    public LinkRestModule() {
+    }
 
-	@Override
-	public void configure(Binder binder) {
-		// 'BQLinkRestFeature' is an injectable wrapper around
-		// LinkRestRuntime...
-		JerseyModule.contributeFeatures(binder).addBinding().to(BQLinkRestFeature.class);
+    public LinkRestModule(String configPrefix) {
+        super(configPrefix);
+    }
 
-		// trigger extension points creation and provide default contributions
-		LinkRestModule.contributeAdapters(binder);
-	}
+    @Override
+    public void configure(Binder binder) {
+        // 'BQLinkRestFeature' is an injectable wrapper around LinkRestRuntime...
+        JerseyModule.extend(binder).addFeature(BQLinkRestFeature.class);
 
-	@Singleton
-	@Provides
-	LinkRestRuntime provideLinkRestRuntime(Injector injector, Set<LinkRestAdapter> adapters) {
+        // trigger extension points creation and provide default contributions
+        LinkRestModule.extend(binder).initAllExtensions();
+    }
 
-		LinkRestBuilder builder;
+    @Singleton
+    @Provides
+    LinkRestRuntime provideLinkRestRuntime(Injector injector, Set<LinkRestAdapter> adapters) {
 
-		Binding<ServerRuntime> binding = injector.getExistingBinding(Key.get(ServerRuntime.class));
-		if (binding == null) {
-			builder = new LinkRestBuilder().cayenneService(new PojoCayennePersister());
-		} else {
-			ServerRuntime cayenneRuntime = binding.getProvider().get();
-			builder = new LinkRestBuilder().cayenneRuntime(cayenneRuntime);
-		}
+        LinkRestBuilder builder;
 
-		adapters.forEach(builder::adapter);
+        Binding<ServerRuntime> binding = injector.getExistingBinding(Key.get(ServerRuntime.class));
+        if (binding == null) {
+            builder = new LinkRestBuilder().cayenneService(new PojoCayennePersister());
+        } else {
+            ServerRuntime cayenneRuntime = binding.getProvider().get();
+            builder = new LinkRestBuilder().cayenneRuntime(cayenneRuntime);
+        }
 
-		return builder.build();
-	}
+        adapters.forEach(builder::adapter);
+
+        return builder.build();
+    }
 }

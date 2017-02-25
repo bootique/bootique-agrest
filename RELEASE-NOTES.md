@@ -1,3 +1,7 @@
+## 0.15
+
+* #17 Upgrade to Bootique 0.22, replace contribution API with "extend", add docs annotations.
+
 ## 0.14
 
 * #12 Should not fail when Cayenne is not present in app

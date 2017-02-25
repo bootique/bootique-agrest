@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>io.bootique.modules.parent</groupId>
 		<artifactId>bootique-modules-parent</artifactId>
-		<version>0.2</version>
+		<version>0.7</version>
 	</parent>
 
 	<groupId>io.bootique.linkrest</groupId>
@@ -17,9 +17,9 @@
 	<description>Provides LinkRest integration with Bootique</description>
 
 	<properties>
-		<bootique-version>0.21</bootique-version>
-		<bootique-cayenne-version>0.18</bootique-cayenne-version>
-		<bootique-jersey-version>0.20</bootique-jersey-version>
+		<bootique-version>0.22-SNAPSHOT</bootique-version>
+		<bootique-cayenne-version>0.19-SNAPSHOT</bootique-cayenne-version>
+		<bootique-jersey-version>0.21-SNAPSHOT</bootique-jersey-version>
 		<link-rest-version>2.3</link-rest-version>
 
 		<!-- Used for tests only; runtime jersey comes as a transient dependency
@@ -59,12 +59,12 @@
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>jcl-over-slf4j</artifactId>
-				<version>1.7.7</version>
+				<version>${slf4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-simple</artifactId>
-				<version>1.7.7</version>
+				<version>${slf4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>io.bootique</groupId>
