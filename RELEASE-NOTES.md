@@ -1,6 +1,7 @@
 ## 0.15
 
 * #17 Upgrade to Bootique 0.22, replace contribution API with "extend", add docs annotations.
+* #18 Upgrade to LinkRest 2.4
 
 ## 0.14
 
