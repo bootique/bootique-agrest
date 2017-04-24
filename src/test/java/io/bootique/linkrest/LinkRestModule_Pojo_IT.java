@@ -28,7 +28,7 @@ public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 	@Override
 	protected Module createExtrasModule() {
 		return b -> {
-			JerseyModule.contributeResources(b).addBinding().to(R1.class);
+			JerseyModule.extend(b).addResource(R1.class);
 		};
 	}
 
