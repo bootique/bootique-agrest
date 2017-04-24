@@ -47,7 +47,7 @@ public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 
 		@GET
 		public DataResponse<E1> get(@Context UriInfo uriInfo) {
-			return LinkRest.select(E1.class, config).uri(uriInfo).listener(new PojoListener()).select();
+			return LinkRest.select(E1.class, config).uri(uriInfo).listener(new PojoListener()).get();
 		}
 	}
 
