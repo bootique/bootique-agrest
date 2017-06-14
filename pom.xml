@@ -20,7 +20,7 @@
 		<bootique-version>0.23-SNAPSHOT</bootique-version>
 		<bootique-cayenne-version>0.20-SNAPSHOT</bootique-cayenne-version>
 		<bootique-jersey-version>0.22-SNAPSHOT</bootique-jersey-version>
-		<link-rest-version>2.5</link-rest-version>
+		<link-rest-version>2.6</link-rest-version>
 
 		<!-- Used for tests only; runtime jersey comes as a transient dependency
 			from bootique-jersey-version -->
