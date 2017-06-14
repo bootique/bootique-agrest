@@ -17,10 +17,10 @@
 	<description>Provides LinkRest integration with Bootique</description>
 
 	<properties>
-		<bootique-version>0.22</bootique-version>
-		<bootique-cayenne-version>0.19</bootique-cayenne-version>
-		<bootique-jersey-version>0.21</bootique-jersey-version>
-		<link-rest-version>2.4</link-rest-version>
+		<bootique-version>0.23-SNAPSHOT</bootique-version>
+		<bootique-cayenne-version>0.20-SNAPSHOT</bootique-cayenne-version>
+		<bootique-jersey-version>0.22-SNAPSHOT</bootique-jersey-version>
+		<link-rest-version>2.5</link-rest-version>
 
 		<!-- Used for tests only; runtime jersey comes as a transient dependency
 			from bootique-jersey-version -->
@@ -56,11 +56,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>jcl-over-slf4j</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-simple</artifactId>
@@ -147,11 +142,6 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.test-framework.providers</groupId>
 			<artifactId>jersey-test-framework-provider-inmemory</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

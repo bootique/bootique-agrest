@@ -1,3 +1,7 @@
+## 0.16
+
+* #19 Upgrade to Cayenne 4.0.B1, LinkRest 2.5 and latest Bootique dependencies
+
 ## 0.15
 
 * #17 Upgrade to Bootique 0.22, replace contribution API with "extend", add docs annotations.
