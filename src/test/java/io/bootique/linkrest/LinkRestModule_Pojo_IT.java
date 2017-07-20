@@ -3,10 +3,9 @@ package io.bootique.linkrest;
 import com.google.inject.Module;
 import com.nhl.link.rest.DataResponse;
 import com.nhl.link.rest.LinkRest;
+import com.nhl.link.rest.SelectStage;
 import com.nhl.link.rest.annotation.LrAttribute;
 import com.nhl.link.rest.annotation.LrId;
-import com.nhl.link.rest.annotation.listener.SelectServerParamsApplied;
-import com.nhl.link.rest.processor.ProcessingStage;
 import com.nhl.link.rest.runtime.processor.select.SelectContext;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.linkrest.unit.BQLinkRestTest;
@@ -25,69 +24,65 @@ import static org.junit.Assert.assertEquals;
 
 public class LinkRestModule_Pojo_IT extends BQLinkRestTest {
 
-	@Override
-	protected Module createExtrasModule() {
-		return b -> {
-			JerseyModule.extend(b).addResource(R1.class);
-		};
-	}
+    @Override
+    protected Module createExtrasModule() {
+        return b -> {
+            JerseyModule.extend(b).addResource(R1.class);
+        };
+    }
 
-	@Test
-	public void testLRRequest() {
-		Response response = target("/r1").request().get();
-		assertEquals(Status.OK.getStatusCode(), response.getStatus());
-		assertEquals("{\"data\":[{\"id\":1,\"name\":\"xyz\"}],\"total\":1}", response.readEntity(String.class));
-	}
+    @Test
+    public void testLRRequest() {
+        Response response = target("/r1").request().get();
+        assertEquals(Status.OK.getStatusCode(), response.getStatus());
+        assertEquals("{\"data\":[{\"id\":1,\"name\":\"xyz\"}],\"total\":1}", response.readEntity(String.class));
+    }
 
-	@Path("/r1")
-	public static class R1 {
+    @Path("/r1")
+    public static class R1 {
 
-		@Context
-		private Configuration config;
+        @Context
+        private Configuration config;
 
-		@GET
-		public DataResponse<E1> get(@Context UriInfo uriInfo) {
-			return LinkRest.select(E1.class, config).uri(uriInfo).listener(new PojoListener()).get();
-		}
-	}
+        @GET
+        public DataResponse<E1> get(@Context UriInfo uriInfo) {
+            return LinkRest
+                    .select(E1.class, config)
+                    .uri(uriInfo)
+                    .terminalStage(SelectStage.APPLY_SERVER_PARAMS, LinkRestModule_Pojo_IT::fillData)
+                    .get();
+        }
+    }
 
-	public static class E1 {
+    private static void fillData(SelectContext<E1> context) {
+        E1 e1 = new E1();
+        e1.setId(1);
+        e1.setName("xyz");
+        context.setObjects(Collections.singletonList(e1));
+    }
 
-		private int id;
-		private String name;
+    public static class E1 {
 
-		@LrId
-		public int getId() {
-			return id;
-		}
+        private int id;
+        private String name;
 
-		public void setId(int id) {
-			this.id = id;
-		}
+        @LrId
+        public int getId() {
+            return id;
+        }
 
-		@LrAttribute
-		public String getName() {
-			return name;
-		}
+        public void setId(int id) {
+            this.id = id;
+        }
 
-		public void setName(String name) {
-			this.name = name;
-		}
-	}
+        @LrAttribute
+        public String getName() {
+            return name;
+        }
 
-	public static class PojoListener {
-
-		@SelectServerParamsApplied
-		public ProcessingStage<SelectContext<E1>, E1> altBackend(SelectContext<E1> context) {
-
-			E1 e1 = new E1();
-			e1.setId(1);
-			e1.setName("xyz");
-			context.setObjects(Collections.singletonList(e1));
-
-			// stop further processing
-			return null;
-		}
-	}
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 
 }

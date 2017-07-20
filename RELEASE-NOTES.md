@@ -1,3 +1,7 @@
+## 0.17
+
+* #21 Upgrade to LinkRest 2.7
+
 ## 0.16
 
 * #19 Upgrade to Cayenne 4.0.B1, LinkRest 2.6 and latest Bootique dependencies
