@@ -10,7 +10,7 @@
 
 	<groupId>io.bootique.linkrest</groupId>
 	<artifactId>bootique-linkrest</artifactId>
-	<version>0.17-SNAPSHOT</version>
+	<version>0.24-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>bootique-linkrest: LinkRest Integration with Bootique</name>
