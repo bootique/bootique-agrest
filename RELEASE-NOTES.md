@@ -1,10 +1,7 @@
 ## 0.24 
 
 * #22  Upgrade to LR 2.9
-
-## 0.17
-
-* #21 Upgrade to LinkRest 2.7
+* #21 Upgrade to LinkRest 2.8
 
 ## 0.16
 
