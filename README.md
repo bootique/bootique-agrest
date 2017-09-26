@@ -2,3 +2,4 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.bootique.linkrest/bootique-linkrest/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.bootique.linkrest/bootique-linkrest/)
 
 [LinkRest](https://github.com/nhl/link-rest) integration module for [Bootique](http://bootique.io).
+See usage example [bootique-linkrest-demo](https://github.com/bootique-examples/bootique-linkrest-demo).
