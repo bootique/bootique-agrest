@@ -1,7 +1,8 @@
 ## 0.24 
 
-* #22  Upgrade to LR 2.9
 * #21 Upgrade to LinkRest 2.8
+* #22 Upgrade to LR 2.9
+* #23 Upgrade to Cayenne 4.0.B2, LinkRest 2.10
 
 ## 0.16
 
