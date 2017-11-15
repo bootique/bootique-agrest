@@ -1,0 +1,4 @@
+jdbc:
+  ds:
+    url: jdbc:derby:target/derby/testdb1;create=true
+    initialSize: 1

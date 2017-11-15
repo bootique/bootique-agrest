@@ -1,3 +1,7 @@
+## 0.25
+
+* #24 LinkRestAdapter was deprecated . Adjust LinkRestModuleExtender to reflect that
+
 ## 0.24 
 
 * #21 Upgrade to LinkRest 2.8

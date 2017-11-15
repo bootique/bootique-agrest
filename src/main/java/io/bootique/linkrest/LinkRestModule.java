@@ -6,7 +6,7 @@ import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
-import com.google.inject.multibindings.Multibinder;
+import com.nhl.link.rest.LrFeatureProvider;
 import com.nhl.link.rest.runtime.LinkRestBuilder;
 import com.nhl.link.rest.runtime.LinkRestRuntime;
 import com.nhl.link.rest.runtime.adapter.LinkRestAdapter;
@@ -18,6 +18,13 @@ import java.util.Set;
 
 public class LinkRestModule extends ConfigModule {
 
+    public LinkRestModule() {
+    }
+
+    public LinkRestModule(String configPrefix) {
+        super(configPrefix);
+    }
+
     /**
      * @param binder DI binder passed to the Module that invokes this method.
      * @return an instance of {@link LinkRestModuleExtender} that can be used to load LinkMove custom extensions.
@@ -25,25 +32,6 @@ public class LinkRestModule extends ConfigModule {
      */
     public static LinkRestModuleExtender extend(Binder binder) {
         return new LinkRestModuleExtender(binder);
-    }
-
-    /**
-     * @param binder DI binder passed to the Module that invokes this method.
-     * @return {@link Multibinder} for contributed LinkRest adapters.
-     * @since 0.6
-     * @deprecated since 0.15 call {@link #extend(Binder)} and then call
-     * {@link LinkRestModuleExtender#addAdapter(Class)} or similar methods.
-     */
-    @Deprecated
-    public static Multibinder<LinkRestAdapter> contributeAdapters(Binder binder) {
-        return Multibinder.newSetBinder(binder, LinkRestAdapter.class);
-    }
-
-    public LinkRestModule() {
-    }
-
-    public LinkRestModule(String configPrefix) {
-        super(configPrefix);
     }
 
     @Override
@@ -57,7 +45,10 @@ public class LinkRestModule extends ConfigModule {
 
     @Singleton
     @Provides
-    LinkRestRuntime provideLinkRestRuntime(Injector injector, Set<LinkRestAdapter> adapters) {
+    LinkRestRuntime provideLinkRestRuntime(
+            Injector injector,
+            Set<LrFeatureProvider> featureProviders,
+            Set<LinkRestAdapter> adapters) {
 
         LinkRestBuilder builder;
 
@@ -69,6 +60,7 @@ public class LinkRestModule extends ConfigModule {
             builder = new LinkRestBuilder().cayenneRuntime(cayenneRuntime);
         }
 
+        featureProviders.forEach(builder::feature);
         adapters.forEach(builder::adapter);
 
         return builder.build();
