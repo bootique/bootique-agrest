@@ -19,7 +19,7 @@
 
     <properties>
         <bootique-version>${project.version}</bootique-version>
-        <link-rest-version>2.10</link-rest-version>
+        <link-rest-version>2.11</link-rest-version>
 
         <!-- Used for tests only; runtime jersey comes as a transient dependency
             from bootique-jersey-version -->
