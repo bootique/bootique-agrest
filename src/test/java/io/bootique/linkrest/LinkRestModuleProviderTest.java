@@ -15,8 +15,8 @@ public class LinkRestModuleProviderTest {
     public BQTestFactory testFactory = new BQTestFactory();
 
     @Test
-    public void testPresentInJar() {
-        BQModuleProviderChecker.testPresentInJar(LinkRestModuleProvider.class);
+    public void testAutoLoadable() {
+        BQModuleProviderChecker.testAutoLoadable(LinkRestModuleProvider.class);
     }
 
     @Test
