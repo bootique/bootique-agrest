@@ -7,7 +7,7 @@ import com.nhl.link.rest.annotation.LrAttribute;
 import com.nhl.link.rest.annotation.LrId;
 import com.nhl.link.rest.runtime.processor.select.SelectContext;
 import io.bootique.jersey.JerseyModule;
-import io.bootique.jetty.test.junit.JettyTestFactory;
+import io.bootique.test.junit.BQTestFactory;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -27,7 +27,7 @@ import static org.junit.Assert.assertEquals;
 public class LinkRestModule_Pojo_IT {
 
     @Rule
-    public JettyTestFactory testFactory = new JettyTestFactory();
+    public BQTestFactory testFactory = new BQTestFactory();
 
     private static void fillData(SelectContext<E1> context) {
         E1 e1 = new E1();
@@ -38,10 +38,10 @@ public class LinkRestModule_Pojo_IT {
 
     @Test
     public void testLRRequest() {
-        testFactory.app("-c", "classpath:LinkRestModule_Pojo_IT.yml")
+        testFactory.app("-c", "classpath:LinkRestModule_Pojo_IT.yml", "-s")
                 .autoLoadModules()
                 .module(b -> JerseyModule.extend(b).addResource(R1.class))
-                .start();
+                .run();
 
         WebTarget base = ClientBuilder.newClient().target("http://localhost:8080/r1");
 
