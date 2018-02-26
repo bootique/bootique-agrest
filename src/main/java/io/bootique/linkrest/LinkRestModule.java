@@ -7,6 +7,7 @@ import com.google.inject.Key;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.nhl.link.rest.LrFeatureProvider;
+import com.nhl.link.rest.LrModuleProvider;
 import com.nhl.link.rest.runtime.LinkRestBuilder;
 import com.nhl.link.rest.runtime.LinkRestRuntime;
 import com.nhl.link.rest.runtime.adapter.LinkRestAdapter;
@@ -48,6 +49,7 @@ public class LinkRestModule extends ConfigModule {
     LinkRestRuntime provideLinkRestRuntime(
             Injector injector,
             Set<LrFeatureProvider> featureProviders,
+            Set<LrModuleProvider> moduleProviders,
             Set<LinkRestAdapter> adapters) {
 
         LinkRestBuilder builder;
@@ -61,6 +63,7 @@ public class LinkRestModule extends ConfigModule {
         }
 
         featureProviders.forEach(builder::feature);
+        moduleProviders.forEach(builder::module);
         adapters.forEach(builder::adapter);
 
         return builder.build();

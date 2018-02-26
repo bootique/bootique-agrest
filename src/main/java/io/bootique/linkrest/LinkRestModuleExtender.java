@@ -3,6 +3,7 @@ package io.bootique.linkrest;
 import com.google.inject.Binder;
 import com.google.inject.multibindings.Multibinder;
 import com.nhl.link.rest.LrFeatureProvider;
+import com.nhl.link.rest.LrModuleProvider;
 import com.nhl.link.rest.runtime.adapter.LinkRestAdapter;
 import io.bootique.ModuleExtender;
 
@@ -14,6 +15,7 @@ public class LinkRestModuleExtender extends ModuleExtender<LinkRestModuleExtende
     @Deprecated
     private Multibinder<LinkRestAdapter> adapters;
     private Multibinder<LrFeatureProvider> featureProviders;
+    private Multibinder<LrModuleProvider> moduleProviders;
 
 
     public LinkRestModuleExtender(Binder binder) {
@@ -24,6 +26,27 @@ public class LinkRestModuleExtender extends ModuleExtender<LinkRestModuleExtende
     public LinkRestModuleExtender initAllExtensions() {
         contributeAdapters();
         contributeFeatureProviders();
+        contributeModuleProviders();
+        return this;
+    }
+
+    /**
+     * @param moduleProvider
+     * @return this extender instance.
+     * @since 0.25
+     */
+    public LinkRestModuleExtender addModuleProvider(LrModuleProvider moduleProvider) {
+        contributeModuleProviders().addBinding().toInstance(moduleProvider);
+        return this;
+    }
+
+    /**
+     * @param moduleProviderType
+     * @return this extender instance.
+     * @since 0.25
+     */
+    public LinkRestModuleExtender addModuleProvider(Class<? extends LrModuleProvider> moduleProviderType) {
+        contributeModuleProviders().addBinding().to(moduleProviderType);
         return this;
     }
 
@@ -78,5 +101,9 @@ public class LinkRestModuleExtender extends ModuleExtender<LinkRestModuleExtende
 
     private Multibinder<LrFeatureProvider> contributeFeatureProviders() {
         return featureProviders != null ? featureProviders : (featureProviders = newSet(LrFeatureProvider.class));
+    }
+
+    private Multibinder<LrModuleProvider> contributeModuleProviders() {
+        return moduleProviders != null ? moduleProviders : (moduleProviders = newSet(LrModuleProvider.class));
     }
 }

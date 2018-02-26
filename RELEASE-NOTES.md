@@ -2,6 +2,7 @@
 
 * #24 LinkRestAdapter was deprecated . Adjust LinkRestModuleExtender to reflect that
 * #25 Upgrade to LR 2.11
+* #26 Add extender API for custom LrModuleProviders
 
 ## 0.24 
 
