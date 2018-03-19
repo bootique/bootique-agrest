@@ -4,6 +4,7 @@
 * #25 Upgrade to LR 2.11
 * #26 Add extender API for custom LrModuleProviders
 * #27 Upgrade to LR 2.12
+* #28 Upgrade to bootique-modules-parent 0.8
 
 ## 0.24 
 
