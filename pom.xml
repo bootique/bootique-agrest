@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -10,7 +11,7 @@
 
     <groupId>io.bootique.linkrest</groupId>
     <artifactId>bootique-linkrest</artifactId>
-    <version>0.25</version>
+    <version>0.25-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>bootique-linkrest: LinkRest Integration with Bootique</name>
@@ -28,7 +29,7 @@
     <scm>
         <developerConnection>scm:git:ssh://git@github.com/bootique/bootique-linkrest</developerConnection>
         <url>https://github.com/bootique/bootique-linkrest</url>
-        <tag>bootique-linkrest-0.25</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
