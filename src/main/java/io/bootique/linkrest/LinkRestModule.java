@@ -10,7 +10,6 @@ import com.nhl.link.rest.LrFeatureProvider;
 import com.nhl.link.rest.LrModuleProvider;
 import com.nhl.link.rest.runtime.LinkRestBuilder;
 import com.nhl.link.rest.runtime.LinkRestRuntime;
-import com.nhl.link.rest.runtime.adapter.LinkRestAdapter;
 import io.bootique.ConfigModule;
 import io.bootique.jersey.JerseyModule;
 import org.apache.cayenne.configuration.server.ServerRuntime;
@@ -49,8 +48,7 @@ public class LinkRestModule extends ConfigModule {
     LinkRestRuntime provideLinkRestRuntime(
             Injector injector,
             Set<LrFeatureProvider> featureProviders,
-            Set<LrModuleProvider> moduleProviders,
-            Set<LinkRestAdapter> adapters) {
+            Set<LrModuleProvider> moduleProviders) {
 
         LinkRestBuilder builder;
 
@@ -64,7 +62,6 @@ public class LinkRestModule extends ConfigModule {
 
         featureProviders.forEach(builder::feature);
         moduleProviders.forEach(builder::module);
-        adapters.forEach(builder::adapter);
 
         return builder.build();
     }

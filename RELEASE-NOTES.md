@@ -1,3 +1,7 @@
+## 0.26
+
+* #29 Cleaning up APIs deprecated since <= 0.25
+
 ## 0.25
 
 * #24 LinkRestAdapter was deprecated . Adjust LinkRestModuleExtender to reflect that
