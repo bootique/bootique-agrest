@@ -93,6 +93,10 @@
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.cayenne</groupId>
+                        <artifactId>cayenne-di</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.cayenne</groupId>
                         <artifactId>cayenne-server</artifactId>
                     </exclusion>
                     <exclusion>
