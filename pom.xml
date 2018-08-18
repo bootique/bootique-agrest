@@ -37,7 +37,7 @@
 
     <properties>
         <bootique.version>${project.version}</bootique.version>
-        <link.rest.version>2.12</link.rest.version>
+        <link.rest.version>2.13</link.rest.version>
     </properties>
 
     <scm>
