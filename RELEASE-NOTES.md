@@ -1,4 +1,4 @@
-## 0.26
+## 1.0.RC1
 
 * #29 Cleaning up APIs deprecated since <= 0.25
 * #31 Upgrade JAX-RS to 2.1
