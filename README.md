@@ -18,7 +18,7 @@
   -->
 
 [![Build Status](https://travis-ci.org/bootique/bootique-linkrest.svg)](https://travis-ci.org/bootique/bootique-linkrest)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.bootique.linkrest/bootique-linkrest/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.bootique.linkrest/bootique-linkrest/)
+[![Maven Central](https://img.shields.io/maven-central/v/io.bootique.linkrest/bootique-linkrest.svg?colorB=brightgreen)](https://search.maven.org/artifact/io.bootique.linkrest/bootique-linkrest/)
 
 [LinkRest](https://github.com/nhl/link-rest) integration module for [Bootique](http://bootique.io).
 See usage example [bootique-linkrest-demo](https://github.com/bootique-examples/bootique-linkrest-demo).
