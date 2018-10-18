@@ -19,8 +19,8 @@
 
 package io.bootique.linkrest;
 
-import com.nhl.link.rest.LrFeatureProvider;
-import com.nhl.link.rest.LrModuleProvider;
+import io.agrest.AgFeatureProvider;
+import io.agrest.AgModuleProvider;
 import io.bootique.agrest.AgrestModule;
 import io.bootique.test.junit.BQTestFactory;
 import org.apache.cayenne.di.Binder;
@@ -46,7 +46,7 @@ public class AgrestModuleExtenderIT {
     public void testFeatureProvider() {
 
         Feature feature = mock(Feature.class);
-        LrFeatureProvider provider = mock(LrFeatureProvider.class);
+        AgFeatureProvider provider = mock(AgFeatureProvider.class);
         when(provider.feature(any(Injector.class))).thenReturn(feature);
 
         testFactory.app("-c", "classpath:LinkRestModuleExtenderIT.yml", "-s")
@@ -62,7 +62,7 @@ public class AgrestModuleExtenderIT {
     public void testModuleProvider() {
 
         Module module = mock(Module.class);
-        LrModuleProvider provider = mock(LrModuleProvider.class);
+        AgModuleProvider provider = mock(AgModuleProvider.class);
         when(provider.module()).thenReturn(module);
 
         testFactory.app("-c", "classpath:LinkRestModuleExtenderIT.yml", "-s")
