@@ -3,6 +3,7 @@
 * #29 Cleaning up APIs deprecated since <= 0.25
 * #31 Upgrade JAX-RS to 2.1
 * #32 Upgrade to LinkRest 2.13
+* #34 Added integration with Agrest.
 
 ## 0.25
 
