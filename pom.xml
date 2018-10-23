@@ -49,8 +49,8 @@
     </properties>
 
     <scm>
-        <developerConnection>scm:git:ssh://git@github.com/bootique/bootique-linkrest</developerConnection>
-        <url>https://github.com/bootique/bootique-linkrest</url>
+        <developerConnection>scm:git:ssh://git@github.com/bootique/bootique-agrest</developerConnection>
+        <url>https://github.com/bootique/bootique-agrest</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -58,7 +58,7 @@
         <repository>
             <id>bintray-bootique-releases</id>
             <name>bintray-bootique-releases</name>
-            <url>https://api.bintray.com/maven/bootique/releases/bootique-linkrest/;publish=1</url>
+            <url>https://api.bintray.com/maven/bootique/releases/bootique-agrest/;publish=1</url>
         </repository>
     </distributionManagement>
 

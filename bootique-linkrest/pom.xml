@@ -18,7 +18,8 @@
   under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -27,17 +28,15 @@
         <version>1.0.RC1-SNAPSHOT</version>
     </parent>
 
+    <groupId>io.bootique.linkrest</groupId>
     <artifactId>bootique-linkrest</artifactId>
     <packaging>jar</packaging>
 
     <name>bootique-linkrest: LinkRest Integration with Bootique</name>
-    <description>Provides LinkRest integration with Bootique</description>
-
-    <scm>
-        <developerConnection>scm:git:ssh://git@github.com/bootique/bootique-linkrest</developerConnection>
-        <url>https://github.com/bootique/bootique-linkrest</url>
-        <tag>HEAD</tag>
-    </scm>
+    <description>Provides LinkRest integration with Bootique. LinkRest was moved to Agrest, so this module is
+        deprecated.
+        Consider using "bootique-agrest".
+    </description>
 
     <dependencies>
         <!-- Compile dependencies -->
