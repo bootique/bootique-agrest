@@ -27,7 +27,6 @@
         <version>1.0.RC1-SNAPSHOT</version>
     </parent>
 
-    <groupId>io.bootique.linkrest</groupId>
     <artifactId>bootique-linkrest</artifactId>
     <packaging>jar</packaging>
 
