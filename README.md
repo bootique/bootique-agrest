@@ -21,4 +21,4 @@
 [![Maven Central](https://img.shields.io/maven-central/v/io.bootique.agrest/bootique-agrest.svg?colorB=brightgreen)](https://search.maven.org/artifact/io.bootique.agrest/bootique-agrest/)
 
 [AgRest (ex LinkRest)](https://agrest.io) integration module for [Bootique](http://bootique.io).
-See usage example [bootique-linkrest-demo](https://github.com/bootique-examples/bootique-linkrest-demo).
+See usage example [bootique-agrest-demo](https://github.com/bootique-examples/bootique-agrest-demo).
