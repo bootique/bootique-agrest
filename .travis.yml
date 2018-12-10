@@ -43,19 +43,19 @@ jobs:
       script:
         - mvn clean verify
     - stage: build
-      if: branch = master AND type IN (push) AND repo = bootique/bootique-linkrest
+      if: branch = master AND type IN (push) AND repo = bootique/bootique-agrest
       jdk: oraclejdk8
       script:
         - mvn clean source:jar javadoc:javadoc deploy --settings travis_settings.xml
     - stage: build
-      if: branch = master AND type IN (push) AND repo != bootique/bootique-linkrest
+      if: branch = master AND type IN (push) AND repo != bootique/bootique-agrest
       jdk: oraclejdk8
       script:
         - mvn clean verify
 
-# travis encrypt -r bootique/bootique-linkrest "CI_DEPLOY_USERNAME='name'"
-# travis encrypt -r bootique/bootique-linkrest "CI_DEPLOY_PASSWORD='password'"
+# travis encrypt -r bootique/bootique-agrest "CI_DEPLOY_USERNAME='name'"
+# travis encrypt -r bootique/bootique-agrest "CI_DEPLOY_PASSWORD='password'"
 env:
   global:
-    - secure: "ZkBv0pN2DkU1LAcwaJ2i7Fem6RirlCucgr/u/MQE1LrtnFooKygTaWdRduWsXbzXwmMa/a6cWuwfWVMmJupUtdRJt5OkcLFRm4pJTLzPng3XQ2niQWx/2Czdd2T+fOCZX6BX5e5dK9HQ1GdI7tiGKbCtL0wntCba+IAXmhgCXBy6l4X/V9YuArttNufof5OMaSGf0SjaRnpGtXvUmMMh9Fefo+Hqc2NNY4mP8WI43wg7p/M4/xdGeomI+vA7HhALqn5LSXZbSIy/AJMtf1AyMswQFF9+Yyiv6c3RX+lU2YVSLo+EjsFPTiUSyvfECxMR/TTCqX5+pBV249aki2YVXr0YPgz04HQXYU1z1fBNTuKbgBOwTH13LJHunc4/cYPThXI+ZYNBhmxHTlQoXnn3i0xZo/fRe7lBVyZ09ThcaQUOtY86/Oqx/3R3bWNt7lkvw/qJJyNjWdXuCrpw7tWGPBgGdmwKZXsmM9b98QVwuteLCX8MY8p68BOLsmcIYyY5hhdSOHjRUslYpqKcOq3o+1XzU3Na9+nkqvKpfuGFV8ppTbfZzmjDSKliZmE5/V8g3wTdtRtIMyJlMFNEvD0b5JhusdUmdO4mPDgc4+2dyWUhdE/4Y7kjpfFTMcnWDtFES3bC5B2Iex3oDO3mOH040c1rKPFZpkft+MzFBeLNYxk="
-    - secure: "Ftu+CzvVIqgHuTkjo6I5YNaBK5Asa1u93TPXQrZA0cWnKTYx6ETb9wFxDrx4BhCyX3F+Re6XWV9JH9JiPwUPlsclwutz6Z/u9qcGl+ZQsuA3sX/aHK5YD6s5H8shEcjN4fdHQjc2TcvoW1F5EOstuWB1qAPoZXWrLw4ljlcq16gOZKXXcYHAdS6NCHHEG6dMpLlGqgELh9gG5TuRrEU+72lbhwsM+k1MpGJcFBcSBUi6M2uVfwWv2eKFjjJovPwkA6dWxu7jNZH7k7OJcJ8jHu6Ly3uTN2+Z/Se/DOtIn2qb+2DNtRYnnExxWuG8YVN3v+6avikJsMEr6W8DFHiOnk62gajiw63JTz3UJuYcP3yd9pvQ/KYKHOw87FRirbmN0r/Zpwku4mVWgB0HfoqlqLjlgi51ppkwTurYMNdXRw/qWe9TXZBFIMkApeUFDPW4byDLpt10557NOiMb4R0qOIO4n7tCpq3Z7weG5w03FoUu5wc+QicOgEwC+w22hWpzy/eX8dtopMHZ8ZrtC7iesIwTcZBcoG6FiENGcKf0ii7yicDcSiJaffJ4G7twjucmQVYBLHdZ3kl7tO/Xq3h5qbJuWH6FyNZX5mhuBVCn1wNhh4GVxSvK39kyw7l5oAoE3Gzf9nqdX1/JNP20AkpQcI+nJ2VYznNqIGbfKqMU4F4="
+    - secure: "1pm0ehwF8/D3fpZC8yOCY0ETdjueEHZSGV4/iWanQRx9LDkgehNaKIBvOmKs2eWkHIs/JvZCJ1Dsc+8zIH+CIK8lG/bZVuo7eS1naYEjPJmAhuxS7bAIFU5Me9gv41mHafOONpcuA51J53ZD0LqReZ7qyvCuhav4qdQyz3MTP6aKmcdes/uetbZLMZrusR/y/gDiXPLNLbl2mw2PuggpQk0D5H2Sn7buJL8S39Q9jKgnPFwz394LWJUBv1Y9f3DBe1L2mD1fP5UVnBtnrumGcUFarIpJLANXwjB5WV6dX+kwtBprjUgf68bHvRi5uRQLeoRMYfOAYoxntRchws6/kJerkxuAfwZgd8Vd7i1Qe5mEuk8HxzaP1gW+IGmZlORMVqcbdAkrzjar/mHFCFMqFhEYghem4HQUYCryZRBZHbr6lxM69Bi9Aj0I4Gfs4BIeYA2reT2omz7QyizKe0PJu15innwoExd5IiXRxGr1vMSIbU2y2vgckZooy6GID5bsL/T+4nyUkbPCaMg1iBekJlZ9k0T9KhbOfosP32v3iHeBWELfkZn36z5wC2pm/CUwRna+1X74IbkY3HGeLCLmI1/TYv3E7WEOZf85ngqHIt7U7uvAvNSiOFVzcR2iGMzHqS2rdvmR33zJC2udYYTVtvROJ2emyH0K/1CohnXYzF8="
+    - secure: "3nYKnzVSU0SDQz3+HS7nAE47QpSjyeCLGyVtz5OCA2y2cAXfEbWflbNWV1JJcqmDCUWirLBQmAy4Ib67K2PaElUsF86SaMoWIWuvNyqj8vyMTT9TuDhXW0Lge29cPbxet4SxB1uvCMnSL9SZKqFdgiFaziByHWEdDkw7UgA9ZnYY1MjK05LMfynlbYyc32efZFD/+iyPrEGmJhq7smvJ6bMEF/LBidOQsULxob9MSbElZaRIrhJiAgegGnY442uP75sYyitxe2VXH1e/Y4Uz6BUIugR0vdc92qVAIwkWbco46osWQaYNDFH76kXcFKGRXZgZvCK6zozSnzACGd1V3cytBzMti9syrsgM8cpo21LLh8x7C0a+5TUiXcB1WK4zusjZKhL6rJC14Qiu8nP7neYzufTYIT3N61xEVUqoTKYqPBTenzPytx4ZGSmI8YxKzt5JNu/iriGL0E0raPrI3W/Bm04hAgihQopy/LeglFlH5lbygD/0q69WYaoaUB+euH0LD3hDgWOQ24OyFur/EY2qOsN2r2yz+w+6PN2H+vE07MU76sFI6LBPoJMybB2XUdPcpbTLYcAnIXekfXCdh0mSsOrR5VTi76sJB18fGw5UBknFejfiJcrER2T50O5YDPzwMav8K4vC5AV7uNml5h3bY1rfOeVZ0+mfwJkODDc="
