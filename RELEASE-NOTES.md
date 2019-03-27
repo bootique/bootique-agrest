@@ -1,3 +1,7 @@
+## 1.0.RC2
+
+*  #36 Upgrade to Agrest 3.1
+
 ## 1.0.RC1
 
 * #29 Cleaning up APIs deprecated since <= 0.25

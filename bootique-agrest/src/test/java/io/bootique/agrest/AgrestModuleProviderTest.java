@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package io.bootique.linkrest;
+package io.bootique.agrest;
 
 import io.bootique.BQRuntime;
 import io.bootique.agrest.AgrestModule;

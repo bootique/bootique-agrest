@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package io.bootique.linkrest;
+package io.bootique.agrest;
 
 import io.agrest.Ag;
 import io.agrest.DataResponse;
@@ -52,11 +52,11 @@ public class AgrestModule_Pojo_IT {
         E1 e1 = new E1();
         e1.setId(1);
         e1.setName("xyz");
-        context.setObjects(Collections.singletonList(e1));
+        context.getEntity().setResult(Collections.singletonList(e1));
     }
 
     @Test
-    public void testLRRequest() {
+    public void testRequest() {
         testFactory.app("-c", "classpath:LinkRestModule_Pojo_IT.yml", "-s")
                 .autoLoadModules()
                 .module(b -> JerseyModule.extend(b).addResource(R1.class))
