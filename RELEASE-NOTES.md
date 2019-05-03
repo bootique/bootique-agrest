@@ -1,4 +1,4 @@
-## 1.0.RC2
+## 1.0
 
 *  #36 Upgrade to Agrest 3.1
 
