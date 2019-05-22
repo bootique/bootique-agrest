@@ -27,11 +27,11 @@
         <version>1.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bootique-agrest</artifactId>
+    <artifactId>bootique-agrest-cayenne41</artifactId>
     <packaging>jar</packaging>
 
-    <name>bootique-agrest: Agrest Integration with Bootique</name>
-    <description>Provides Agrest integration with Bootique</description>
+    <name>bootique-agrest-cayenne41: Bootique Agrest integration using Cayenne 4.1</name>
+    <description>Provides Agrest integration with Bootique using Cayenne 4.1</description>
 
     <dependencies>
         <dependency>
@@ -41,7 +41,7 @@
         </dependency>
         <dependency>
             <groupId>io.bootique.cayenne</groupId>
-            <artifactId>bootique-cayenne</artifactId>
+            <artifactId>bootique-cayenne41</artifactId>
             <scope>compile</scope>
         </dependency>
     </dependencies>

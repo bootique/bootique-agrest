@@ -40,6 +40,7 @@
     <modules>
         <module>bootique-linkrest</module>
         <module>bootique-agrest</module>
+        <module>bootique-agrest-cayenne41</module>
     </modules>
 
     <properties>
@@ -95,6 +96,11 @@
             <dependency>
                 <groupId>io.bootique.cayenne</groupId>
                 <artifactId>bootique-cayenne</artifactId>
+                <version>${bootique.version}</version>
+            </dependency>
+             <dependency>
+                <groupId>io.bootique.cayenne</groupId>
+                <artifactId>bootique-cayenne41</artifactId>
                 <version>${bootique.version}</version>
             </dependency>
             <dependency>
@@ -173,11 +179,6 @@
         <dependency>
             <groupId>io.bootique</groupId>
             <artifactId>bootique</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.bootique.cayenne</groupId>
-            <artifactId>bootique-cayenne</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>

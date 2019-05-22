@@ -43,5 +43,10 @@
             <artifactId>link-rest</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>io.bootique.cayenne</groupId>
+            <artifactId>bootique-cayenne</artifactId>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

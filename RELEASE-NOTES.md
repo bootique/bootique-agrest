@@ -1,6 +1,7 @@
 ## 1.1
 
 * #37 Upgrade to Agrest 3.2
+* #38 add support for Cayenne 4.1
 
 ## 1.0
 
