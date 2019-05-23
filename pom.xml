@@ -65,7 +65,7 @@
     <repositories>
         <repository>
             <id>linkrest-snapshots</id>
-            <url>http://maven.objectstyle.org/nexus/content/repositories/linkrest-snapshots</url>
+            <url>https://maven.objectstyle.org/nexus/content/repositories/linkrest-snapshots</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
