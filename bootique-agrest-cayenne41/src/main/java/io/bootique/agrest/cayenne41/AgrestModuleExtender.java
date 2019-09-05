@@ -32,7 +32,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     private Multibinder<AgFeatureProvider> featureProviders;
     private Multibinder<AgModuleProvider> moduleProviders;
-
+    private Multibinder<AgBuilderCallback> builderCallbacks;
 
     public AgrestModuleExtender(Binder binder) {
         super(binder);
@@ -42,11 +42,29 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
     public AgrestModuleExtender initAllExtensions() {
         contributeFeatureProviders();
         contributeModuleProviders();
+        contributeBuilderCallbacks();
         return this;
     }
 
     /**
-     * @param moduleProvider
+     * @return this extender instance.
+     * @since 1.1
+     */
+    public AgrestModuleExtender addBuilderCallback(AgBuilderCallback callback) {
+        contributeBuilderCallbacks().addBinding().toInstance(callback);
+        return this;
+    }
+
+    /**
+     * @return this extender instance.
+     * @since 1.1
+     */
+    public AgrestModuleExtender addBuilderCallback(Class<? extends AgBuilderCallback> callbackType) {
+        contributeBuilderCallbacks().addBinding().to(callbackType);
+        return this;
+    }
+
+    /**
      * @return this extender instance.
      * @since 0.25
      */
@@ -56,7 +74,6 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
     }
 
     /**
-     * @param moduleProviderType
      * @return this extender instance.
      * @since 0.25
      */
@@ -66,7 +83,6 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
     }
 
     /**
-     * @param featureProvider
      * @return this extender instance.
      * @since 0.25
      */
@@ -76,7 +92,6 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
     }
 
     /**
-     * @param featureProviderType
      * @return this extender instance.
      * @since 0.25
      */
@@ -91,5 +106,9 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     private Multibinder<AgModuleProvider> contributeModuleProviders() {
         return moduleProviders != null ? moduleProviders : (moduleProviders = newSet(AgModuleProvider.class));
+    }
+
+    private Multibinder<AgBuilderCallback> contributeBuilderCallbacks() {
+        return builderCallbacks != null ? builderCallbacks : (builderCallbacks = newSet(AgBuilderCallback.class));
     }
 }

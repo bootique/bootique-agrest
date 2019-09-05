@@ -21,6 +21,7 @@ package io.bootique.agrest.cayenne41;
 
 import io.agrest.AgFeatureProvider;
 import io.agrest.AgModuleProvider;
+import io.agrest.runtime.AgBuilder;
 import io.bootique.test.junit.BQTestFactory;
 import org.apache.cayenne.di.Binder;
 import org.apache.cayenne.di.Injector;
@@ -69,5 +70,18 @@ public class AgrestModuleExtenderIT {
 
         verify(provider).module();
         verify(module).configure(any(Binder.class));
+    }
+
+    @Test
+    public void testBuilderCallback() {
+
+        AgBuilderCallback callback = mock(AgBuilderCallback.class);
+
+        testFactory.app("-c", "classpath:LinkRestModuleExtenderIT.yml", "-s")
+                .autoLoadModules()
+                .module(b -> AgrestModule.extend(b).addBuilderCallback(callback))
+                .run();
+
+        verify(callback).configure(any(AgBuilder.class));
     }
 }

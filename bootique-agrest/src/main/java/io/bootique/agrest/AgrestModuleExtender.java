@@ -65,7 +65,6 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
     }
 
     /**
-     * @param moduleProvider
      * @return this extender instance.
      * @since 0.25
      */
@@ -85,7 +84,6 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
     }
 
     /**
-     * @param featureProvider
      * @return this extender instance.
      * @since 0.25
      */
@@ -95,7 +93,6 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
     }
 
     /**
-     * @param featureProviderType
      * @return this extender instance.
      * @since 0.25
      */
