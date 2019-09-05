@@ -64,7 +64,7 @@ public class AgrestModule extends ConfigModule {
 
     @Singleton
     @Provides
-    AgRuntime provideLinkRestRuntime(
+    AgRuntime provideAgRuntime(
             Injector injector,
             Set<AgBuilderCallback> builderCallbacks,
             Set<AgFeatureProvider> featureProviders,
