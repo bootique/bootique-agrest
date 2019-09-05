@@ -3,6 +3,7 @@
 * #37 Upgrade to Agrest 3.2
 * #38 add support for Cayenne 4.1
 * #39 Upgrade to Agrest 3.3 
+* #40 AgBuilderCallback: a new extension with access to AgBuilder
 
 ## 1.0
 

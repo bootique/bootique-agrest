@@ -66,22 +66,22 @@ public class AgrestModule extends ConfigModule {
     @Provides
     AgRuntime provideLinkRestRuntime(
             Injector injector,
+            Set<AgBuilderCallback> builderCallbacks,
             Set<AgFeatureProvider> featureProviders,
             Set<AgModuleProvider> moduleProviders) {
 
-        AgBuilder builder;
-
-        Binding<ServerRuntime> binding = injector.getExistingBinding(Key.get(ServerRuntime.class));
-        if (binding == null) {
-            builder = new AgBuilder().cayenneService(new PojoCayennePersister());
-        } else {
-            ServerRuntime cayenneRuntime = binding.getProvider().get();
-            builder = new AgBuilder().cayenneRuntime(cayenneRuntime);
-        }
-
+        AgBuilder builder = createBuilder(injector);
         featureProviders.forEach(builder::feature);
         moduleProviders.forEach(builder::module);
+        builderCallbacks.forEach(c -> c.configure(builder));
 
         return builder.build();
+    }
+
+    private AgBuilder createBuilder(Injector injector) {
+        Binding<ServerRuntime> binding = injector.getExistingBinding(Key.get(ServerRuntime.class));
+        return binding != null
+                ? new AgBuilder().cayenneRuntime(binding.getProvider().get())
+                : new AgBuilder().cayenneService(new PojoCayennePersister());
     }
 }

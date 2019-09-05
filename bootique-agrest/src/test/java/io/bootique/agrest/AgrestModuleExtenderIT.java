@@ -21,7 +21,7 @@ package io.bootique.agrest;
 
 import io.agrest.AgFeatureProvider;
 import io.agrest.AgModuleProvider;
-import io.bootique.agrest.AgrestModule;
+import io.agrest.runtime.AgBuilder;
 import io.bootique.test.junit.BQTestFactory;
 import org.apache.cayenne.di.Binder;
 import org.apache.cayenne.di.Injector;
@@ -33,9 +33,7 @@ import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.FeatureContext;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class AgrestModuleExtenderIT {
 
@@ -72,5 +70,18 @@ public class AgrestModuleExtenderIT {
 
         verify(provider).module();
         verify(module).configure(any(Binder.class));
+    }
+
+    @Test
+    public void testBuilderCallback() {
+
+        AgBuilderCallback callback = mock(AgBuilderCallback.class);
+
+        testFactory.app("-c", "classpath:LinkRestModuleExtenderIT.yml", "-s")
+                .autoLoadModules()
+                .module(b -> AgrestModule.extend(b).addBuilderCallback(callback))
+                .run();
+
+        verify(callback).configure(any(AgBuilder.class));
     }
 }
