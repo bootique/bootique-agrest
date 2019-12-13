@@ -20,8 +20,6 @@
 package io.bootique.agrest;
 
 import io.bootique.BQRuntime;
-import io.bootique.agrest.AgrestModule;
-import io.bootique.agrest.AgrestModuleProvider;
 import io.bootique.cayenne.CayenneModule;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.test.junit.BQModuleProviderChecker;

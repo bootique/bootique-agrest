@@ -19,19 +19,19 @@
 
 package io.bootique.linkrest;
 
-import com.google.inject.Binder;
-import com.google.inject.multibindings.Multibinder;
 import com.nhl.link.rest.LrFeatureProvider;
 import com.nhl.link.rest.LrModuleProvider;
 import io.bootique.ModuleExtender;
+import io.bootique.di.Binder;
+import io.bootique.di.SetBuilder;
 
 /**
  * @since 0.15
  */
 public class LinkRestModuleExtender extends ModuleExtender<LinkRestModuleExtender> {
 
-    private Multibinder<LrFeatureProvider> featureProviders;
-    private Multibinder<LrModuleProvider> moduleProviders;
+    private SetBuilder<LrFeatureProvider> featureProviders;
+    private SetBuilder<LrModuleProvider> moduleProviders;
 
 
     public LinkRestModuleExtender(Binder binder) {
@@ -51,7 +51,7 @@ public class LinkRestModuleExtender extends ModuleExtender<LinkRestModuleExtende
      * @since 0.25
      */
     public LinkRestModuleExtender addModuleProvider(LrModuleProvider moduleProvider) {
-        contributeModuleProviders().addBinding().toInstance(moduleProvider);
+        contributeModuleProviders().add(moduleProvider);
         return this;
     }
 
@@ -61,7 +61,7 @@ public class LinkRestModuleExtender extends ModuleExtender<LinkRestModuleExtende
      * @since 0.25
      */
     public LinkRestModuleExtender addModuleProvider(Class<? extends LrModuleProvider> moduleProviderType) {
-        contributeModuleProviders().addBinding().to(moduleProviderType);
+        contributeModuleProviders().add(moduleProviderType);
         return this;
     }
 
@@ -71,7 +71,7 @@ public class LinkRestModuleExtender extends ModuleExtender<LinkRestModuleExtende
      * @since 0.25
      */
     public LinkRestModuleExtender addFeatureProvider(LrFeatureProvider featureProvider) {
-        contributeFeatureProviders().addBinding().toInstance(featureProvider);
+        contributeFeatureProviders().add(featureProvider);
         return this;
     }
 
@@ -81,15 +81,15 @@ public class LinkRestModuleExtender extends ModuleExtender<LinkRestModuleExtende
      * @since 0.25
      */
     public LinkRestModuleExtender addFeatureProvider(Class<? extends LrFeatureProvider> featureProviderType) {
-        contributeFeatureProviders().addBinding().to(featureProviderType);
+        contributeFeatureProviders().add(featureProviderType);
         return this;
     }
 
-    private Multibinder<LrFeatureProvider> contributeFeatureProviders() {
+    private SetBuilder<LrFeatureProvider> contributeFeatureProviders() {
         return featureProviders != null ? featureProviders : (featureProviders = newSet(LrFeatureProvider.class));
     }
 
-    private Multibinder<LrModuleProvider> contributeModuleProviders() {
+    private SetBuilder<LrModuleProvider> contributeModuleProviders() {
         return moduleProviders != null ? moduleProviders : (moduleProviders = newSet(LrModuleProvider.class));
     }
 }

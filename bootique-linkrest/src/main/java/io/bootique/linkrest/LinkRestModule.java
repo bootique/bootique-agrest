@@ -19,21 +19,19 @@
 
 package io.bootique.linkrest;
 
-import com.google.inject.Binder;
-import com.google.inject.Binding;
-import com.google.inject.Injector;
-import com.google.inject.Key;
-import com.google.inject.Provides;
-import com.google.inject.Singleton;
 import com.nhl.link.rest.LrFeatureProvider;
 import com.nhl.link.rest.LrModuleProvider;
 import com.nhl.link.rest.runtime.LinkRestBuilder;
 import com.nhl.link.rest.runtime.LinkRestRuntime;
 import io.bootique.ConfigModule;
+import io.bootique.di.Binder;
+import io.bootique.di.Injector;
+import io.bootique.di.Provides;
 import io.bootique.jersey.JerseyModule;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 
 import java.util.Set;
+import javax.inject.Singleton;
 
 public class LinkRestModule extends ConfigModule {
 
@@ -71,12 +69,10 @@ public class LinkRestModule extends ConfigModule {
 
         LinkRestBuilder builder;
 
-        Binding<ServerRuntime> binding = injector.getExistingBinding(Key.get(ServerRuntime.class));
-        if (binding == null) {
-            builder = new LinkRestBuilder().cayenneService(new PojoCayennePersister());
+        if(injector.hasProvider(ServerRuntime.class)) {
+            builder = new LinkRestBuilder().cayenneRuntime(injector.getProvider(ServerRuntime.class).get());
         } else {
-            ServerRuntime cayenneRuntime = binding.getProvider().get();
-            builder = new LinkRestBuilder().cayenneRuntime(cayenneRuntime);
+            builder = new LinkRestBuilder().cayenneService(new PojoCayennePersister());
         }
 
         featureProviders.forEach(builder::feature);

@@ -19,20 +19,20 @@
 
 package io.bootique.agrest;
 
-import com.google.inject.Binder;
-import com.google.inject.multibindings.Multibinder;
 import io.agrest.AgFeatureProvider;
 import io.agrest.AgModuleProvider;
 import io.bootique.ModuleExtender;
+import io.bootique.di.Binder;
+import io.bootique.di.SetBuilder;
 
 /**
  * @since 0.15
  */
 public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
-    private Multibinder<AgFeatureProvider> featureProviders;
-    private Multibinder<AgModuleProvider> moduleProviders;
-    private Multibinder<AgBuilderCallback> builderCallbacks;
+    private SetBuilder<AgFeatureProvider> featureProviders;
+    private SetBuilder<AgModuleProvider> moduleProviders;
+    private SetBuilder<AgBuilderCallback> builderCallbacks;
 
     public AgrestModuleExtender(Binder binder) {
         super(binder);
@@ -51,7 +51,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      * @since 1.1
      */
     public AgrestModuleExtender addBuilderCallback(AgBuilderCallback callback) {
-        contributeBuilderCallbacks().addBinding().toInstance(callback);
+        contributeBuilderCallbacks().add(callback);
         return this;
     }
 
@@ -60,7 +60,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      * @since 1.1
      */
     public AgrestModuleExtender addBuilderCallback(Class<? extends AgBuilderCallback> callbackType) {
-        contributeBuilderCallbacks().addBinding().to(callbackType);
+        contributeBuilderCallbacks().add(callbackType);
         return this;
     }
 
@@ -69,7 +69,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      * @since 0.25
      */
     public AgrestModuleExtender addModuleProvider(AgModuleProvider moduleProvider) {
-        contributeModuleProviders().addBinding().toInstance(moduleProvider);
+        contributeModuleProviders().add(moduleProvider);
         return this;
     }
 
@@ -79,7 +79,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      * @since 0.25
      */
     public AgrestModuleExtender addModuleProvider(Class<? extends AgModuleProvider> moduleProviderType) {
-        contributeModuleProviders().addBinding().to(moduleProviderType);
+        contributeModuleProviders().add(moduleProviderType);
         return this;
     }
 
@@ -88,7 +88,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      * @since 0.25
      */
     public AgrestModuleExtender addFeatureProvider(AgFeatureProvider featureProvider) {
-        contributeFeatureProviders().addBinding().toInstance(featureProvider);
+        contributeFeatureProviders().add(featureProvider);
         return this;
     }
 
@@ -97,19 +97,19 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      * @since 0.25
      */
     public AgrestModuleExtender addFeatureProvider(Class<? extends AgFeatureProvider> featureProviderType) {
-        contributeFeatureProviders().addBinding().to(featureProviderType);
+        contributeFeatureProviders().add(featureProviderType);
         return this;
     }
 
-    private Multibinder<AgFeatureProvider> contributeFeatureProviders() {
+    private SetBuilder<AgFeatureProvider> contributeFeatureProviders() {
         return featureProviders != null ? featureProviders : (featureProviders = newSet(AgFeatureProvider.class));
     }
 
-    private Multibinder<AgModuleProvider> contributeModuleProviders() {
+    private SetBuilder<AgModuleProvider> contributeModuleProviders() {
         return moduleProviders != null ? moduleProviders : (moduleProviders = newSet(AgModuleProvider.class));
     }
 
-    private Multibinder<AgBuilderCallback> contributeBuilderCallbacks() {
+    private SetBuilder<AgBuilderCallback> contributeBuilderCallbacks() {
         return builderCallbacks != null ? builderCallbacks : (builderCallbacks = newSet(AgBuilderCallback.class));
     }
 }

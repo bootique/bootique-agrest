@@ -19,21 +19,19 @@
 
 package io.bootique.agrest.cayenne41;
 
-import com.google.inject.Binder;
-import com.google.inject.Binding;
-import com.google.inject.Injector;
-import com.google.inject.Key;
-import com.google.inject.Provides;
-import com.google.inject.Singleton;
 import io.agrest.AgFeatureProvider;
 import io.agrest.AgModuleProvider;
 import io.agrest.runtime.AgBuilder;
 import io.agrest.runtime.AgRuntime;
 import io.bootique.ConfigModule;
+import io.bootique.di.Binder;
+import io.bootique.di.Injector;
+import io.bootique.di.Provides;
 import io.bootique.jersey.JerseyModule;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 
 import java.util.Set;
+import javax.inject.Singleton;
 
 public class AgrestModule extends ConfigModule {
 
@@ -79,9 +77,10 @@ public class AgrestModule extends ConfigModule {
     }
 
     private AgBuilder createBuilder(Injector injector) {
-        Binding<ServerRuntime> binding = injector.getExistingBinding(Key.get(ServerRuntime.class));
-        return binding != null
-                ? new AgBuilder().cayenneRuntime(binding.getProvider().get())
-                : new AgBuilder().cayenneService(new PojoCayennePersister());
+        if(injector.hasProvider(ServerRuntime.class)) {
+            return new AgBuilder().cayenneRuntime(injector.getProvider(ServerRuntime.class).get());
+        } else {
+            return new AgBuilder().cayenneService(new PojoCayennePersister());
+        }
     }
 }

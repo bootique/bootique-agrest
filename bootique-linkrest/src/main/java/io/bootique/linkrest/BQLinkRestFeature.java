@@ -19,9 +19,9 @@
 
 package io.bootique.linkrest;
 
-import com.google.inject.Inject;
 import com.nhl.link.rest.runtime.LinkRestRuntime;
 
+import javax.inject.Inject;
 import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.FeatureContext;
 

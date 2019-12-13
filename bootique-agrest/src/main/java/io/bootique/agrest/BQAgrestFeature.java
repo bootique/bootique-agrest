@@ -19,9 +19,9 @@
 
 package io.bootique.agrest;
 
-import com.google.inject.Inject;
 import io.agrest.runtime.AgRuntime;
 
+import javax.inject.Inject;
 import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.FeatureContext;
 
