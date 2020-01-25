@@ -38,14 +38,12 @@
     </description>
 
     <modules>
-        <module>bootique-linkrest</module>
         <module>bootique-agrest</module>
         <module>bootique-agrest-cayenne41</module>
     </modules>
 
     <properties>
         <bootique.version>${project.version}</bootique.version>
-        <link.rest.version>2.13</link.rest.version>
         <agrest.version>3.3</agrest.version>
     </properties>
 
@@ -114,35 +112,6 @@
                 <version>${agrest.version}</version>
                 <!-- Ensure cayenne version from bootique-cayenne is used;
                 ensure jackson version from bootique core is used -->
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.cayenne</groupId>
-                        <artifactId>cayenne-di</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.cayenne</groupId>
-                        <artifactId>cayenne-server</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-databind</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-core</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>javax.ws.rs</groupId>
-                        <artifactId>javax.ws.rs-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>com.nhl.link.rest</groupId>
-                <artifactId>link-rest</artifactId>
-                <version>${link.rest.version}</version>
-                <!-- Ensure cayenne version from bootique-cayenne is used;
-                     ensure jackson version from bootique core is used -->
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.cayenne</groupId>
