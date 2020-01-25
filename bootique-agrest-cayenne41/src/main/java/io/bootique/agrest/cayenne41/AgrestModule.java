@@ -30,8 +30,8 @@ import io.bootique.di.Provides;
 import io.bootique.jersey.JerseyModule;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 
-import java.util.Set;
 import javax.inject.Singleton;
+import java.util.Set;
 
 public class AgrestModule extends ConfigModule {
 
@@ -53,7 +53,7 @@ public class AgrestModule extends ConfigModule {
 
     @Override
     public void configure(Binder binder) {
-        // 'BQLinkRestFeature' is an injectable wrapper around LinkRestRuntime...
+        // 'BQAgerestFeature' is an injectable wrapper around AgRuntime...
         JerseyModule.extend(binder).addFeature(BQAgrestFeature.class);
 
         // trigger extension points creation and provide default contributions

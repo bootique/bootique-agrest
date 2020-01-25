@@ -57,7 +57,7 @@ public class AgrestModule_Pojo_IT {
 
     @Test
     public void testRequest() {
-        testFactory.app("-c", "classpath:LinkRestModule_Pojo_IT.yml", "-s")
+        testFactory.app("-c", "classpath:AgrestModule_Pojo_IT.yml", "-s")
                 .autoLoadModules()
                 .module(b -> JerseyModule.extend(b).addResource(R1.class))
                 .run();

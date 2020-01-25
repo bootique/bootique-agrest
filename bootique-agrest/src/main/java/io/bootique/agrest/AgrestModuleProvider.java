@@ -40,7 +40,7 @@ public class AgrestModuleProvider implements BQModuleProvider {
     public BQModuleMetadata.Builder moduleBuilder() {
         return BQModuleProvider.super
                 .moduleBuilder()
-                .description("Provides integration with LinkRest framework.");
+                .description("Provides integration with Agrest framework.");
     }
 
     @Override

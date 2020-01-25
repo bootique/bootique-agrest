@@ -47,7 +47,7 @@ public class AgrestModuleExtenderIT {
         AgFeatureProvider provider = mock(AgFeatureProvider.class);
         when(provider.feature(any(Injector.class))).thenReturn(feature);
 
-        testFactory.app("-c", "classpath:LinkRestModuleExtenderIT.yml", "-s")
+        testFactory.app("-c", "classpath:AgrestModuleExtenderIT.yml", "-s")
                 .autoLoadModules()
                 .module(b -> AgrestModule.extend(b).addFeatureProvider(provider))
                 .run();
@@ -63,7 +63,7 @@ public class AgrestModuleExtenderIT {
         AgModuleProvider provider = mock(AgModuleProvider.class);
         when(provider.module()).thenReturn(module);
 
-        testFactory.app("-c", "classpath:LinkRestModuleExtenderIT.yml", "-s")
+        testFactory.app("-c", "classpath:AgrestModuleExtenderIT.yml", "-s")
                 .autoLoadModules()
                 .module(b -> AgrestModule.extend(b).addModuleProvider(provider))
                 .run();
@@ -77,7 +77,7 @@ public class AgrestModuleExtenderIT {
 
         AgBuilderCallback callback = mock(AgBuilderCallback.class);
 
-        testFactory.app("-c", "classpath:LinkRestModuleExtenderIT.yml", "-s")
+        testFactory.app("-c", "classpath:AgrestModuleExtenderIT.yml", "-s")
                 .autoLoadModules()
                 .module(b -> AgrestModule.extend(b).addBuilderCallback(callback))
                 .run();
