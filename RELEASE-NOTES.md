@@ -1,3 +1,8 @@
+## 2.0
+
+* Migrated from Guice to "bootique-di"
+* #42 Remove support for old "bootique-linkrest"
+
 ## 1.1
 
 * #37 Upgrade to Agrest 3.2
