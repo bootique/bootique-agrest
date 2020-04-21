@@ -1,3 +1,7 @@
+## 1.2
+
+* #44 Upgrade to Agrest 3.4 - BQ 1.x 
+
 ## 1.1
 
 * #37 Upgrade to Agrest 3.2
