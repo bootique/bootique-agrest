@@ -62,19 +62,6 @@
         </repository>
     </distributionManagement>
 
-    <repositories>
-        <repository>
-            <id>linkrest-snapshots</id>
-            <url>https://maven.objectstyle.org/nexus/content/repositories/linkrest-snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
