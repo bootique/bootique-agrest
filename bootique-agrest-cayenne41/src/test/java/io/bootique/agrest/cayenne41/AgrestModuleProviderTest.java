@@ -45,7 +45,7 @@ public class AgrestModuleProviderTest {
 
     @Test
     public void testModuleDeclaresDependencies() {
-        final BQRuntime bqRuntime = testFactory.app().module(new AgrestModuleProvider()).createRuntime();
+        final BQRuntime bqRuntime = testFactory.app().moduleProvider(new AgrestModuleProvider()).createRuntime();
         BQRuntimeChecker.testModulesLoaded(bqRuntime,
                 CayenneModule.class,
                 JerseyModule.class,
