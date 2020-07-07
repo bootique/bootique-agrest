@@ -36,8 +36,15 @@
     <dependencies>
         <dependency>
             <groupId>io.agrest</groupId>
-            <artifactId>agrest</artifactId>
-            <scope>compile</scope>
+            <artifactId>agrest-engine</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.agrest</groupId>
+            <artifactId>agrest-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.agrest</groupId>
+            <artifactId>agrest-cayenne</artifactId>
         </dependency>
         <dependency>
             <groupId>io.bootique.cayenne</groupId>

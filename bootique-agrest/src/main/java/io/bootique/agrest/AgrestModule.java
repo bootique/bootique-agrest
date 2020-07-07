@@ -21,6 +21,7 @@ package io.bootique.agrest;
 
 import io.agrest.AgFeatureProvider;
 import io.agrest.AgModuleProvider;
+import io.agrest.cayenne.AgCayenneBuilder;
 import io.agrest.runtime.AgBuilder;
 import io.agrest.runtime.AgRuntime;
 import io.bootique.ConfigModule;
@@ -77,10 +78,13 @@ public class AgrestModule extends ConfigModule {
     }
 
     private AgBuilder createBuilder(Injector injector) {
-        if(injector.hasProvider(ServerRuntime.class)) {
-            return new AgBuilder().cayenneRuntime(injector.getProvider(ServerRuntime.class).get());
-        } else {
-            return new AgBuilder().cayenneService(new PojoCayennePersister());
+        AgBuilder builder = new AgBuilder();
+
+        if (injector.hasProvider(ServerRuntime.class)) {
+            ServerRuntime runtime = injector.getInstance(ServerRuntime.class);
+            builder.module(AgCayenneBuilder.builder().runtime(runtime).build());
         }
+
+        return builder;
     }
 }

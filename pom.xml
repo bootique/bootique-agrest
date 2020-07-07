@@ -18,7 +18,8 @@
   under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -44,7 +45,7 @@
 
     <properties>
         <bootique.version>${project.version}</bootique.version>
-        <agrest.version>3.4</agrest.version>
+        <agrest.version>3.5</agrest.version>
         <derby.version>10.14.1.0</derby.version>
     </properties>
 
@@ -84,7 +85,7 @@
                 <artifactId>bootique-cayenne</artifactId>
                 <version>${bootique.version}</version>
             </dependency>
-             <dependency>
+            <dependency>
                 <groupId>io.bootique.cayenne</groupId>
                 <artifactId>bootique-cayenne41</artifactId>
                 <version>${bootique.version}</version>
@@ -96,10 +97,15 @@
             </dependency>
             <dependency>
                 <groupId>io.agrest</groupId>
-                <artifactId>agrest</artifactId>
+                <artifactId>agrest-annotations</artifactId>
                 <version>${agrest.version}</version>
-                <!-- Ensure cayenne version from bootique-cayenne is used;
-                ensure jackson version from bootique core is used -->
+            </dependency>
+            <dependency>
+                <groupId>io.agrest</groupId>
+                <artifactId>agrest-engine</artifactId>
+                <version>${agrest.version}</version>
+                <!-- Ensure cayenne version from bootique-cayenne is used.
+                Ensure jackson version from bootique core is used -->
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.cayenne</groupId>
@@ -120,6 +126,22 @@
                     <exclusion>
                         <groupId>javax.ws.rs</groupId>
                         <artifactId>javax.ws.rs-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>io.agrest</groupId>
+                <artifactId>agrest-cayenne</artifactId>
+                <version>${agrest.version}</version>
+                <!-- Ensure cayenne version from bootique-cayenne is used -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.cayenne</groupId>
+                        <artifactId>cayenne-di</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.cayenne</groupId>
+                        <artifactId>cayenne-server</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
