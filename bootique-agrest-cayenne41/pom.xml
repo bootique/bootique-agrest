@@ -51,6 +51,12 @@
             <artifactId>bootique-cayenne41</artifactId>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.bootique.cayenne</groupId>
+            <artifactId>bootique-cayenne41-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 </project>

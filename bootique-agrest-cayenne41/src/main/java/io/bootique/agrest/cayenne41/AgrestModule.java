@@ -54,7 +54,7 @@ public class AgrestModule extends ConfigModule {
 
     @Override
     public void configure(Binder binder) {
-        // 'BQAgerestFeature' is an injectable wrapper around AgRuntime...
+        // 'BQAgrestFeature' is an injectable wrapper around AgRuntime...
         JerseyModule.extend(binder).addFeature(BQAgrestFeature.class);
 
         // trigger extension points creation and provide default contributions
