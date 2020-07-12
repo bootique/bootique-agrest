@@ -24,6 +24,7 @@ import io.agrest.DataResponse;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
 import io.bootique.agrest.cayenne41.cayenne.E1;
+import io.bootique.cayenne.v41.CayenneModule;
 import io.bootique.cayenne.v41.junit5.CayenneTester;
 import io.bootique.jdbc.junit5.DbTester;
 import io.bootique.jersey.JerseyModule;
@@ -58,6 +59,7 @@ public class AgrestModule_Cayenne_IT {
             .module(db.moduleWithTestDataSource("db"))
             .module(cayenne.moduleWithTestHooks())
             .module(jetty.moduleReplacingConnectors())
+            .module(b -> CayenneModule.extend(b).addProject("io/bootique/agrest/cayenne41/cayenne-project.xml"))
             .module(b -> JerseyModule.extend(b).addResource(R1.class))
             .createRuntime();
 
