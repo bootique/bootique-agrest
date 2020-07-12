@@ -22,12 +22,14 @@ package io.bootique.agrest;
 import io.agrest.AgFeatureProvider;
 import io.agrest.AgModuleProvider;
 import io.agrest.runtime.AgBuilder;
-import io.bootique.test.junit.BQTestFactory;
+import io.bootique.jetty.junit5.JettyTester;
+import io.bootique.junit5.BQTest;
+import io.bootique.junit5.BQTestFactory;
+import io.bootique.junit5.BQTestTool;
 import org.apache.cayenne.di.Binder;
 import org.apache.cayenne.di.Injector;
 import org.apache.cayenne.di.Module;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.FeatureContext;
@@ -35,10 +37,13 @@ import javax.ws.rs.core.FeatureContext;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+@BQTest
 public class AgrestModuleExtenderIT {
 
-    @Rule
-    public BQTestFactory testFactory = new BQTestFactory();
+    final JettyTester jetty = JettyTester.create();
+
+    @BQTestTool
+    final BQTestFactory testFactory = new BQTestFactory();
 
     @Test
     public void testFeatureProvider() {
@@ -47,8 +52,9 @@ public class AgrestModuleExtenderIT {
         AgFeatureProvider provider = mock(AgFeatureProvider.class);
         when(provider.feature(any(Injector.class))).thenReturn(feature);
 
-        testFactory.app("-c", "classpath:AgrestModuleExtenderIT.yml", "-s")
+        testFactory.app("-s")
                 .autoLoadModules()
+                .module(jetty.moduleReplacingConnectors())
                 .module(b -> AgrestModule.extend(b).addFeatureProvider(provider))
                 .run();
 
@@ -63,8 +69,9 @@ public class AgrestModuleExtenderIT {
         AgModuleProvider provider = mock(AgModuleProvider.class);
         when(provider.module()).thenReturn(module);
 
-        testFactory.app("-c", "classpath:AgrestModuleExtenderIT.yml", "-s")
+        testFactory.app("-s")
                 .autoLoadModules()
+                .module(jetty.moduleReplacingConnectors())
                 .module(b -> AgrestModule.extend(b).addModuleProvider(provider))
                 .run();
 
@@ -77,7 +84,7 @@ public class AgrestModuleExtenderIT {
 
         AgBuilderCallback callback = mock(AgBuilderCallback.class);
 
-        testFactory.app("-c", "classpath:AgrestModuleExtenderIT.yml", "-s")
+        testFactory.app("-s")
                 .autoLoadModules()
                 .module(b -> AgrestModule.extend(b).addBuilderCallback(callback))
                 .run();

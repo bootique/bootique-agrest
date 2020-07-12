@@ -22,16 +22,14 @@ package io.bootique.agrest;
 import io.bootique.BQRuntime;
 import io.bootique.cayenne.CayenneModule;
 import io.bootique.jersey.JerseyModule;
-import io.bootique.test.junit.BQModuleProviderChecker;
-import io.bootique.test.junit.BQRuntimeChecker;
-import io.bootique.test.junit.BQTestFactory;
-import org.junit.Rule;
-import org.junit.Test;
+import io.bootique.junit5.*;
+import org.junit.jupiter.api.Test;
 
+@BQTest
 public class AgrestModuleProviderTest {
 
-    @Rule
-    public BQTestFactory testFactory = new BQTestFactory();
+    @BQTestTool
+    final BQTestFactory testFactory = new BQTestFactory();
 
     @Test
     public void testAutoLoadable() {

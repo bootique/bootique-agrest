@@ -25,15 +25,16 @@ import io.agrest.SelectStage;
 import io.agrest.annotation.AgAttribute;
 import io.agrest.annotation.AgId;
 import io.agrest.runtime.processor.select.SelectContext;
+import io.bootique.BQRuntime;
+import io.bootique.Bootique;
 import io.bootique.jersey.JerseyModule;
-import io.bootique.test.junit.BQTestFactory;
-import org.junit.Rule;
-import org.junit.Test;
+import io.bootique.jetty.junit5.JettyTester;
+import io.bootique.junit5.BQApp;
+import io.bootique.junit5.BQTest;
+import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Configuration;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
@@ -41,12 +42,20 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 import java.util.Collections;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@BQTest
 public class AgrestModule_Pojo_IT {
 
-    @Rule
-    public BQTestFactory testFactory = new BQTestFactory();
+    static final JettyTester jetty = JettyTester.create();
+
+    @BQApp
+    static final BQRuntime app = Bootique
+            .app("-s")
+            .autoLoadModules()
+            .module(jetty.moduleReplacingConnectors())
+            .module(b -> JerseyModule.extend(b).addResource(R1.class))
+            .createRuntime();
 
     private static void fillData(SelectContext<E1> context) {
         E1 e1 = new E1();
@@ -57,14 +66,7 @@ public class AgrestModule_Pojo_IT {
 
     @Test
     public void testRequest() {
-        testFactory.app("-c", "classpath:AgrestModule_Pojo_IT.yml", "-s")
-                .autoLoadModules()
-                .module(b -> JerseyModule.extend(b).addResource(R1.class))
-                .run();
-
-        WebTarget base = ClientBuilder.newClient().target("http://localhost:8080/r1");
-
-        Response response = base.request().get();
+        Response response = jetty.getTarget().path("r1").request().get();
         assertEquals(Status.OK.getStatusCode(), response.getStatus());
         assertEquals("{\"data\":[{\"id\":1,\"name\":\"xyz\"}],\"total\":1}", response.readEntity(String.class));
     }
