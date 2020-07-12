@@ -49,9 +49,9 @@
         <dependency>
             <groupId>io.bootique.cayenne</groupId>
             <artifactId>bootique-cayenne41</artifactId>
-            <scope>compile</scope>
         </dependency>
 
+        <!-- test dependencies -->
         <dependency>
             <groupId>io.bootique.cayenne</groupId>
             <artifactId>bootique-cayenne41-junit5</artifactId>

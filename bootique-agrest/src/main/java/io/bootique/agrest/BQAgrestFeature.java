@@ -22,6 +22,7 @@ package io.bootique.agrest;
 import io.agrest.runtime.AgRuntime;
 
 import javax.inject.Inject;
+import javax.inject.Provider;
 import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.FeatureContext;
 
@@ -30,16 +31,17 @@ import javax.ws.rs.core.FeatureContext;
  */
 public class BQAgrestFeature implements Feature {
 
-	private AgRuntime agRuntime;
+	// AgRuntime must be initialized lazily to avoid premature DataSource resolvign inside unit tests
+	private Provider<AgRuntime> agRuntime;
 
 	@Inject
-	public BQAgrestFeature(AgRuntime agRuntime) {
+	public BQAgrestFeature(Provider<AgRuntime> agRuntime) {
 		this.agRuntime = agRuntime;
 	}
 
 	@Override
 	public boolean configure(FeatureContext context) {
-		agRuntime.configure(context);
+		agRuntime.get().configure(context);
 		return true;
 	}
 }
