@@ -26,7 +26,7 @@ import io.bootique.Bootique;
 import io.bootique.agrest.cayenne.E1;
 import io.bootique.cayenne.CayenneModule;
 import io.bootique.cayenne.junit5.CayenneTester;
-import io.bootique.jdbc.junit5.DbTester;
+import io.bootique.jdbc.junit5.derby.DerbyTester;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.jetty.junit5.JettyTester;
 import io.bootique.junit5.BQApp;
@@ -45,7 +45,7 @@ import javax.ws.rs.core.UriInfo;
 public class AgrestModule_Cayenne_IT {
 
     @BQTestTool
-    static final DbTester db = DbTester.derbyDb();
+    static final DerbyTester db = DerbyTester.db();
 
     @BQTestTool
     static final CayenneTester cayenne = CayenneTester.create().entities(E1.class);

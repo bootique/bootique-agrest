@@ -77,7 +77,7 @@
             </dependency>
             <dependency>
                 <groupId>io.bootique.jdbc</groupId>
-                <artifactId>bootique-jdbc-junit5</artifactId>
+                <artifactId>bootique-jdbc-junit5-derby</artifactId>
                 <version>${bootique.version}</version>
             </dependency>
             <dependency>
@@ -189,7 +189,7 @@
         </dependency>
         <dependency>
             <groupId>io.bootique.jdbc</groupId>
-            <artifactId>bootique-jdbc-junit5</artifactId>
+            <artifactId>bootique-jdbc-junit5-derby</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
