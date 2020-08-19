@@ -4,6 +4,7 @@
 * #42 Remove support for old "bootique-linkrest"
 * #43 Upgrade to agrest 3.4
 * #45 Upgrade to Agrest 3.5
+* #46 Upgrade to Agrest 3.6
 
 ## 1.1
 

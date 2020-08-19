@@ -45,7 +45,7 @@
 
     <properties>
         <bootique.version>${project.version}</bootique.version>
-        <agrest.version>3.5</agrest.version>
+        <agrest.version>3.6</agrest.version>
         <derby.version>10.14.1.0</derby.version>
     </properties>
 
