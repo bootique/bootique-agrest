@@ -1,3 +1,4 @@
+
 ## 2.0
 
 * Migrated from Guice to "bootique-di"
