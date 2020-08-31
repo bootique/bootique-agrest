@@ -1,5 +1,5 @@
 
-## 2.0
+## 2.0.M1
 
 * Migrated from Guice to "bootique-di"
 * #42 Remove support for old "bootique-linkrest"
