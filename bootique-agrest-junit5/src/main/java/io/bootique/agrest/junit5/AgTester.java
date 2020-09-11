@@ -6,13 +6,15 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
- * DSL for sending Agrest requests and asserting responses. Can be subclassed to customize the requests
+ * DSL for sending Agrest requests and asserting responses.
  */
 public class AgTester {
 
     private WebTarget target;
+    private Consumer<Invocation.Builder> requestCustomizer;
 
     public static AgTester request(WebTarget target) {
         return new AgTester(target);
@@ -20,6 +22,13 @@ public class AgTester {
 
     protected AgTester(WebTarget target) {
         this.target = Objects.requireNonNull(target);
+        this.requestCustomizer = b -> {
+        };
+    }
+
+    public AgTester customizeRequest(Consumer<Invocation.Builder> requestCustomizer) {
+        this.requestCustomizer = Objects.requireNonNull(requestCustomizer);
+        return this;
     }
 
     public AgResponseAssertions get() {
@@ -43,7 +52,8 @@ public class AgTester {
     }
 
     protected Invocation.Builder request() {
-        // allows subclasses to override request creation to add things like auth headers, etc.
-        return target.request();
+        Invocation.Builder requestBuilder = target.request();
+        requestCustomizer.accept(requestBuilder);
+        return requestBuilder;
     }
 }
