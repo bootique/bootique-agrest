@@ -1,3 +1,6 @@
+## 2.0.B1
+
+* #47 bootique-agrest-junit5
 
 ## 2.0.M1
 
