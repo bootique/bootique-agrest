@@ -33,6 +33,61 @@
     <name>bootique-agrest-cayenne41: Bootique Agrest integration using Cayenne 4.1</name>
     <description>Provides Agrest integration with Bootique using Cayenne 4.1</description>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.agrest</groupId>
+                <artifactId>agrest-annotations</artifactId>
+                <version>${agrest3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.agrest</groupId>
+                <artifactId>agrest-engine</artifactId>
+                <version>${agrest3.version}</version>
+                <!-- Ensure cayenne version from bootique-cayenne is used.
+                Ensure jackson version from bootique core is used -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.cayenne</groupId>
+                        <artifactId>cayenne-di</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.cayenne</groupId>
+                        <artifactId>cayenne-server</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>javax.ws.rs</groupId>
+                        <artifactId>javax.ws.rs-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>io.agrest</groupId>
+                <artifactId>agrest-cayenne</artifactId>
+                <version>${agrest3.version}</version>
+                <!-- Ensure cayenne version from bootique-cayenne is used -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.cayenne</groupId>
+                        <artifactId>cayenne-di</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.cayenne</groupId>
+                        <artifactId>cayenne-server</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
     <dependencies>
         <!-- Compile dependencies -->
         <dependency>
@@ -71,11 +126,6 @@
         <dependency>
             <groupId>io.bootique</groupId>
             <artifactId>bootique-junit5</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.bootique.jdbc</groupId>
-            <artifactId>bootique-jdbc-junit5-derby</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

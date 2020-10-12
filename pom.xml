@@ -40,12 +40,14 @@
     <modules>
         <module>bootique-agrest</module>
         <module>bootique-agrest-cayenne41</module>
+        <module>bootique-agrest-cayenne42</module>
         <module>bootique-agrest-junit5</module>
     </modules>
 
     <properties>
         <bootique.version>${project.version}</bootique.version>
-        <agrest.version>3.7</agrest.version>
+        <agrest3.version>3.7</agrest3.version>
+        <agrest4.version>4.0</agrest4.version>
     </properties>
 
     <scm>
@@ -105,59 +107,19 @@
                 <version>${bootique.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.bootique.jersey</groupId>
-                <artifactId>bootique-jersey</artifactId>
+                <groupId>io.bootique.cayenne</groupId>
+                <artifactId>bootique-cayenne42</artifactId>
                 <version>${bootique.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.agrest</groupId>
-                <artifactId>agrest-annotations</artifactId>
-                <version>${agrest.version}</version>
+                <groupId>io.bootique.cayenne</groupId>
+                <artifactId>bootique-cayenne42-junit5</artifactId>
+                <version>${bootique.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.agrest</groupId>
-                <artifactId>agrest-engine</artifactId>
-                <version>${agrest.version}</version>
-                <!-- Ensure cayenne version from bootique-cayenne is used.
-                Ensure jackson version from bootique core is used -->
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.cayenne</groupId>
-                        <artifactId>cayenne-di</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.cayenne</groupId>
-                        <artifactId>cayenne-server</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-databind</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-core</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>javax.ws.rs</groupId>
-                        <artifactId>javax.ws.rs-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>io.agrest</groupId>
-                <artifactId>agrest-cayenne</artifactId>
-                <version>${agrest.version}</version>
-                <!-- Ensure cayenne version from bootique-cayenne is used -->
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.cayenne</groupId>
-                        <artifactId>cayenne-di</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.cayenne</groupId>
-                        <artifactId>cayenne-server</artifactId>
-                    </exclusion>
-                </exclusions>
+                <groupId>io.bootique.jersey</groupId>
+                <artifactId>bootique-jersey</artifactId>
+                <version>${bootique.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

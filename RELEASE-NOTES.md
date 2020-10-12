@@ -2,6 +2,7 @@
 
 * #47 bootique-agrest-junit5
 * #48 Upgrade to Agrest 3.7
+* #49 bootique-agrest-cayenne42
 
 ## 2.0.M1
 
