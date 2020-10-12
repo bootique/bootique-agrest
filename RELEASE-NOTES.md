@@ -1,6 +1,7 @@
 ## 2.0.B1
 
 * #47 bootique-agrest-junit5
+* #48 Upgrade to Agrest 3.7
 
 ## 2.0.M1
 
