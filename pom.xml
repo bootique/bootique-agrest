@@ -41,6 +41,7 @@
         <module>bootique-agrest</module>
         <module>bootique-agrest-cayenne41</module>
         <module>bootique-agrest-cayenne42</module>
+        <module>bootique-agrest-cayenne42-swagger</module>
         <module>bootique-agrest-junit5</module>
     </modules>
 
