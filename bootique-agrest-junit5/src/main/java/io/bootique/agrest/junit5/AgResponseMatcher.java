@@ -16,7 +16,10 @@ import java.util.regex.Pattern;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class AgResponseAssertions {
+/**
+ * @since 2.0
+ */
+public class AgResponseMatcher {
 
     private static final Pattern NUMERIC_ID_MATCHER = Pattern.compile("\"id\":([\\d]+)");
 
@@ -26,7 +29,7 @@ public class AgResponseAssertions {
     private String responseContent;
     private byte[] responseBinContent;
 
-    public AgResponseAssertions(Response response) {
+    public AgResponseMatcher(Response response) {
         this.response = Objects.requireNonNull(response);
     }
 
@@ -101,77 +104,77 @@ public class AgResponseAssertions {
         return responseBinContent;
     }
 
-    public AgResponseAssertions assertOk() {
+    public AgResponseMatcher assertOk() {
         JettyTester.assertOk(response);
         return this;
     }
 
-    public AgResponseAssertions assertOk(String message) {
+    public AgResponseMatcher assertOk(String message) {
         JettyTester.assertOk(response, message);
         return this;
     }
 
-    public AgResponseAssertions assertCreated() {
+    public AgResponseMatcher assertCreated() {
         JettyTester.assertCreated(response);
         return this;
     }
 
-    public AgResponseAssertions assertCreated(String message) {
+    public AgResponseMatcher assertCreated(String message) {
         JettyTester.assertCreated(response, message);
         return this;
     }
 
-    public AgResponseAssertions assertBadRequest() {
+    public AgResponseMatcher assertBadRequest() {
         JettyTester.assertBadRequest(response);
         return this;
     }
 
-    public AgResponseAssertions assertBadRequest(String message) {
+    public AgResponseMatcher assertBadRequest(String message) {
         JettyTester.assertBadRequest(response, message);
         return this;
     }
 
-    public AgResponseAssertions assertUnauthorized() {
+    public AgResponseMatcher assertUnauthorized() {
         JettyTester.assertUnauthorized(response);
         return this;
     }
 
-    public AgResponseAssertions assertUnauthorized(String message) {
+    public AgResponseMatcher assertUnauthorized(String message) {
         JettyTester.assertUnauthorized(response, message);
         return this;
     }
 
-    public AgResponseAssertions assertForbidden() {
+    public AgResponseMatcher assertForbidden() {
         JettyTester.assertForbidden(response);
         return this;
     }
 
-    public AgResponseAssertions assertForbidden(String message) {
+    public AgResponseMatcher assertForbidden(String message) {
         JettyTester.assertForbidden(response, message);
         return this;
     }
 
-    public AgResponseAssertions assertNotFound() {
+    public AgResponseMatcher assertNotFound() {
         JettyTester.assertNotFound(response);
         return this;
     }
 
-    public AgResponseAssertions assertNotFound(String message) {
+    public AgResponseMatcher assertNotFound(String message) {
         JettyTester.assertNotFound(response, message);
         return this;
     }
 
-    public AgResponseAssertions assertStatus(Response.Status expectedStatus) {
+    public AgResponseMatcher assertStatus(Response.Status expectedStatus) {
         JettyTester.assertStatus(response, expectedStatus.getStatusCode());
         return this;
     }
 
-    public AgResponseAssertions assertMediaType(MediaType expected) {
+    public AgResponseMatcher assertMediaType(MediaType expected) {
         assertEquals(expected, response.getMediaType());
         return this;
     }
 
-    public AgResponseAssertions assertMediaType(String expected) {
+    public AgResponseMatcher assertMediaType(String expected) {
         assertEquals(MediaType.valueOf(expected), response.getMediaType());
         return this;
     }
@@ -180,12 +183,12 @@ public class AgResponseAssertions {
      * Replaces the first found id value in the result with a known placeholder, this allowing to compare JSON coming
      * with an unknown id.
      */
-    public AgResponseAssertions replaceId(String idPlaceholder) {
+    public AgResponseMatcher replaceId(String idPlaceholder) {
         this.idPlaceholder = idPlaceholder;
         return this;
     }
 
-    public AgResponseAssertions assertContent(String expected) {
+    public AgResponseMatcher assertContent(String expected) {
         String actual = getContentAsString();
         String normalized = idPlaceholder != null
                 ? NUMERIC_ID_MATCHER.matcher(actual).replaceFirst("\"id\":" + idPlaceholder)
@@ -195,11 +198,11 @@ public class AgResponseAssertions {
         return this;
     }
 
-    public AgResponseAssertions assertContent(long total, String... jsonObjects) {
+    public AgResponseMatcher assertContent(long total, String... jsonObjects) {
         return assertContent(buildExpectedJson(total, jsonObjects));
     }
 
-    public AgResponseAssertions assertTotal(long total) {
+    public AgResponseMatcher assertTotal(long total) {
 
         String string = getContentAsString();
         JsonNode rootNode;

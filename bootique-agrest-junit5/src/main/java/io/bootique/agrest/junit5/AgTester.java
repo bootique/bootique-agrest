@@ -31,24 +31,24 @@ public class AgTester {
         return this;
     }
 
-    public AgResponseAssertions get() {
+    public AgResponseMatcher get() {
         return onResponse(request().get());
     }
 
-    public AgResponseAssertions put(String data) {
+    public AgResponseMatcher put(String data) {
         Objects.requireNonNull(data);
         Response r = request().put(Entity.entity(data, MediaType.APPLICATION_JSON_TYPE));
         return onResponse(r);
     }
 
-    public AgResponseAssertions post(String data) {
+    public AgResponseMatcher post(String data) {
         Objects.requireNonNull(data);
         Response r = request().post(Entity.entity(data, MediaType.APPLICATION_JSON_TYPE));
         return onResponse(r);
     }
 
-    protected static AgResponseAssertions onResponse(Response response) {
-        return new AgResponseAssertions(response);
+    protected static AgResponseMatcher onResponse(Response response) {
+        return new AgResponseMatcher(response);
     }
 
     protected Invocation.Builder request() {
