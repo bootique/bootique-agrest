@@ -25,6 +25,7 @@ import io.bootique.BQCoreModule;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
 import io.bootique.agrest.cayenne42.swagger.api.TestApi;
+import io.bootique.agrest.cayenne42.swagger.model.P1;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.jetty.junit5.JettyTester;
 import io.bootique.junit5.BQApp;
@@ -50,6 +51,7 @@ public class ModuleIT {
             .module(b -> BQCoreModule.extend(b).setProperty("bq.swagger.specs.default.pathJson", "spec/oapi.json"))
             .module(b -> BQCoreModule.extend(b).setProperty("bq.swagger.specs.default.resourcePackages[0]", "io.bootique.agrest.cayenne42.swagger.api"))
             .module(b -> JerseyModule.extend(b).addResource(TestApi.class))
+            .module(b -> AgrestSwaggerModule.extend(b).addModelPackage(P1.class))
             .createRuntime();
 
     static JsonNode model;
@@ -84,6 +86,13 @@ public class ModuleIT {
         JsonNode schemas = model.get("components").get("schemas");
         assertEquals(2, schemas.size());
         assertNotNull(schemas.get("DataResponse(P1)"));
-        assertNotNull(schemas.get("P1"));
+
+        JsonNode p1 = schemas.get("P1");
+        assertNotNull(p1);
+
+        // make sure only Agrest properties are included
+        JsonNode p1Props = p1.get("properties");
+        assertEquals(1, p1Props.size(), "Only expecting Agrest properties here");
+        assertNotNull(p1Props.get("a"));
     }
 }

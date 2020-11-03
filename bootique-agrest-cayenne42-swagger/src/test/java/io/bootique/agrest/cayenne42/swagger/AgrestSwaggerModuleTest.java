@@ -16,19 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest.cayenne42.swagger.model;
+package io.bootique.agrest.cayenne42.swagger;
 
-import io.agrest.annotation.AgAttribute;
+import io.bootique.junit5.BQModuleProviderChecker;
+import org.junit.jupiter.api.Test;
 
-public class P1 {
+public class AgrestSwaggerModuleTest {
 
-    @AgAttribute
-    public String getA() {
-        return "";
-    }
-
-    // not an Ag property
-    public String getB() {
-        return "";
+    @Test
+    public void testAutoLoading() {
+        BQModuleProviderChecker.testAutoLoadable(AgrestSwaggerModule.class);
     }
 }

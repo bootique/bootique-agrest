@@ -16,19 +16,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest.cayenne42.swagger.model;
+package io.bootique.agrest.cayenne42.swagger;
 
-import io.agrest.annotation.AgAttribute;
+import io.bootique.BaseModule;
+import io.bootique.agrest.cayenne42.AgrestModuleExtender;
+import io.bootique.di.Binder;
 
-public class P1 {
+/**
+ * @since 2.0
+ */
+public class AgrestSwaggerModule extends BaseModule {
 
-    @AgAttribute
-    public String getA() {
-        return "";
-    }
-
-    // not an Ag property
-    public String getB() {
-        return "";
+    public static AgrestSwaggerModuleExtender extend(Binder binder) {
+        return new AgrestSwaggerModuleExtender(binder);
     }
 }
