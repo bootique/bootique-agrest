@@ -51,7 +51,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      * @since 1.1
      */
     public AgrestModuleExtender addBuilderCallback(AgBuilderCallback callback) {
-        contributeBuilderCallbacks().add(callback);
+        contributeBuilderCallbacks().addInstance(callback);
         return this;
     }
 
@@ -69,7 +69,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      * @since 0.25
      */
     public AgrestModuleExtender addModuleProvider(AgModuleProvider moduleProvider) {
-        contributeModuleProviders().add(moduleProvider);
+        contributeModuleProviders().addInstance(moduleProvider);
         return this;
     }
 
@@ -88,7 +88,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      * @since 0.25
      */
     public AgrestModuleExtender addFeatureProvider(AgFeatureProvider featureProvider) {
-        contributeFeatureProviders().add(featureProvider);
+        contributeFeatureProviders().addInstance(featureProvider);
         return this;
     }
 
