@@ -7,6 +7,7 @@
 * #51 Integrate "agrest-openapi" as a new BQ module - "bootique-agrest-cayenne42-swagger"
 * #52 Update Cayenne 4.2 modules to Agrest 4.2
 * #53 Update Cayenne 4.2 modules to Agrest 4.3
+* #54 Upgrade Agrest 3.x to 3.8
 
 ## 2.0.M1
 
