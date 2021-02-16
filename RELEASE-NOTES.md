@@ -9,6 +9,7 @@
 * #53 Update Cayenne 4.2 modules to Agrest 4.3
 * #54 Upgrade Agrest 3.x to 3.8
 * #55 Upgrade Agrest 3.x to 3.9
+* #56 Upgrade to "agrest-cayenne42" to Agrest 4.4
 
 ## 2.0.M1
 
