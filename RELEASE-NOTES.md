@@ -10,6 +10,7 @@
 * #54 Upgrade Agrest 3.x to 3.8
 * #55 Upgrade Agrest 3.x to 3.9
 * #56 Upgrade to "agrest-cayenne42" to Agrest 4.4
+* #57 bootique-agrest-cayenne42: Upgrade to Agrest 4.5 / Cayenne 4.2.M3
 
 ## 2.0.M1
 

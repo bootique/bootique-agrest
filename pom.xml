@@ -48,7 +48,7 @@
     <properties>
         <bootique.version>${project.version}</bootique.version>
         <agrest3.version>3.9</agrest3.version>
-        <agrest4.version>4.4</agrest4.version>
+        <agrest4.version>4.5</agrest4.version>
     </properties>
 
     <scm>
