@@ -17,7 +17,7 @@
   under the License.
   -->
 
-[![Build Status](https://travis-ci.org/bootique/bootique-agrest.svg)](https://travis-ci.org/bootique/bootique-agrest)
+[![build test deploy](https://github.com/bootique/bootique-agrest/actions/workflows/maven.yml/badge.svg)](https://github.com/bootique/bootique-agrest/actions/workflows/maven.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/io.bootique.agrest/bootique-agrest.svg?colorB=brightgreen)](https://search.maven.org/artifact/io.bootique.agrest/bootique-agrest/)
 
 [AgRest (ex LinkRest)](https://agrest.io) integration module for [Bootique](http://bootique.io).
