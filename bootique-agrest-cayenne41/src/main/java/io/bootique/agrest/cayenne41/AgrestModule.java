@@ -46,7 +46,6 @@ public class AgrestModule extends ConfigModule {
     /**
      * @param binder DI binder passed to the Module that invokes this method.
      * @return an instance of {@link AgrestModuleExtender} that can be used to load LinkMove custom extensions.
-     * @since 0.15
      */
     public static AgrestModuleExtender extend(Binder binder) {
         return new AgrestModuleExtender(binder);

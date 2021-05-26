@@ -25,9 +25,6 @@ import io.bootique.ModuleExtender;
 import io.bootique.di.Binder;
 import io.bootique.di.SetBuilder;
 
-/**
- * @since 0.15
- */
 public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     private SetBuilder<AgFeatureProvider> featureProviders;
@@ -66,7 +63,6 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     /**
      * @return this extender instance.
-     * @since 0.25
      */
     public AgrestModuleExtender addModuleProvider(AgModuleProvider moduleProvider) {
         contributeModuleProviders().addInstance(moduleProvider);
@@ -75,7 +71,6 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     /**
      * @return this extender instance.
-     * @since 0.25
      */
     public AgrestModuleExtender addModuleProvider(Class<? extends AgModuleProvider> moduleProviderType) {
         contributeModuleProviders().add(moduleProviderType);
@@ -84,7 +79,6 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     /**
      * @return this extender instance.
-     * @since 0.25
      */
     public AgrestModuleExtender addFeatureProvider(AgFeatureProvider featureProvider) {
         contributeFeatureProviders().addInstance(featureProvider);
@@ -93,7 +87,6 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     /**
      * @return this extender instance.
-     * @since 0.25
      */
     public AgrestModuleExtender addFeatureProvider(Class<? extends AgFeatureProvider> featureProviderType) {
         contributeFeatureProviders().add(featureProviderType);
