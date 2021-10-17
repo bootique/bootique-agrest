@@ -36,13 +36,6 @@ import java.util.Set;
 
 public class AgrestModule extends ConfigModule {
 
-    public AgrestModule() {
-    }
-
-    public AgrestModule(String configPrefix) {
-        super(configPrefix);
-    }
-
     /**
      * @param binder DI binder passed to the Module that invokes this method.
      * @return an instance of {@link AgrestModuleExtender} that can be used to load LinkMove custom extensions.
