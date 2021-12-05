@@ -47,6 +47,13 @@ public class AgTester {
         return onResponse(r);
     }
 
+    /**
+     * @since 2.0.B1
+     */
+    public AgResponseMatcher delete() {
+        return onResponse(request().delete());
+    }
+
     protected static AgResponseMatcher onResponse(Response response) {
         return new AgResponseMatcher(response);
     }

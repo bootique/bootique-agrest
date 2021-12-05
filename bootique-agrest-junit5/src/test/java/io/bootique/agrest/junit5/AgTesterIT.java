@@ -21,6 +21,7 @@ package io.bootique.agrest.junit5;
 import io.agrest.Ag;
 import io.agrest.DataResponse;
 import io.agrest.SelectStage;
+import io.agrest.SimpleResponse;
 import io.agrest.annotation.AgAttribute;
 import io.agrest.annotation.AgId;
 import io.agrest.runtime.processor.select.SelectContext;
@@ -30,8 +31,10 @@ import io.bootique.jersey.JerseyModule;
 import io.bootique.jetty.junit5.JettyTester;
 import io.bootique.junit5.BQApp;
 import io.bootique.junit5.BQTest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.client.WebTarget;
@@ -61,11 +64,21 @@ public class AgTesterIT {
     }
 
     @Test
-    public void testRequest() {
+    public void testGet() {
         WebTarget target = jetty.getTarget().path("r1");
         AgTester.request(target).get()
                 .assertOk()
                 .assertContent(1, "{\"id\":1,\"name\":\"xyz\"}");
+    }
+
+    @Test
+    // TODO: Awaiting Agrest 4.8 to be able to provide custom DELETE stages for handling pojo backend
+    @Disabled("Awaiting Agrest 4.8 to be able to provide custom DELETE stages for handling pojo backend")
+    public void testDelete() {
+        WebTarget target = jetty.getTarget().path("r1");
+        AgTester.request(target).delete()
+                .assertOk()
+                .assertContent(1, "{\"success\":\"true\"}");
     }
 
     @Path("/r1")
@@ -81,6 +94,11 @@ public class AgTesterIT {
                     .uri(uriInfo)
                     .terminalStage(SelectStage.APPLY_SERVER_PARAMS, AgTesterIT::fillData)
                     .get();
+        }
+
+        @DELETE
+        public SimpleResponse delete(@Context UriInfo uriInfo) {
+            return Ag.delete(E1.class, config).delete();
         }
     }
 

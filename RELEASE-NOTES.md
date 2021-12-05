@@ -1,3 +1,7 @@
+## 3.0.M1
+
+* #60 AgTester.delete()
+
 ## 2.0.RC1
 
 * #58 Upgrade to Agrest 3.10, 4.6
