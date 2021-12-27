@@ -2,6 +2,7 @@
 
 * #58 Upgrade to Agrest 3.10, 4.6
 * #59 Upgrade Agrest to 3.11 and 4.7
+* #61 Upgrade to Agrest 4.9
 
 ## 2.0.B1
 
