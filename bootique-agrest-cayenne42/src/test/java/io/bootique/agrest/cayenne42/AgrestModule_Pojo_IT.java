@@ -21,9 +21,9 @@ package io.bootique.agrest.cayenne42;
 
 import io.agrest.Ag;
 import io.agrest.DataResponse;
-import io.agrest.SelectStage;
 import io.agrest.annotation.AgAttribute;
 import io.agrest.annotation.AgId;
+import io.agrest.meta.AgEntity;
 import io.agrest.runtime.processor.select.SelectContext;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
@@ -41,6 +41,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -57,11 +58,11 @@ public class AgrestModule_Pojo_IT {
             .module(b -> JerseyModule.extend(b).addResource(R1.class))
             .createRuntime();
 
-    private static void fillData(SelectContext<E1> context) {
+    private static List<E1> fillData(SelectContext<E1> context) {
         E1 e1 = new E1();
         e1.setId(1);
         e1.setName("xyz");
-        context.getEntity().setResult(Collections.singletonList(e1));
+        return Collections.singletonList(e1);
     }
 
     @Test
@@ -82,7 +83,7 @@ public class AgrestModule_Pojo_IT {
             return Ag
                     .select(E1.class, config)
                     .uri(uriInfo)
-                    .terminalStage(SelectStage.APPLY_SERVER_PARAMS, AgrestModule_Pojo_IT::fillData)
+                    .entityOverlay(AgEntity.overlay(E1.class).redefineDataResolver(AgrestModule_Pojo_IT::fillData))
                     .get();
         }
     }
