@@ -35,13 +35,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.bootique.agrest</groupId>
-            <artifactId>bootique-agrest</artifactId>
-            <version>${bootique.version}</version>
-             <!-- Using "provided" scope so that it works with any version of Cayenne -->
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>io.bootique.jetty</groupId>
             <artifactId>bootique-jetty-junit5</artifactId>
         </dependency>
@@ -50,6 +43,12 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.bootique.agrest</groupId>
+            <artifactId>bootique-agrest-cayenne41</artifactId>
+            <version>${bootique.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

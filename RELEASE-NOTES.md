@@ -1,6 +1,7 @@
 ## 3.0.M1
 
 * #60 AgTester.delete()
+* #62 Stop supporting Cayenne 4.0
 
 ## 2.0.RC1
 

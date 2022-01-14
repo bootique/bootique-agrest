@@ -38,7 +38,6 @@
     </description>
 
     <modules>
-        <module>bootique-agrest</module>
         <module>bootique-agrest-cayenne41</module>
         <module>bootique-agrest-cayenne42</module>
         <module>bootique-agrest-cayenne42-swagger</module>
@@ -77,16 +76,6 @@
             <dependency>
                 <groupId>io.bootique.jetty</groupId>
                 <artifactId>bootique-jetty-junit5</artifactId>
-                <version>${bootique.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.bootique.cayenne</groupId>
-                <artifactId>bootique-cayenne</artifactId>
-                <version>${bootique.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.bootique.cayenne</groupId>
-                <artifactId>bootique-cayenne-junit5</artifactId>
                 <version>${bootique.version}</version>
             </dependency>
             <dependency>
