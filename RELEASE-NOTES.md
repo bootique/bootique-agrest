@@ -2,6 +2,7 @@
 
 * #60 AgTester.delete()
 * #62 Stop supporting Cayenne 4.0
+* #63 AgTester - add a POST for "application/x-www-form-urlencoded" form
 
 ## 2.0.RC1
 

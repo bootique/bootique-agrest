@@ -3,6 +3,7 @@ package io.bootique.agrest.junit5;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Objects;
@@ -41,9 +42,23 @@ public class AgTester {
         return onResponse(r);
     }
 
+    /**
+     * Runs a POST request, submitting the data string "application/json" type.
+     */
     public AgResponseMatcher post(String data) {
         Objects.requireNonNull(data);
         Response r = request().post(Entity.entity(data, MediaType.APPLICATION_JSON_TYPE));
+        return onResponse(r);
+    }
+
+    /**
+     * Runs a POST request, submitting the contents of the form as "application/x-www-form-urlencoded" type.
+     *
+     * @since 3.0
+     */
+    public AgResponseMatcher post(Form form) {
+        Objects.requireNonNull(form);
+        Response r = request().post(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED));
         return onResponse(r);
     }
 
