@@ -42,12 +42,15 @@
         <module>bootique-agrest-cayenne42</module>
         <module>bootique-agrest-cayenne42-swagger</module>
         <module>bootique-agrest-junit5</module>
+
+        <module>bootique-agrest5</module>
     </modules>
 
     <properties>
         <bootique.version>${project.version}</bootique.version>
         <agrest3.version>3.11</agrest3.version>
         <agrest4.version>4.9</agrest4.version>
+        <agrest5.version>5.0.M1</agrest5.version>
     </properties>
 
     <scm>
