@@ -1,3 +1,7 @@
+## 2.0.1
+
+* #67 4.x: Upgrade to Agrest 4.10
+
 ## 2.0.RC1
 
 * #58 Upgrade to Agrest 3.10, 4.6
