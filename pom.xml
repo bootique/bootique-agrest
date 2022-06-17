@@ -46,8 +46,8 @@
         <module>bootique-agrest5</module>
         <module>bootique-agrest5-swagger</module>
         <module>bootique-agrest5-junit5</module>
-
         <module>bootique-agrest5-jakarta</module>
+        <module>bootique-agrest5-jakarta-swagger</module>
     </modules>
 
     <properties>
