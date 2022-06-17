@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest.jakarta.junit5;
+package io.bootique.agrest.junit5;
 
 import io.agrest.DataResponse;
 import io.agrest.DeleteStage;
@@ -30,6 +30,7 @@ import io.agrest.resolver.RootDataResolver;
 import io.agrest.runtime.processor.select.SelectContext;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
+import io.bootique.agrest.junit5.AgTester;
 import io.bootique.agrest.v5.AgrestModule;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.jetty.junit5.JettyTester;

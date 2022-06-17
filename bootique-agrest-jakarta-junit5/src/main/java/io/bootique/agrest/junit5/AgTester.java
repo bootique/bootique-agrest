@@ -1,4 +1,4 @@
-package io.bootique.agrest.jakarta.junit5;
+package io.bootique.agrest.junit5;
 
 
 import jakarta.ws.rs.client.Entity;
