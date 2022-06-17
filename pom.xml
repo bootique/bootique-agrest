@@ -38,8 +38,8 @@
     </description>
 
     <modules>
-        <module>bootique-agrest-cayenne42</module>
-        <module>bootique-agrest-cayenne42-swagger</module>
+        <module>bootique-agrest4</module>
+        <module>bootique-agrest4-swagger</module>
         <module>bootique-agrest-junit5</module>
 
         <module>bootique-agrest5</module>
