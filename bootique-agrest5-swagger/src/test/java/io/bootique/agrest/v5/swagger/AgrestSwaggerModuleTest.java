@@ -16,9 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest5.swagger;
+package io.bootique.agrest.v5.swagger;
 
-import io.bootique.agrest5.swagger.AgrestSwaggerModule;
+import io.bootique.agrest.v5.swagger.AgrestSwaggerModule;
 import io.bootique.junit5.BQModuleProviderChecker;
 import org.junit.jupiter.api.Test;
 

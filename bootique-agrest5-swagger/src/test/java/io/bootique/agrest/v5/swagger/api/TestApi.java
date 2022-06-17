@@ -16,17 +16,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest5.swagger;
+package io.bootique.agrest.v5.swagger.api;
 
-import io.bootique.BaseModule;
-import io.bootique.di.Binder;
+import io.agrest.DataResponse;
+import io.bootique.agrest.v5.swagger.model.P1;
 
-/**
- * @since 3.0
- */
-public class AgrestSwaggerModule extends BaseModule {
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 
-    public static AgrestSwaggerModuleExtender extend(Binder binder) {
-        return new AgrestSwaggerModuleExtender(binder);
+@Path("agrest")
+public class TestApi {
+
+    @GET
+    public DataResponse<P1> get(@Context UriInfo uriInfo) {
+        throw new UnsupportedOperationException("the behavior is irrelevant. All we care about is the method signature");
     }
 }
