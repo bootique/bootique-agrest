@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest5.jakarta.swagger;
+package io.bootique.agrest.v5.jakarta.swagger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -24,8 +24,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.bootique.BQCoreModule;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
-import io.bootique.agrest5.jakarta.swagger.api.TestApi;
-import io.bootique.agrest5.jakarta.swagger.model.P1;
+import io.bootique.agrest.v5.jakarta.swagger.api.TestApi;
+import io.bootique.agrest.v5.jakarta.swagger.model.P1;
 import io.bootique.jersey.jakarta.JerseyModule;
 import io.bootique.jetty.jakarta.junit5.JettyTester;
 import io.bootique.junit5.BQApp;

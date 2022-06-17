@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest5.jakarta.swagger;
+package io.bootique.agrest.v5.jakarta.swagger;
 
 import io.agrest.jaxrs3.openapi.AgSwaggerModule;
 import io.agrest.runtime.AgRuntimeBuilder;

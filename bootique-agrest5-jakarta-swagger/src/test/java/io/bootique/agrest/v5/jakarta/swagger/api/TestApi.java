@@ -16,19 +16,20 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest5.jakarta.swagger.model;
+package io.bootique.agrest.v5.jakarta.swagger.api;
 
-import io.agrest.annotation.AgAttribute;
+import io.agrest.DataResponse;
+import io.bootique.agrest.v5.jakarta.swagger.model.P1;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.UriInfo;
 
-public class P1 {
+@Path("agrest")
+public class TestApi {
 
-    @AgAttribute
-    public String getA() {
-        return "";
-    }
-
-    // not an Ag property
-    public String getB() {
-        return "";
+    @GET
+    public DataResponse<P1> get(@Context UriInfo uriInfo) {
+        throw new UnsupportedOperationException("the behavior is irrelevant. All we care about is the method signature");
     }
 }

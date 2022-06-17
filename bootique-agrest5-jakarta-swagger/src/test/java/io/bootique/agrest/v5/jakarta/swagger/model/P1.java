@@ -16,17 +16,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest5.jakarta.swagger;
+package io.bootique.agrest.v5.jakarta.swagger.model;
 
-import io.bootique.BaseModule;
-import io.bootique.di.Binder;
+import io.agrest.annotation.AgAttribute;
 
-/**
- * @since 3.0
- */
-public class AgrestSwaggerModule extends BaseModule {
+public class P1 {
 
-    public static AgrestSwaggerModuleExtender extend(Binder binder) {
-        return new AgrestSwaggerModuleExtender(binder);
+    @AgAttribute
+    public String getA() {
+        return "";
+    }
+
+    // not an Ag property
+    public String getB() {
+        return "";
     }
 }

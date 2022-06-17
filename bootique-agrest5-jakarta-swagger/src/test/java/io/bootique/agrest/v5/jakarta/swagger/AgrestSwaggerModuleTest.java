@@ -16,8 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest5.jakarta.swagger;
+package io.bootique.agrest.v5.jakarta.swagger;
 
+import io.bootique.agrest.v5.jakarta.swagger.AgrestSwaggerModule;
 import io.bootique.junit5.BQModuleProviderChecker;
 import org.junit.jupiter.api.Test;
 
