@@ -20,10 +20,8 @@
 package io.bootique.agrest.v5.jakarta;
 
 import io.bootique.BQRuntime;
-import io.bootique.agrest.v5.jakarta.AgrestModule;
-import io.bootique.agrest.v5.jakarta.AgrestModuleProvider;
 import io.bootique.cayenne.v42.CayenneModule;
-import io.bootique.jersey.jakarta.JerseyModule;
+import io.bootique.jersey.JerseyModule;
 import io.bootique.junit5.*;
 import org.junit.jupiter.api.Test;
 

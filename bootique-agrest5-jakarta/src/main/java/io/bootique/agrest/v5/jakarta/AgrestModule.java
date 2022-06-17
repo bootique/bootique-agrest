@@ -28,7 +28,7 @@ import io.bootique.ConfigModule;
 import io.bootique.di.Binder;
 import io.bootique.di.Injector;
 import io.bootique.di.Provides;
-import io.bootique.jersey.jakarta.JerseyModule;
+import io.bootique.jersey.JerseyModule;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 
 import javax.inject.Singleton;
