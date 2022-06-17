@@ -1,4 +1,4 @@
-package io.bootique.agrest5.jakarta.junit5;
+package io.bootique.agrest.jakarta.junit5;
 
 
 import jakarta.ws.rs.client.Entity;
@@ -34,11 +34,11 @@ public class AgTester {
         return this;
     }
 
-    public io.bootique.agrest5.jakarta.junit5.AgResponseMatcher get() {
+    public AgResponseMatcher get() {
         return onResponse(request().get());
     }
 
-    public io.bootique.agrest5.jakarta.junit5.AgResponseMatcher put(String data) {
+    public AgResponseMatcher put(String data) {
         Objects.requireNonNull(data);
         Response r = request().put(Entity.entity(data, MediaType.APPLICATION_JSON_TYPE));
         return onResponse(r);
@@ -47,7 +47,7 @@ public class AgTester {
     /**
      * Runs a POST request, submitting the data string "application/json" type.
      */
-    public io.bootique.agrest5.jakarta.junit5.AgResponseMatcher post(String data) {
+    public AgResponseMatcher post(String data) {
         Objects.requireNonNull(data);
         Response r = request().post(Entity.entity(data, MediaType.APPLICATION_JSON_TYPE));
         return onResponse(r);
@@ -58,7 +58,7 @@ public class AgTester {
      *
      * @since 3.0
      */
-    public io.bootique.agrest5.jakarta.junit5.AgResponseMatcher post(Form form) {
+    public AgResponseMatcher post(Form form) {
         Objects.requireNonNull(form);
         Response r = request().post(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED));
         return onResponse(r);
@@ -67,11 +67,11 @@ public class AgTester {
     /**
      * @since 2.0.B1
      */
-    public io.bootique.agrest5.jakarta.junit5.AgResponseMatcher delete() {
+    public AgResponseMatcher delete() {
         return onResponse(request().delete());
     }
 
-    protected static io.bootique.agrest5.jakarta.junit5.AgResponseMatcher onResponse(Response response) {
+    protected static AgResponseMatcher onResponse(Response response) {
         return new AgResponseMatcher(response);
     }
 

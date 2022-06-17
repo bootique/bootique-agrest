@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest5.jakarta.junit5;
+package io.bootique.agrest.jakarta.junit5;
 
 import io.agrest.DataResponse;
 import io.agrest.DeleteStage;
@@ -82,7 +82,7 @@ public class AgTesterIT {
     @Test
     public void testGet() {
         WebTarget target = jetty.getTarget().path("r1");
-        io.bootique.agrest5.jakarta.junit5.AgTester.request(target).get()
+        AgTester.request(target).get()
                 .assertOk()
                 .assertContent(1, "{\"id\":1,\"name\":\"xyz\"}");
     }
