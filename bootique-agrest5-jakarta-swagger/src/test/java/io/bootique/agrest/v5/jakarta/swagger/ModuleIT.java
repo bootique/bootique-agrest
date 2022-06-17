@@ -55,7 +55,7 @@ public class ModuleIT {
             .autoLoadModules()
             .module(jetty.moduleReplacingConnectors())
             .module(b -> BQCoreModule.extend(b).setProperty("bq.swagger.specs.default.pathJson", "spec/oapi.json"))
-            .module(b -> BQCoreModule.extend(b).setProperty("bq.swagger.specs.default.resourcePackages[0]", "io.bootique.agrest5.jakarta.swagger.api"))
+            .module(b -> BQCoreModule.extend(b).setProperty("bq.swagger.specs.default.resourcePackages[0]", "io.bootique.agrest.v5.jakarta.swagger.api"))
             .module(b -> JerseyModule.extend(b).addResource(TestApi.class))
             .module(b -> AgrestSwaggerModule.extend(b).entityPackage(P1.class))
             .createRuntime();
