@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest.v5.jakarta.swagger.model;
+package io.bootique.agrest.v5.swagger.model;
 
 import io.agrest.annotation.AgAttribute;
 

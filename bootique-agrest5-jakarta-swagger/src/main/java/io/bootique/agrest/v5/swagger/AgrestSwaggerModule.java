@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest.v5.jakarta.swagger;
+package io.bootique.agrest.v5.swagger;
 
 import io.bootique.BaseModule;
 import io.bootique.di.Binder;
