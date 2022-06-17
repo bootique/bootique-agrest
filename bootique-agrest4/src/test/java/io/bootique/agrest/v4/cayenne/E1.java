@@ -1,6 +1,6 @@
-package io.bootique.agrest4.cayenne;
+package io.bootique.agrest.v4.cayenne;
 
-import io.bootique.agrest4.cayenne.auto._E1;
+import io.bootique.agrest.v4.cayenne.auto._E1;
 
 public class E1 extends _E1 {
 

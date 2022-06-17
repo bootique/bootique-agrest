@@ -16,19 +16,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest4.swagger.model;
+package io.bootique.agrest.v4;
 
-import io.agrest.annotation.AgAttribute;
+import io.agrest.runtime.AgBuilder;
 
-public class P1 {
+/**
+ * A custom extension that allows users to customize Agrest stack during creation. In many cases this may be an easier
+ * alternative API compared to injectable {@link io.agrest.AgModuleProvider} and {@link io.agrest.AgFeatureProvider}.
+ *
+ * @since 1.1
+ */
+@FunctionalInterface
+public interface AgBuilderCallback {
 
-    @AgAttribute
-    public String getA() {
-        return "";
-    }
-
-    // not an Ag property
-    public String getB() {
-        return "";
-    }
+    void configure(AgBuilder builder);
 }

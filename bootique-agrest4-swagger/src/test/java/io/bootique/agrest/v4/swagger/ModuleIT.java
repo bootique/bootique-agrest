@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest4.swagger;
+package io.bootique.agrest.v4.swagger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -24,8 +24,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.bootique.BQCoreModule;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
-import io.bootique.agrest4.swagger.api.TestApi;
-import io.bootique.agrest4.swagger.model.P1;
+import io.bootique.agrest.v4.swagger.api.TestApi;
+import io.bootique.agrest.v4.swagger.model.P1;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.jetty.junit5.JettyTester;
 import io.bootique.junit5.BQApp;
@@ -49,7 +49,7 @@ public class ModuleIT {
             .autoLoadModules()
             .module(jetty.moduleReplacingConnectors())
             .module(b -> BQCoreModule.extend(b).setProperty("bq.swagger.specs.default.pathJson", "spec/oapi.json"))
-            .module(b -> BQCoreModule.extend(b).setProperty("bq.swagger.specs.default.resourcePackages[0]", "io.bootique.agrest4.swagger.api"))
+            .module(b -> BQCoreModule.extend(b).setProperty("bq.swagger.specs.default.resourcePackages[0]", "io.bootique.agrest.v4.swagger.api"))
             .module(b -> JerseyModule.extend(b).addResource(TestApi.class))
             .module(b -> AgrestSwaggerModule.extend(b).addModelPackage(P1.class))
             .createRuntime();

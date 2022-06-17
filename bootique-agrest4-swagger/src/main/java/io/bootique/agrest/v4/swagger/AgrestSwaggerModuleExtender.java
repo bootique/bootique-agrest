@@ -16,13 +16,13 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest4.swagger;
+package io.bootique.agrest.v4.swagger;
 
 import io.agrest.openapi.AgSwaggerModule;
 import io.agrest.runtime.AgBuilder;
 import io.bootique.ModuleExtender;
-import io.bootique.agrest4.AgrestModule;
-import io.bootique.agrest4.AgrestModuleExtender;
+import io.bootique.agrest.v4.AgrestModule;
+import io.bootique.agrest.v4.AgrestModuleExtender;
 import io.bootique.di.Binder;
 
 /**

@@ -16,18 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest4;
+package io.bootique.agrest.v4.swagger;
 
-import io.agrest.runtime.AgBuilder;
+import io.bootique.agrest.v4.swagger.AgrestSwaggerModule;
+import io.bootique.junit5.BQModuleProviderChecker;
+import org.junit.jupiter.api.Test;
 
-/**
- * A custom extension that allows users to customize Agrest stack during creation. In many cases this may be an easier
- * alternative API compared to injectable {@link io.agrest.AgModuleProvider} and {@link io.agrest.AgFeatureProvider}.
- *
- * @since 1.1
- */
-@FunctionalInterface
-public interface AgBuilderCallback {
+public class AgrestSwaggerModuleTest {
 
-    void configure(AgBuilder builder);
+    @Test
+    public void testAutoLoading() {
+        BQModuleProviderChecker.testAutoLoadable(AgrestSwaggerModule.class);
+    }
 }

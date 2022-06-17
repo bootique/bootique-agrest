@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package io.bootique.agrest4;
+package io.bootique.agrest.v4;
 
 import io.agrest.Ag;
 import io.agrest.DataResponse;

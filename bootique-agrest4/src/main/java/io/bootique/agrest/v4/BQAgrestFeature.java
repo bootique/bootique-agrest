@@ -16,21 +16,32 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest4.swagger.api;
 
-import io.agrest.DataResponse;
-import io.bootique.agrest4.swagger.model.P1;
+package io.bootique.agrest.v4;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
+import io.agrest.runtime.AgRuntime;
 
-@Path("agrest")
-public class TestApi {
+import javax.inject.Inject;
+import javax.inject.Provider;
+import javax.ws.rs.core.Feature;
+import javax.ws.rs.core.FeatureContext;
 
-    @GET
-    public DataResponse<P1> get(@Context UriInfo uriInfo) {
-        throw new UnsupportedOperationException("the behavior is irrelevant. All we care about is the method signature");
-    }
+/**
+ * An injectable wrapper around {@link AgRuntime} feature.
+ */
+public class BQAgrestFeature implements Feature {
+
+	// AgRuntime must be initialized lazily to avoid premature DataSource resolvign inside unit tests
+	private Provider<AgRuntime> agRuntime;
+
+	@Inject
+	public BQAgrestFeature(Provider<AgRuntime> agRuntime) {
+		this.agRuntime = agRuntime;
+	}
+
+	@Override
+	public boolean configure(FeatureContext context) {
+		agRuntime.get().configure(context);
+		return true;
+	}
 }
