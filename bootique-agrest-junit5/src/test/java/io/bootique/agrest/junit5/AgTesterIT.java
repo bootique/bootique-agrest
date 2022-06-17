@@ -18,11 +18,11 @@
  */
 package io.bootique.agrest.junit5;
 
-import io.agrest.Ag;
 import io.agrest.DataResponse;
 import io.agrest.SimpleResponse;
 import io.agrest.annotation.AgAttribute;
 import io.agrest.annotation.AgId;
+import io.agrest.jaxrs2.AgJaxrs;
 import io.agrest.meta.AgEntity;
 import io.agrest.meta.AgEntityOverlay;
 import io.bootique.BQRuntime;
@@ -92,16 +92,16 @@ public class AgTesterIT {
                         return List.of(e1);
                     });
 
-            return Ag
+            return AgJaxrs
                     .select(E1.class, config)
-                    .uri(uriInfo)
+                    .clientParams(uriInfo.getQueryParameters())
                     .entityOverlay(overlay)
                     .get();
         }
 
         @DELETE
         public SimpleResponse delete(@Context UriInfo uriInfo) {
-            return Ag.delete(E1.class, config).sync();
+            return AgJaxrs.delete(E1.class, config).sync();
         }
     }
 

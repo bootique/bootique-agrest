@@ -40,14 +40,14 @@
     <modules>
         <module>bootique-agrest4</module>
         <module>bootique-agrest4-swagger</module>
-        <module>bootique-agrest-junit5</module>
 
         <module>bootique-agrest5</module>
         <module>bootique-agrest5-swagger</module>
-        <module>bootique-agrest5-junit5</module>
         <module>bootique-agrest5-jakarta</module>
         <module>bootique-agrest5-jakarta-swagger</module>
-        <module>bootique-agrest5-jakarta-junit5</module>
+
+        <module>bootique-agrest-junit5</module>
+        <module>bootique-agrest-jakarta-junit5</module>
     </modules>
 
     <properties>

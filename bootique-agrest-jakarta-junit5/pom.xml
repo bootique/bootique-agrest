@@ -27,16 +27,16 @@
         <version>3.0.M1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bootique-agrest5-junit5</artifactId>
+    <artifactId>bootique-agrest5-jakarta-junit5</artifactId>
     <packaging>jar</packaging>
 
-    <name>bootique-agrest5-junit5: Common JUnit5-based helper classes for test Agrest 5 requests</name>
-    <description>Provides common JUnit5-based helper classes for test Agrest 5 requests</description>
+    <name>bootique-agrest-jakarta-junit5: Common JUnit5-based helper classes for test Agrest requests</name>
+    <description>Provides common JUnit5-based helper classes for test Agrest requests</description>
 
     <dependencies>
         <dependency>
             <groupId>io.bootique.jetty</groupId>
-            <artifactId>bootique-jetty-junit5</artifactId>
+            <artifactId>bootique-jetty-jakarta-junit5</artifactId>
         </dependency>
 
         <!-- Unit test dependencies -->
@@ -47,7 +47,7 @@
         </dependency>
         <dependency>
             <groupId>io.bootique.agrest</groupId>
-            <artifactId>bootique-agrest5</artifactId>
+            <artifactId>bootique-agrest5-jakarta</artifactId>
             <version>${bootique.version}</version>
             <scope>test</scope>
         </dependency>
