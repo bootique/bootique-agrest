@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package io.bootique.agrest.v5.jakarta;
+package io.bootique.agrest.v5;
 
 import io.agrest.DataResponse;
 import io.agrest.annotation.AgAttribute;
