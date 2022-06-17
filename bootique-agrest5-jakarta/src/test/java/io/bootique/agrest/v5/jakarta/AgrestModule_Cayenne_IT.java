@@ -28,7 +28,7 @@ import io.bootique.cayenne.v42.CayenneModule;
 import io.bootique.cayenne.v42.junit5.CayenneTester;
 import io.bootique.jdbc.junit5.derby.DerbyTester;
 import io.bootique.jersey.jakarta.JerseyModule;
-import io.bootique.jetty.jakarta.junit5.JettyTester;
+import io.bootique.jetty.junit5.JettyTester;
 import io.bootique.junit5.BQApp;
 import io.bootique.junit5.BQTest;
 import io.bootique.junit5.BQTestTool;

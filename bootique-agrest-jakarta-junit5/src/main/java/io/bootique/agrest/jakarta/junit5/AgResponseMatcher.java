@@ -2,7 +2,7 @@ package io.bootique.agrest.jakarta.junit5;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.bootique.jetty.jakarta.junit5.JettyTester;
+import io.bootique.jetty.junit5.JettyTester;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 

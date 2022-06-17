@@ -32,7 +32,7 @@ import io.bootique.BQRuntime;
 import io.bootique.Bootique;
 import io.bootique.agrest.v5.jakarta.AgrestModule;
 import io.bootique.jersey.jakarta.JerseyModule;
-import io.bootique.jetty.jakarta.junit5.JettyTester;
+import io.bootique.jetty.junit5.JettyTester;
 import io.bootique.junit5.BQApp;
 import io.bootique.junit5.BQTest;
 import jakarta.ws.rs.DELETE;
