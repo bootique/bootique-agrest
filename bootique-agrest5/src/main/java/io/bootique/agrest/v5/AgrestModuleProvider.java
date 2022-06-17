@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package io.bootique.agrest5;
+package io.bootique.agrest.v5;
 
 import io.bootique.BQModuleMetadata;
 import io.bootique.BQModuleProvider;

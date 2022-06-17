@@ -21,8 +21,8 @@ package io.bootique.agrest5.swagger;
 import io.agrest.jaxrs2.openapi.AgSwaggerModule;
 import io.agrest.runtime.AgRuntimeBuilder;
 import io.bootique.ModuleExtender;
-import io.bootique.agrest5.AgrestModule;
-import io.bootique.agrest5.AgrestModuleExtender;
+import io.bootique.agrest.v5.AgrestModule;
+import io.bootique.agrest.v5.AgrestModuleExtender;
 import io.bootique.di.Binder;
 
 /**
