@@ -20,11 +20,11 @@ package io.bootique.agrest.junit5;
 
 import io.agrest.Ag;
 import io.agrest.DataResponse;
-import io.agrest.SelectStage;
 import io.agrest.SimpleResponse;
 import io.agrest.annotation.AgAttribute;
 import io.agrest.annotation.AgId;
-import io.agrest.runtime.processor.select.SelectContext;
+import io.agrest.meta.AgEntity;
+import io.agrest.meta.AgEntityOverlay;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
 import io.bootique.jersey.JerseyModule;
@@ -41,7 +41,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Configuration;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import java.util.Collections;
+import java.util.List;
 
 @BQTest
 public class AgTesterIT {
@@ -56,12 +56,6 @@ public class AgTesterIT {
             .module(b -> JerseyModule.extend(b).addResource(R1.class))
             .createRuntime();
 
-    private static void fillData(SelectContext<E1> context) {
-        E1 e1 = new E1();
-        e1.setId(1);
-        e1.setName("xyz");
-        context.getEntity().setResult(Collections.singletonList(e1));
-    }
 
     @Test
     public void testGet() {
@@ -72,8 +66,8 @@ public class AgTesterIT {
     }
 
     @Test
-    // TODO: Awaiting Agrest 4.8 to be able to provide custom DELETE stages for handling pojo backend
-    @Disabled("Awaiting Agrest 4.8 to be able to provide custom DELETE stages for handling pojo backend")
+    // TODO: 4.x supports Delete stages, so we can implement a POJO backend
+    @Disabled("TODO: 4.x supports Delete stages, so we can implement a POJO backend")
     public void testDelete() {
         WebTarget target = jetty.getTarget().path("r1");
         AgTester.request(target).delete()
@@ -89,16 +83,25 @@ public class AgTesterIT {
 
         @GET
         public DataResponse<E1> get(@Context UriInfo uriInfo) {
+
+            AgEntityOverlay<E1> overlay = AgEntity.overlay(E1.class)
+                    .redefineDataResolver(c -> {
+                        E1 e1 = new E1();
+                        e1.setId(1);
+                        e1.setName("xyz");
+                        return List.of(e1);
+                    });
+
             return Ag
                     .select(E1.class, config)
                     .uri(uriInfo)
-                    .terminalStage(SelectStage.APPLY_SERVER_PARAMS, AgTesterIT::fillData)
+                    .entityOverlay(overlay)
                     .get();
         }
 
         @DELETE
         public SimpleResponse delete(@Context UriInfo uriInfo) {
-            return Ag.delete(E1.class, config).delete();
+            return Ag.delete(E1.class, config).sync();
         }
     }
 

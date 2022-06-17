@@ -47,7 +47,7 @@
         </dependency>
         <dependency>
             <groupId>io.bootique.agrest</groupId>
-            <artifactId>bootique-agrest-cayenne41</artifactId>
+            <artifactId>bootique-agrest-cayenne42</artifactId>
             <version>${bootique.version}</version>
             <scope>test</scope>
         </dependency>

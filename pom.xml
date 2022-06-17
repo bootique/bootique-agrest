@@ -38,7 +38,6 @@
     </description>
 
     <modules>
-        <module>bootique-agrest-cayenne41</module>
         <module>bootique-agrest-cayenne42</module>
         <module>bootique-agrest-cayenne42-swagger</module>
         <module>bootique-agrest-junit5</module>
@@ -53,7 +52,6 @@
 
     <properties>
         <bootique.version>${project.version}</bootique.version>
-        <agrest3.version>3.11</agrest3.version>
         <agrest4.version>4.10</agrest4.version>
         <agrest5.version>5.0.M2</agrest5.version>
     </properties>
@@ -66,11 +64,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>io.bootique</groupId>
-                <artifactId>bootique</artifactId>
-                <version>${bootique.version}</version>
-            </dependency>
             <dependency>
                 <groupId>io.bootique</groupId>
                 <artifactId>bootique-junit5</artifactId>
@@ -89,16 +82,6 @@
             <dependency>
                 <groupId>io.bootique.jetty</groupId>
                 <artifactId>bootique-jetty-jakarta-junit5</artifactId>
-                <version>${bootique.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.bootique.cayenne</groupId>
-                <artifactId>bootique-cayenne41</artifactId>
-                <version>${bootique.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.bootique.cayenne</groupId>
-                <artifactId>bootique-cayenne41-junit5</artifactId>
                 <version>${bootique.version}</version>
             </dependency>
             <dependency>
