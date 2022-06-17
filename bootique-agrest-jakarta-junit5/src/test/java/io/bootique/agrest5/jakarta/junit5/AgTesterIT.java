@@ -30,7 +30,7 @@ import io.agrest.resolver.RootDataResolver;
 import io.agrest.runtime.processor.select.SelectContext;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
-import io.bootique.agrest5.jakarta.AgrestModule;
+import io.bootique.agrest.v5.jakarta.AgrestModule;
 import io.bootique.jersey.jakarta.JerseyModule;
 import io.bootique.jetty.jakarta.junit5.JettyTester;
 import io.bootique.junit5.BQApp;

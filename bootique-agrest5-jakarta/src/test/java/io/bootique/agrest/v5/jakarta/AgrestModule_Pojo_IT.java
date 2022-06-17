@@ -17,21 +17,20 @@
  * under the License.
  */
 
-package io.bootique.agrest5.jakarta;
+package io.bootique.agrest.v5.jakarta;
 
 import io.agrest.DataResponse;
+import io.agrest.annotation.AgAttribute;
+import io.agrest.annotation.AgId;
 import io.agrest.jaxrs3.AgJaxrs;
+import io.agrest.meta.AgEntity;
+import io.agrest.runtime.processor.select.SelectContext;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
-import io.bootique.agrest5.jakarta.cayenne.E1;
-import io.bootique.cayenne.v42.CayenneModule;
-import io.bootique.cayenne.v42.junit5.CayenneTester;
-import io.bootique.jdbc.junit5.derby.DerbyTester;
 import io.bootique.jersey.jakarta.JerseyModule;
 import io.bootique.jetty.jakarta.junit5.JettyTester;
 import io.bootique.junit5.BQApp;
 import io.bootique.junit5.BQTest;
-import io.bootique.junit5.BQTestTool;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Configuration;
@@ -40,15 +39,13 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @BQTest
-public class AgrestModule_Cayenne_IT {
-
-    @BQTestTool
-    static final DerbyTester db = DerbyTester.db();
-
-    @BQTestTool
-    static final CayenneTester cayenne = CayenneTester.create().entities(E1.class);
+public class AgrestModule_Pojo_IT {
 
     static final JettyTester jetty = JettyTester.create();
 
@@ -56,23 +53,22 @@ public class AgrestModule_Cayenne_IT {
     static final BQRuntime app = Bootique
             .app("-s")
             .autoLoadModules()
-            .module(db.moduleWithTestDataSource("db"))
-            .module(cayenne.moduleWithTestHooks())
             .module(jetty.moduleReplacingConnectors())
-            .module(b -> CayenneModule.extend(b).addProject("io/bootique/agrest/jakarta/cayenne42/cayenne-project.xml"))
             .module(b -> JerseyModule.extend(b).addResource(R1.class))
             .createRuntime();
 
+    private static List<E1> fillData(SelectContext<E1> context) {
+        E1 e1 = new E1();
+        e1.setId(1);
+        e1.setName("xyz");
+        return Collections.singletonList(e1);
+    }
+
     @Test
     public void testRequest() {
-
-        db.getTable(cayenne.getTableName(E1.class)).insertColumns("id", "name")
-                .values(1, "xyz")
-                .exec();
-
         Response response = jetty.getTarget().path("r1").request().get();
-        JettyTester.assertOk(response)
-                .assertContent("{\"data\":[{\"id\":1,\"name\":\"xyz\"}],\"total\":1}");
+        assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+        assertEquals("{\"data\":[{\"id\":1,\"name\":\"xyz\"}],\"total\":1}", response.readEntity(String.class));
     }
 
     @Path("/r1")
@@ -86,7 +82,33 @@ public class AgrestModule_Cayenne_IT {
             return AgJaxrs
                     .select(E1.class, config)
                     .clientParams(uriInfo.getQueryParameters())
+                    .entityOverlay(AgEntity.overlay(E1.class).redefineDataResolver(AgrestModule_Pojo_IT::fillData))
                     .get();
         }
     }
+
+    public static class E1 {
+
+        private int id;
+        private String name;
+
+        @AgId
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        @AgAttribute
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
 }

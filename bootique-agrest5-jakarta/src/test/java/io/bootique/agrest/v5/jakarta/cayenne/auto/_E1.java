@@ -1,4 +1,4 @@
-package io.bootique.agrest5.jakarta.cayenne.auto;
+package io.bootique.agrest.v5.jakarta.cayenne.auto;
 
 import org.apache.cayenne.BaseDataObject;
 import org.apache.cayenne.exp.Property;

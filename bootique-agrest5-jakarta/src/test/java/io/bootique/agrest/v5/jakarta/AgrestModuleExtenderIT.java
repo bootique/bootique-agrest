@@ -17,10 +17,12 @@
  * under the License.
  */
 
-package io.bootique.agrest5.jakarta;
+package io.bootique.agrest.v5.jakarta;
 
 import io.agrest.AgModuleProvider;
 import io.agrest.runtime.AgRuntimeBuilder;
+import io.bootique.agrest.v5.jakarta.AgBuilderCallback;
+import io.bootique.agrest.v5.jakarta.AgrestModule;
 import io.bootique.jetty.jakarta.junit5.JettyTester;
 import io.bootique.junit5.BQTest;
 import io.bootique.junit5.BQTestFactory;
