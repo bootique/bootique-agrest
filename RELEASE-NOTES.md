@@ -3,7 +3,7 @@
 * #60 AgTester.delete()
 * #62 Stop supporting Cayenne 4.0
 * #63 AgTester - add a POST for "application/x-www-form-urlencoded" form
-* #64 Agrest 5.0.M2 modules
+* #64 Agrest 5.0 modules
 * #66 Upgrade to Agrest 4.10
 * #68 Module structure cleanup
 
