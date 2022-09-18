@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
- * DSL for sending Agrest requests and asserting responses.
+ * A DSL for sending Agrest requests and asserting responses.
  */
 public class AgTester {
 
@@ -27,8 +27,14 @@ public class AgTester {
         };
     }
 
+    /**
+     * Adds a requesting customization function to the tester.
+     */
     public AgTester customizeRequest(Consumer<Invocation.Builder> requestCustomizer) {
-        this.requestCustomizer = Objects.requireNonNull(requestCustomizer);
+        Objects.requireNonNull(requestCustomizer);
+        this.requestCustomizer = this.requestCustomizer != null
+                ? this.requestCustomizer.andThen(requestCustomizer)
+                : requestCustomizer;
         return this;
     }
 

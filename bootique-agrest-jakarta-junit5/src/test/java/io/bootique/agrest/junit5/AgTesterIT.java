@@ -30,7 +30,6 @@ import io.agrest.resolver.RootDataResolver;
 import io.agrest.runtime.processor.select.SelectContext;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
-import io.bootique.agrest.junit5.AgTester;
 import io.bootique.agrest.v5.AgrestModule;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.jetty.junit5.JettyTester;
@@ -38,6 +37,7 @@ import io.bootique.junit5.BQApp;
 import io.bootique.junit5.BQTest;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Configuration;
@@ -46,6 +46,7 @@ import jakarta.ws.rs.core.UriInfo;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
+import java.util.List;
 
 @BQTest
 public class AgTesterIT {
@@ -53,7 +54,7 @@ public class AgTesterIT {
     static final JettyTester jetty = JettyTester.create();
 
     static AgEntityOverlay<E1> e1Overlay = AgEntity.overlay(E1.class)
-            .redefineDataResolver(new RootDataResolver<>() {
+            .dataResolver(new RootDataResolver<>() {
                 @Override
                 public void assembleQuery(SelectContext<E1> context) {
                 }
@@ -81,6 +82,17 @@ public class AgTesterIT {
     }
 
     @Test
+    public void testRequestCustomizer() {
+        WebTarget target = jetty.getTarget().path("r1/headers");
+        AgTester.request(target)
+                .customizeRequest(b -> b.header("h1", "v1"))
+                .customizeRequest(b -> b.header("h2", "v2"))
+                .get()
+                .assertOk()
+                .assertContent(1, "{\"h1\":\"v1\",\"h2\":\"v2\"}");
+    }
+
+    @Test
     public void testGet() {
         WebTarget target = jetty.getTarget().path("r1");
         AgTester.request(target).get()
@@ -103,6 +115,20 @@ public class AgTesterIT {
         private Configuration config;
 
         @GET
+        @Path("headers")
+        public DataResponse<H> getHeaders(@HeaderParam("h1") String h1, @HeaderParam("h2") String h2) {
+
+            AgEntityOverlay<H> overlay = AgEntity
+                    .overlay(H.class)
+                    .dataResolver(c -> List.of(new H(h1, h2)));
+
+            return AgJaxrs
+                    .select(H.class, config)
+                    .entityOverlay(overlay)
+                    .get();
+        }
+
+        @GET
         public DataResponse<E1> get(@Context UriInfo uriInfo) {
             return AgJaxrs
                     .select(E1.class, config)
@@ -117,6 +143,27 @@ public class AgTesterIT {
                     .terminalStage(DeleteStage.START, c -> {
                     })
                     .sync();
+        }
+    }
+
+    public static class H {
+
+        private final String h1;
+        private final String h2;
+
+        public H(String h1, String h2) {
+            this.h1 = h1;
+            this.h2 = h2;
+        }
+
+        @AgAttribute
+        public String getH1() {
+            return h1;
+        }
+
+        @AgAttribute
+        public String getH2() {
+            return h2;
         }
     }
 

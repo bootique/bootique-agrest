@@ -36,6 +36,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Configuration;
@@ -66,6 +67,17 @@ public class AgTesterIT {
     }
 
     @Test
+    public void testRequestCustomizer() {
+        WebTarget target = jetty.getTarget().path("r1/headers");
+        AgTester.request(target)
+                .customizeRequest(b -> b.header("h1", "v1"))
+                .customizeRequest(b -> b.header("h2", "v2"))
+                .get()
+                .assertOk()
+                .assertContent(1, "{\"h1\":\"v1\",\"h2\":\"v2\"}");
+    }
+
+    @Test
     // TODO: 4.x supports Delete stages, so we can implement a POJO backend
     @Disabled("TODO: 4.x supports Delete stages, so we can implement a POJO backend")
     public void testDelete() {
@@ -82,10 +94,24 @@ public class AgTesterIT {
         private Configuration config;
 
         @GET
+        @Path("headers")
+        public DataResponse<H> getHeaders(@HeaderParam("h1") String h1, @HeaderParam("h2") String h2) {
+
+            AgEntityOverlay<H> overlay = AgEntity
+                    .overlay(H.class)
+                    .dataResolver(c -> List.of(new H(h1, h2)));
+
+            return AgJaxrs
+                    .select(H.class, config)
+                    .entityOverlay(overlay)
+                    .get();
+        }
+
+        @GET
         public DataResponse<E1> get(@Context UriInfo uriInfo) {
 
             AgEntityOverlay<E1> overlay = AgEntity.overlay(E1.class)
-                    .redefineDataResolver(c -> {
+                    .dataResolver(c -> {
                         E1 e1 = new E1();
                         e1.setId(1);
                         e1.setName("xyz");
@@ -102,6 +128,27 @@ public class AgTesterIT {
         @DELETE
         public SimpleResponse delete(@Context UriInfo uriInfo) {
             return AgJaxrs.delete(E1.class, config).sync();
+        }
+    }
+
+    public static class H {
+
+        private final String h1;
+        private final String h2;
+
+        public H(String h1, String h2) {
+            this.h1 = h1;
+            this.h2 = h2;
+        }
+
+        @AgAttribute
+        public String getH1() {
+            return h1;
+        }
+
+        @AgAttribute
+        public String getH2() {
+            return h2;
         }
     }
 
