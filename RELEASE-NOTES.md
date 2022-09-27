@@ -7,6 +7,7 @@
 * #66 Upgrade to Agrest 4.10
 * #68 Module structure cleanup
 * #69 AgTester to allow chaining request customizers
+* #70 Upgrade to Agrest 5.0.M
 
 ## 2.0.RC1
 
