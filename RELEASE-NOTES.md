@@ -9,6 +9,7 @@
 * #69 AgTester to allow chaining request customizers
 * #70 Upgrade to Agrest 5.0.M7
 * #71 Upgrade to Agrest 5.0.M8
+* #72 Upgrade to Agrest 5.0.M9
 
 ## 2.0.RC1
 
