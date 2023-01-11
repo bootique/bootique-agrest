@@ -45,7 +45,6 @@ import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.UriInfo;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
 import java.util.List;
 
 @BQTest
@@ -75,11 +74,43 @@ public class AgTesterIT {
             .createRuntime();
 
     private static void fillData(SelectContext<E1> context) {
-        E1 e1 = new E1();
-        e1.setId(1);
-        e1.setName("xyz");
-        context.getEntity().setData(Collections.singletonList(e1));
+
+        E1 one = new E1();
+        one.setId(1);
+        one.setName("xyz");
+
+        E1 two = new E1();
+        two.setId(2);
+        two.setName("abc");
+
+        context.getEntity().setData(List.of(one, two));
     }
+
+    @Test
+    public void testGet_AssertContent() {
+        WebTarget target = jetty.getTarget().path("r1");
+        AgTester.request(target).get()
+                .assertOk()
+                .assertContent(2, "{\"id\":1,\"name\":\"xyz\"}", "{\"id\":2,\"name\":\"abc\"}");
+    }
+
+    @Test
+    public void testAssertTotal() {
+        WebTarget target = jetty.getTarget().path("r1");
+        AgTester.request(target).get()
+                .assertOk()
+                .assertTotal(2);
+    }
+
+    @Test
+    public void testAssertContentAt() {
+        WebTarget target = jetty.getTarget().path("r1");
+        AgTester.request(target).get()
+                .assertOk()
+                .assertContentAt(0, "{\"id\":1,\"name\":\"xyz\"}")
+                .assertContentAt(1, "{\"id\":2,\"name\":\"abc\"}");
+    }
+
 
     @Test
     public void testRequestCustomizer() {
@@ -90,14 +121,6 @@ public class AgTesterIT {
                 .get()
                 .assertOk()
                 .assertContent(1, "{\"h1\":\"v1\",\"h2\":\"v2\"}");
-    }
-
-    @Test
-    public void testGet() {
-        WebTarget target = jetty.getTarget().path("r1");
-        AgTester.request(target).get()
-                .assertOk()
-                .assertContent(1, "{\"id\":1,\"name\":\"xyz\"}");
     }
 
     @Test
@@ -130,6 +153,7 @@ public class AgTesterIT {
 
         @GET
         public DataResponse<E1> get(@Context UriInfo uriInfo) {
+
             return AgJaxrs
                     .select(E1.class, config)
                     .clientParams(uriInfo.getQueryParameters())

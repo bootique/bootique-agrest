@@ -1,3 +1,7 @@
+## 3.0.M2
+
+* #73 AgResponseMatcher.getContentAsJson() / assertContentAt()
+
 ## 3.0.M1
 
 * #60 AgTester.delete()

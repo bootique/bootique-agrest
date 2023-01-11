@@ -27,11 +27,11 @@ import io.agrest.meta.AgEntity;
 import io.agrest.meta.AgEntityOverlay;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
+import io.bootique.agrest.v5.AgrestModule;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.jetty.junit5.JettyTester;
 import io.bootique.junit5.BQApp;
 import io.bootique.junit5.BQTest;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.DELETE;
@@ -59,12 +59,30 @@ public class AgTesterIT {
 
 
     @Test
-    public void testGet() {
+    public void testGet_AssertContent() {
         WebTarget target = jetty.getTarget().path("r1");
         AgTester.request(target).get()
                 .assertOk()
-                .assertContent(1, "{\"id\":1,\"name\":\"xyz\"}");
+                .assertContent(2, "{\"id\":1,\"name\":\"xyz\"}", "{\"id\":2,\"name\":\"abc\"}");
     }
+
+    @Test
+    public void testAssertTotal() {
+        WebTarget target = jetty.getTarget().path("r1");
+        AgTester.request(target).get()
+                .assertOk()
+                .assertTotal(2);
+    }
+
+    @Test
+    public void testAssertContentAt() {
+        WebTarget target = jetty.getTarget().path("r1");
+        AgTester.request(target).get()
+                .assertOk()
+                .assertContentAt(0, "{\"id\":1,\"name\":\"xyz\"}")
+                .assertContentAt(1, "{\"id\":2,\"name\":\"abc\"}");
+    }
+
 
     @Test
     public void testRequestCustomizer() {
@@ -75,16 +93,6 @@ public class AgTesterIT {
                 .get()
                 .assertOk()
                 .assertContent(1, "{\"h1\":\"v1\",\"h2\":\"v2\"}");
-    }
-
-    @Test
-    // TODO: 4.x supports Delete stages, so we can implement a POJO backend
-    @Disabled("TODO: 4.x supports Delete stages, so we can implement a POJO backend")
-    public void testDelete() {
-        WebTarget target = jetty.getTarget().path("r1");
-        AgTester.request(target).delete()
-                .assertOk()
-                .assertContent(1, "{\"success\":\"true\"}");
     }
 
     @Path("/r1")
@@ -112,10 +120,15 @@ public class AgTesterIT {
 
             AgEntityOverlay<E1> overlay = AgEntity.overlay(E1.class)
                     .dataResolver(c -> {
-                        E1 e1 = new E1();
-                        e1.setId(1);
-                        e1.setName("xyz");
-                        return List.of(e1);
+                        E1 one = new E1();
+                        one.setId(1);
+                        one.setName("xyz");
+
+                        E1 two = new E1();
+                        two.setId(2);
+                        two.setName("abc");
+
+                        return List.of(one, two);
                     });
 
             return AgJaxrs

@@ -13,8 +13,7 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @since 2.0
@@ -28,6 +27,7 @@ public class AgResponseMatcher {
 
     private String responseContent;
     private byte[] responseBinContent;
+    private JsonNode responseJsonContent;
 
     public AgResponseMatcher(Response response) {
         this.response = Objects.requireNonNull(response);
@@ -75,6 +75,23 @@ public class AgResponseMatcher {
         }
 
         return responseContent;
+    }
+
+    /**
+     * @since 3.0.M2
+     */
+    public JsonNode getContentAsJson() {
+        if (responseJsonContent == null) {
+            try {
+                responseJsonContent = new ObjectMapper().readTree(getContentAsString());
+            } catch (IOException e) {
+                throw new RuntimeException("Error reading JSON", e);
+            }
+
+            assertNotNull(responseJsonContent, "No response data");
+        }
+
+        return responseJsonContent;
     }
 
     public byte[] getContentAsBytes() {
@@ -203,21 +220,20 @@ public class AgResponseMatcher {
     }
 
     public AgResponseMatcher assertTotal(long total) {
+        JsonNode node = getContentAsJson().get("total");
+        assertNotNull(node, "No 'total' property in response");
+        assertEquals(total, node.asLong(), "Unexpected total");
+        return this;
+    }
 
-        String string = getContentAsString();
-        JsonNode rootNode;
-        try {
-            rootNode = new ObjectMapper().readTree(string);
-        } catch (IOException e) {
-            throw new RuntimeException("Error reading JSON", e);
-        }
-        assertNotNull(rootNode, "No response data");
+    public AgResponseMatcher assertContentAt(int pos, String expectedJson) {
+        JsonNode node = getContentAsJson().get("data");
+        assertNotNull(node, "No 'data' property in response");
+        assertTrue(node.isArray(), "'data' node is not an array");
 
-        JsonNode totalNode = rootNode.get("total");
-        assertNotNull(totalNode, "No 'total' info");
-
-        assertEquals(total, totalNode.asLong(), "Unexpected total");
-
+        JsonNode actual = node.get(pos);
+        String actualString = actual != null ? actual.toString() : "null";
+        assertEquals(expectedJson, actualString, () -> "Element at " + pos + " is different from expected");
         return this;
     }
 }
