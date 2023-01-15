@@ -1,6 +1,7 @@
 ## 3.0.M2
 
 * #73 AgResponseMatcher.getContentAsJson() / assertContentAt()
+* #74 Upgrade Agrest 5 to Agrest 5.0.M10
 
 ## 3.0.M1
 
