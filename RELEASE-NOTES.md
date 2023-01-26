@@ -2,6 +2,7 @@
 
 * #73 AgResponseMatcher.getContentAsJson() / assertContentAt()
 * #74 Upgrade Agrest 5 to Agrest 5.0.M10
+* #76 Support for "--generate-spec" command
 
 ## 3.0.M1
 

@@ -18,8 +18,17 @@
  */
 package io.bootique.agrest.v5.swagger;
 
+import io.agrest.jaxrs2.openapi.modelconverter.AgEntityModelConverter;
+import io.agrest.jaxrs2.openapi.modelconverter.AgProtocolModelConverter;
+import io.agrest.jaxrs2.openapi.modelconverter.AgValueModelConverter;
+import io.agrest.runtime.AgRuntime;
 import io.bootique.BaseModule;
 import io.bootique.di.Binder;
+import io.bootique.di.Provides;
+import io.bootique.swagger.SwaggerModule;
+import io.swagger.v3.core.util.PrimitiveType;
+
+import javax.inject.Singleton;
 
 /**
  * @since 3.0
@@ -28,5 +37,38 @@ public class AgrestSwaggerModule extends BaseModule {
 
     public static AgrestSwaggerModuleExtender extend(Binder binder) {
         return new AgrestSwaggerModuleExtender(binder);
+    }
+
+    @Override
+    public void configure(Binder binder) {
+
+        // The following loosely copied from Agrest AgSwaggerModuleInstaller. Agrest runs it as a JAX-RS feature, but
+        // we need to enable converters and custom features regardless of whether the generator was started in the
+        // JAX-RS environment or via "--generate-spec" command
+
+        PrimitiveType.enablePartialTime();
+
+        SwaggerModule.extend(binder)
+                .addModelConverter(AgValueModelConverter.class)
+                .addModelConverter(AgProtocolModelConverter.class)
+                .addModelConverter(AgEntityModelConverter.class);
+    }
+
+    @Provides
+    @Singleton
+    AgValueModelConverter provideValueModelConverter(AgRuntime agrest) {
+        return agrest.service(AgValueModelConverter.class);
+    }
+
+    @Provides
+    @Singleton
+    AgProtocolModelConverter provideProtocolModelConverter(AgRuntime agrest) {
+        return agrest.service(AgProtocolModelConverter.class);
+    }
+
+    @Provides
+    @Singleton
+    AgEntityModelConverter provideEntityModelConverter(AgRuntime agrest) {
+        return agrest.service(AgEntityModelConverter.class);
     }
 }
