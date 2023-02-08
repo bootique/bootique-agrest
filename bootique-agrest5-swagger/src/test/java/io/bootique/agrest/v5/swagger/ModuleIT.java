@@ -85,7 +85,7 @@ public class ModuleIT {
         JsonNode params = get.get("parameters");
         assertNotNull(params);
 
-        Set<String> expectedParams = Set.of("cayenneExp", "dir", "direction", "exclude", "exp", "include", "limit", "mapBy", "sort", "start");
+        Set<String> expectedParams = Set.of("direction", "exclude", "exp", "include", "limit", "mapBy", "sort", "start");
         Set<String> actualParams = stream(params).map(n -> n.get("name").asText()).collect(Collectors.toSet());
         assertEquals(expectedParams, actualParams);
 
