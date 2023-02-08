@@ -22,6 +22,7 @@ package io.bootique.agrest.v5;
 import io.agrest.AgModuleProvider;
 import io.agrest.cayenne.AgCayenneModule;
 import io.agrest.jaxrs2.AgJaxrsFeature;
+import io.agrest.meta.AgEntityOverlay;
 import io.agrest.runtime.AgRuntime;
 import io.agrest.runtime.AgRuntimeBuilder;
 import io.bootique.ConfigModule;
@@ -59,11 +60,16 @@ public class AgrestModule extends ConfigModule {
     @Provides
     AgRuntime provideAgRuntime(
             Injector injector,
-            Set<AgBuilderCallback> builderCallbacks,
-            Set<AgModuleProvider> moduleProviders) {
+            Set<AgModuleProvider> moduleProviders,
+            Set<AgEntityOverlay> entityOverlays,
+            Set<AgBuilderCallback> builderCallbacks) {
 
         AgRuntimeBuilder builder = createBuilder(injector);
         moduleProviders.forEach(builder::module);
+
+        // add explicit overlays, and then apply custom callbacks
+        entityOverlays.forEach(builder::entityOverlay);
+
         builderCallbacks.forEach(c -> c.configure(builder));
 
         return builder.build();

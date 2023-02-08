@@ -20,6 +20,7 @@
 package io.bootique.agrest.v5;
 
 import io.agrest.AgModuleProvider;
+import io.agrest.meta.AgEntityOverlay;
 import io.bootique.ModuleExtender;
 import io.bootique.di.Binder;
 import io.bootique.di.SetBuilder;
@@ -31,6 +32,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     private SetBuilder<AgModuleProvider> moduleProviders;
     private SetBuilder<AgBuilderCallback> builderCallbacks;
+    private SetBuilder<AgEntityOverlay> entityOverlays;
 
     public AgrestModuleExtender(Binder binder) {
         super(binder);
@@ -40,6 +42,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
     public AgrestModuleExtender initAllExtensions() {
         contributeModuleProviders();
         contributeBuilderCallbacks();
+        contributeEntityOverlays();
         return this;
     }
 
@@ -63,6 +66,26 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      */
     public AgrestModuleExtender skipNullProperties() {
         return addBuilderCallback(b -> b.skipNullProperties());
+    }
+
+    /**
+     * Adds an entity overlay to the Agrest model.
+     *
+     * @since 3.0
+     */
+    public AgrestModuleExtender addEntityOverlay(Class<? extends AgEntityOverlay<?>> entityOverlayType) {
+        contributeEntityOverlays().add(entityOverlayType);
+        return this;
+    }
+
+    /**
+     * Adds an entity overlay to the Agrest model.
+     *
+     * @since 3.0
+     */
+    public AgrestModuleExtender addEntityOverlay(AgEntityOverlay<?> entityOverlay) {
+        contributeEntityOverlays().addInstance(entityOverlay);
+        return this;
     }
 
     /**
@@ -105,5 +128,9 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     private SetBuilder<AgBuilderCallback> contributeBuilderCallbacks() {
         return builderCallbacks != null ? builderCallbacks : (builderCallbacks = newSet(AgBuilderCallback.class));
+    }
+
+    private SetBuilder<AgEntityOverlay> contributeEntityOverlays() {
+        return entityOverlays != null ? entityOverlays : (entityOverlays = newSet(AgEntityOverlay.class));
     }
 }
