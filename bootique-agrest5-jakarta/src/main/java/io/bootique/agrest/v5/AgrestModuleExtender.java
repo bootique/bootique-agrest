@@ -44,6 +44,28 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
     }
 
     /**
+     * Sets the policy for the maximum depth of relationship paths in Agrest, such as includes. Depth is counted from
+     * the root of the request. Only non-negative depths are allowed. Zero depth blocks all relationships, "1" -
+     * blocks anything beyond direct relationships, and so on. Attribute paths are not counted towards depth
+     * (either root or nested).
+     *
+     * @since 3.0
+     */
+    public AgrestModuleExtender maxPathDepth(int maxPathDepth) {
+        return addBuilderCallback(b -> b.maxPathDepth(maxPathDepth));
+    }
+
+    /**
+     * Configures Agrest runtime to exclude properties with null values from the JSON responses. If this method is not
+     * called, nulls will be rendered.
+     *
+     * @since 3.0
+     */
+    public AgrestModuleExtender skipNullProperties() {
+        return addBuilderCallback(b -> b.skipNullProperties());
+    }
+
+    /**
      * @return this extender instance.
      * @since 1.1
      */
