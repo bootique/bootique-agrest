@@ -5,6 +5,7 @@
 * #76 Support for "--generate-spec" command
 * #77 Upgrade to Agrest 5.0.M11
 * #78 Shortcuts for Agrest builder methods in AgrestModuleExtender
+* #79 Upgrade to Agrest 5.0.M12
 
 ## 3.0.M1
 
