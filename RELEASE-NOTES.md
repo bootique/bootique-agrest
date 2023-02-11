@@ -6,6 +6,7 @@
 * #77 Upgrade to Agrest 5.0.M11
 * #78 Shortcuts for Agrest builder methods in AgrestModuleExtender
 * #79 Upgrade to Agrest 5.0.M12
+* #80 Upgrade to Agrest 5.0.M13
 
 ## 3.0.M1
 
