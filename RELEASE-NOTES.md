@@ -7,6 +7,7 @@
 * #78 Shortcuts for Agrest builder methods in AgrestModuleExtender
 * #79 Upgrade to Agrest 5.0.M12
 * #80 Upgrade to Agrest 5.0.M13
+* #81 AgResponseMatcher: assertDataSize()
 
 ## 3.0.M1
 

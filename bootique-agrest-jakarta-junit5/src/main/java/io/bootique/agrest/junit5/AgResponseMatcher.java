@@ -226,6 +226,19 @@ public class AgResponseMatcher {
         return this;
     }
 
+    /**
+     * Asserts the actual number of objects, which may be equal or less than the "total" (in case of pagination).
+     *
+     * @since 3.0
+     */
+    public AgResponseMatcher assertDataSize(long expectedDataSize) {
+        JsonNode node = getContentAsJson().get("data");
+        assertNotNull(node, "No 'data' property in response");
+        assertTrue(node.isArray(), "'data' node is not an array");
+        assertEquals(expectedDataSize, node.size(), "Unexpected number of data objects");
+        return this;
+    }
+
     public AgResponseMatcher assertContentAt(int pos, String expectedJson) {
         JsonNode node = getContentAsJson().get("data");
         assertNotNull(node, "No 'data' property in response");

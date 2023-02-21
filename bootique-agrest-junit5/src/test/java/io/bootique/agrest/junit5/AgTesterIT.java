@@ -27,7 +27,6 @@ import io.agrest.meta.AgEntity;
 import io.agrest.meta.AgEntityOverlay;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
-import io.bootique.agrest.v5.AgrestModule;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.jetty.junit5.JettyTester;
 import io.bootique.junit5.BQApp;
@@ -72,6 +71,15 @@ public class AgTesterIT {
         AgTester.request(target).get()
                 .assertOk()
                 .assertTotal(2);
+    }
+
+    @Test
+    public void testAssertDataSize() {
+        WebTarget target = jetty.getTarget().path("r1").queryParam("limit", 1);
+        AgTester.request(target).get()
+                .assertOk()
+                .assertTotal(2)
+                .assertDataSize(1);
     }
 
     @Test

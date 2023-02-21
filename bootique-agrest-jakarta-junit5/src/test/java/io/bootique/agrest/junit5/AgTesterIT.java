@@ -103,6 +103,15 @@ public class AgTesterIT {
     }
 
     @Test
+    public void testAssertDataSize() {
+        WebTarget target = jetty.getTarget().path("r1").queryParam("limit", 1);
+        AgTester.request(target).get()
+                .assertOk()
+                .assertTotal(2)
+                .assertDataSize(1);
+    }
+
+    @Test
     public void testAssertContentAt() {
         WebTarget target = jetty.getTarget().path("r1");
         AgTester.request(target).get()
