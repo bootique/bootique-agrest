@@ -27,7 +27,7 @@
         <version>3.0.M2-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bootique-agrest5-jakarta-junit5</artifactId>
+    <artifactId>bootique-agrest-jakarta-junit5</artifactId>
     <packaging>jar</packaging>
 
     <name>bootique-agrest-jakarta-junit5: Common JUnit5-based helper classes for test Agrest requests</name>
