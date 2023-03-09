@@ -8,6 +8,7 @@
 * #79 Upgrade to Agrest 5.0.M12
 * #80 Upgrade to Agrest 5.0.M13
 * #81 AgResponseMatcher: assertDataSize()
+* #82 Upgrade to Agrest 5.0.M14
 
 ## 3.0.M1
 

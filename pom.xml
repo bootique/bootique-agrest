@@ -53,7 +53,7 @@
     <properties>
         <bootique.version>${project.version}</bootique.version>
         <agrest4.version>4.10</agrest4.version>
-        <agrest5.version>5.0.M13</agrest5.version>
+        <agrest5.version>5.0.M14</agrest5.version>
     </properties>
 
     <scm>
