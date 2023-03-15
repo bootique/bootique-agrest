@@ -20,6 +20,7 @@ package io.bootique.agrest.v5.swagger.api;
 
 import io.agrest.DataResponse;
 import io.bootique.agrest.v5.swagger.model.P1;
+import io.swagger.v3.oas.annotations.Parameter;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -30,7 +31,7 @@ import javax.ws.rs.core.UriInfo;
 public class TestApi {
 
     @GET
-    public DataResponse<P1> get(@Context UriInfo uriInfo) {
+    public DataResponse<P1> get(@Parameter @Context UriInfo uriInfo) {
         throw new UnsupportedOperationException("the behavior is irrelevant. All we care about is the method signature");
     }
 }
