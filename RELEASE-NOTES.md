@@ -10,6 +10,7 @@
 * #81 AgResponseMatcher: assertDataSize()
 * #82 Upgrade to Agrest 5.0.M14
 * #83 Upgrade to Agrest 5.0.M15
+* #84 Upgrade to Agrest 5.0.M16 / Cayenne 4.2
 
 ## 3.0.M1
 
