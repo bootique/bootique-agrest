@@ -14,6 +14,7 @@
 * #85 Upgrade to Agrest 5.0.M17
 * #86 Upgrade to Agrest 5.0.M18
 * #88 Upgrade to Agrest 5.0.M19
+* #89 "bootique-agrest5-jakarta-swagger" leaks older version of jackson
 
 ## 3.0.M1
 
