@@ -64,7 +64,7 @@ public class AgrestModule_Cayenne_IT {
             .createRuntime();
 
     @Test
-    public void testRequest() {
+    public void request() {
 
         db.getTable(cayenne.getTableName(E1.class)).insertColumns("id", "name")
                 .values(1, "xyz")

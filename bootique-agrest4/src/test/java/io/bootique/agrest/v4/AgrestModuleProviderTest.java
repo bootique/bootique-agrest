@@ -32,17 +32,17 @@ public class AgrestModuleProviderTest {
     final BQTestFactory testFactory = new BQTestFactory();
 
     @Test
-    public void testAutoLoadable() {
+    public void autoLoadable() {
         BQModuleProviderChecker.testAutoLoadable(AgrestModuleProvider.class);
     }
 
     @Test
-    public void testMetadata() {
+    public void metadata() {
         BQModuleProviderChecker.testMetadata(AgrestModuleProvider.class);
     }
 
     @Test
-    public void testModuleDeclaresDependencies() {
+    public void moduleDeclaresDependencies() {
         final BQRuntime bqRuntime = testFactory.app().moduleProvider(new AgrestModuleProvider()).createRuntime();
         BQRuntimeChecker.testModulesLoaded(bqRuntime,
                 CayenneModule.class,

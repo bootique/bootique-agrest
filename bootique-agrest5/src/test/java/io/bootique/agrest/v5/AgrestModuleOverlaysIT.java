@@ -45,7 +45,7 @@ public class AgrestModuleOverlaysIT {
     final BQTestFactory testFactory = new BQTestFactory();
 
     @Test
-    public void testBuilderCallback() {
+    public void builderCallback() {
 
         AgEntityOverlay<P1> o = AgEntity.overlay(P1.class).attribute("s", LocalDate.class, P1::getD);
 

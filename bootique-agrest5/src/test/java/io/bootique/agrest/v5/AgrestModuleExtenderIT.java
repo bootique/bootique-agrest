@@ -43,7 +43,7 @@ public class AgrestModuleExtenderIT {
     final BQTestFactory testFactory = new BQTestFactory();
 
     @Test
-    public void testModuleProvider() {
+    public void moduleProvider() {
 
         Module module = mock(Module.class);
         AgModuleProvider provider = mock(AgModuleProvider.class);
@@ -60,7 +60,7 @@ public class AgrestModuleExtenderIT {
     }
 
     @Test
-    public void testBuilderCallback() {
+    public void builderCallback() {
 
         AgBuilderCallback callback = mock(AgBuilderCallback.class);
 

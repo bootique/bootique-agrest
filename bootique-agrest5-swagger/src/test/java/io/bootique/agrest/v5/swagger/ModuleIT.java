@@ -76,7 +76,7 @@ public class ModuleIT {
     }
 
     @Test
-    public void testGet() {
+    public void get() {
 
         // TODO: use JSONPath for assertions clarity
 

@@ -65,7 +65,7 @@ public class AgrestModule_Pojo_IT {
     }
 
     @Test
-    public void testRequest() {
+    public void request() {
         Response response = jetty.getTarget().path("r1").request().get();
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
         assertEquals("{\"data\":[{\"id\":1,\"name\":\"xyz\"}],\"total\":1}", response.readEntity(String.class));

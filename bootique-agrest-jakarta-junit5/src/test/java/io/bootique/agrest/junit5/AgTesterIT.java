@@ -87,7 +87,7 @@ public class AgTesterIT {
     }
 
     @Test
-    public void testGet_AssertContent() {
+    public void get_AssertContent() {
         WebTarget target = jetty.getTarget().path("r1");
         AgTester.request(target).get()
                 .assertOk()
@@ -95,7 +95,7 @@ public class AgTesterIT {
     }
 
     @Test
-    public void testAssertTotal() {
+    public void assertTotal() {
         WebTarget target = jetty.getTarget().path("r1");
         AgTester.request(target).get()
                 .assertOk()
@@ -103,7 +103,7 @@ public class AgTesterIT {
     }
 
     @Test
-    public void testAssertDataSize() {
+    public void assertDataSize() {
         WebTarget target = jetty.getTarget().path("r1").queryParam("limit", 1);
         AgTester.request(target).get()
                 .assertOk()
@@ -112,7 +112,7 @@ public class AgTesterIT {
     }
 
     @Test
-    public void testAssertContentAt() {
+    public void assertContentAt() {
         WebTarget target = jetty.getTarget().path("r1");
         AgTester.request(target).get()
                 .assertOk()
@@ -122,7 +122,7 @@ public class AgTesterIT {
 
 
     @Test
-    public void testRequestCustomizer() {
+    public void requestCustomizer() {
         WebTarget target = jetty.getTarget().path("r1/headers");
         AgTester.request(target)
                 .customizeRequest(b -> b.header("h1", "v1"))
@@ -133,7 +133,7 @@ public class AgTesterIT {
     }
 
     @Test
-    public void testDelete() {
+    public void delete() {
         WebTarget target = jetty.getTarget().path("r1");
         AgTester.request(target).delete()
                 .assertOk()
