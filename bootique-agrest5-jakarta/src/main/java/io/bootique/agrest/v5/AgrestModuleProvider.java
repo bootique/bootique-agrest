@@ -34,7 +34,7 @@ public class AgrestModuleProvider implements BQModuleProvider {
     public BuiltModule buildModule() {
         return BuiltModule.of(new AgrestModule())
                 .provider(this)
-                .description("Provides integration with Agrest framework v5.")
+                .description("Integrates with Agrest framework v5")
                 .build();
     }
 

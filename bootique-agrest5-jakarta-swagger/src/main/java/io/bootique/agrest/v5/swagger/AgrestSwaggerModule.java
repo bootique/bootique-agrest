@@ -43,7 +43,10 @@ public class AgrestSwaggerModule implements BQModule, BQModuleProvider {
 
     @Override
     public BuiltModule buildModule() {
-        return BuiltModule.of(this).provider(this).build();
+        return BuiltModule.of(this)
+                .provider(this)
+                .description("Integrates Agrest components in the OpenAPI subsystem.")
+                .build();
     }
 
     @Override
