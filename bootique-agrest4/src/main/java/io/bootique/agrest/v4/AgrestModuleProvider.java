@@ -28,6 +28,10 @@ import java.util.Collection;
 
 import static java.util.Arrays.asList;
 
+/**
+ * @deprecated The users are encouraged to switch to Agrest 5
+ */
+@Deprecated(since = "3.0", forRemoval = true)
 public class AgrestModuleProvider implements BQModuleProvider {
 
     @Override

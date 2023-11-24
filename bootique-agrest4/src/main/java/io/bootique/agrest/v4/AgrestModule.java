@@ -34,6 +34,10 @@ import org.apache.cayenne.configuration.server.ServerRuntime;
 import javax.inject.Singleton;
 import java.util.Set;
 
+/**
+ * @deprecated The users are encouraged to switch to Agrest 5
+ */
+@Deprecated(since = "3.0", forRemoval = true)
 public class AgrestModule extends ConfigModule {
 
     /**

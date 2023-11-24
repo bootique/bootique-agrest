@@ -1,3 +1,7 @@
+## 3.0-M3
+
+* #90 Deprecate Agrest 4 integration modules
+
 ## 3.0.M2
 
 * #73 AgResponseMatcher.getContentAsJson() / assertContentAt()

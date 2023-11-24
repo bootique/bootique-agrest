@@ -27,7 +27,9 @@ import io.bootique.di.Binder;
 
 /**
  * @since 2.0
+ * @deprecated The users are encouraged to switch to Agrest 5
  */
+@Deprecated(since = "3.0", forRemoval = true)
 public class AgrestSwaggerModuleExtender extends ModuleExtender<AgrestSwaggerModuleExtender> {
 
     private AgrestModuleExtender agrestExtender;

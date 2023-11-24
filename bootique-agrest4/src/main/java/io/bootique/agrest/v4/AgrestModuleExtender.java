@@ -25,6 +25,10 @@ import io.bootique.ModuleExtender;
 import io.bootique.di.Binder;
 import io.bootique.di.SetBuilder;
 
+/**
+ * @deprecated The users are encouraged to switch to Agrest 5
+ */
+@Deprecated(since = "3.0", forRemoval = true)
 public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     private SetBuilder<AgFeatureProvider> featureProviders;

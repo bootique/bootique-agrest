@@ -25,7 +25,9 @@ import io.agrest.runtime.AgBuilder;
  * alternative API compared to injectable {@link io.agrest.AgModuleProvider} and {@link io.agrest.AgFeatureProvider}.
  *
  * @since 1.1
+ * @deprecated The users are encouraged to switch to Agrest 5
  */
+@Deprecated(since = "3.0", forRemoval = true)
 @FunctionalInterface
 public interface AgBuilderCallback {
 

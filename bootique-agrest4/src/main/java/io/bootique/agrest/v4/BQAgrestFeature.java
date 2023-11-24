@@ -28,20 +28,23 @@ import javax.ws.rs.core.FeatureContext;
 
 /**
  * An injectable wrapper around {@link AgRuntime} feature.
+ *
+ * @deprecated The users are encouraged to switch to Agrest 5
  */
+@Deprecated(since = "3.0", forRemoval = true)
 public class BQAgrestFeature implements Feature {
 
-	// AgRuntime must be initialized lazily to avoid premature DataSource resolvign inside unit tests
-	private Provider<AgRuntime> agRuntime;
+    // AgRuntime must be initialized lazily to avoid premature DataSource resolvign inside unit tests
+    private Provider<AgRuntime> agRuntime;
 
-	@Inject
-	public BQAgrestFeature(Provider<AgRuntime> agRuntime) {
-		this.agRuntime = agRuntime;
-	}
+    @Inject
+    public BQAgrestFeature(Provider<AgRuntime> agRuntime) {
+        this.agRuntime = agRuntime;
+    }
 
-	@Override
-	public boolean configure(FeatureContext context) {
-		agRuntime.get().configure(context);
-		return true;
-	}
+    @Override
+    public boolean configure(FeatureContext context) {
+        agRuntime.get().configure(context);
+        return true;
+    }
 }
