@@ -34,7 +34,9 @@ import javax.inject.Singleton;
 
 /**
  * @since 3.0
+ * @deprecated The users are encouraged to switch to Jakarta-based flavor
  */
+@Deprecated(since = "3.0", forRemoval = true)
 public class AgrestSwaggerModule implements BQModule, BQModuleProvider {
 
     public static AgrestSwaggerModuleExtender extend(Binder binder) {

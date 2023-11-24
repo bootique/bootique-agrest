@@ -24,7 +24,9 @@ import io.agrest.runtime.AgRuntimeBuilder;
  * A custom extension that allows users to customize Agrest stack during creation.
  *
  * @since 1.1
+ * @deprecated The users are encouraged to switch to Jakarta-based flavor
  */
+@Deprecated(since = "3.0", forRemoval = true)
 @FunctionalInterface
 public interface AgBuilderCallback {
 

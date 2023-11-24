@@ -27,7 +27,9 @@ import io.bootique.di.SetBuilder;
 
 /**
  * @since 3.0
+ * @deprecated The users are encouraged to switch to Jakarta-based flavor
  */
+@Deprecated(since = "3.0", forRemoval = true)
 public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     private SetBuilder<AgModuleProvider> moduleProviders;

@@ -1,6 +1,7 @@
 ## 3.0-M3
 
 * #90 Deprecate Agrest 4 integration modules
+* #91 (Jakarta migration) Deprecate JAX-RS 2 version of Agrest
 
 ## 3.0.M2
 

@@ -28,6 +28,11 @@ import java.util.Collection;
 
 import static java.util.Arrays.asList;
 
+/**
+ * @since 3.0
+ * @deprecated The users are encouraged to switch to Jakarta-based flavor
+ */
+@Deprecated(since = "3.0", forRemoval = true)
 public class AgrestModuleProvider implements BQModuleProvider {
 
     @Override

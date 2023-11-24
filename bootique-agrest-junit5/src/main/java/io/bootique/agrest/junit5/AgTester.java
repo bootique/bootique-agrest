@@ -11,7 +11,10 @@ import java.util.function.Consumer;
 
 /**
  * A DSL for sending Agrest requests and asserting responses.
+ *
+ * @deprecated The users are encouraged to switch to Jakarta-based flavor
  */
+@Deprecated(since = "3.0", forRemoval = true)
 public class AgTester {
 
     private WebTarget target;
