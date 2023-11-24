@@ -19,10 +19,9 @@
 
 package io.bootique.agrest.v4;
 
-import io.bootique.BQModuleMetadata;
 import io.bootique.BQModuleProvider;
+import io.bootique.bootstrap.BuiltModule;
 import io.bootique.cayenne.v42.CayenneModuleProvider;
-import io.bootique.di.BQModule;
 import io.bootique.jersey.JerseyModuleProvider;
 
 import java.util.Collection;
@@ -32,15 +31,11 @@ import static java.util.Arrays.asList;
 public class AgrestModuleProvider implements BQModuleProvider {
 
     @Override
-    public BQModule module() {
-        return new AgrestModule();
-    }
-
-    @Override
-    public BQModuleMetadata.Builder moduleBuilder() {
-        return BQModuleProvider.super
-                .moduleBuilder()
-                .description("Provides integration with Agrest framework.");
+    public BuiltModule buildModule() {
+        return BuiltModule.of(new AgrestModule())
+                .provider(this)
+                .description("Provides integration with Agrest framework v4.")
+                .build();
     }
 
     @Override

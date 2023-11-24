@@ -18,15 +18,26 @@
  */
 package io.bootique.agrest.v4.swagger;
 
-import io.bootique.BaseModule;
+import io.bootique.BQModuleProvider;
+import io.bootique.bootstrap.BuiltModule;
+import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
 
 /**
  * @since 2.0
  */
-public class AgrestSwaggerModule extends BaseModule {
+public class AgrestSwaggerModule implements BQModule, BQModuleProvider {
 
     public static AgrestSwaggerModuleExtender extend(Binder binder) {
         return new AgrestSwaggerModuleExtender(binder);
+    }
+
+    @Override
+    public BuiltModule buildModule() {
+        return BuiltModule.of(this).provider(this).build();
+    }
+
+    @Override
+    public void configure(Binder binder) {
     }
 }
