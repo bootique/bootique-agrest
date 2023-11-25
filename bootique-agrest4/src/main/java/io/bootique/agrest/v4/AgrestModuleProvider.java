@@ -38,7 +38,7 @@ public class AgrestModuleProvider implements BQModuleProvider {
     public BuiltModule buildModule() {
         return BuiltModule.of(new AgrestModule())
                 .provider(this)
-                .description("Deprecated and should be replaced with 'bootique-agrest5-jakarta'.")
+                .description("Deprecated and can be replaced with 'bootique-agrest5-jakarta'.")
                 .build();
     }
 
