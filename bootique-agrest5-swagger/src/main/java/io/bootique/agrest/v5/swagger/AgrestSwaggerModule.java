@@ -47,7 +47,7 @@ public class AgrestSwaggerModule implements BQModule, BQModuleProvider {
     public BuiltModule buildModule() {
         return BuiltModule.of(this)
                 .provider(this)
-                .description("Deprecated and can be replaced with 'bootique-agrest5-jakarta-swagger'.")
+                .description("Deprecated, can be replaced with 'bootique-agrest5-jakarta-swagger'.")
                 .build();
     }
 
