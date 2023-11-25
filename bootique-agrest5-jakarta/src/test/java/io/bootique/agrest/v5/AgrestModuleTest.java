@@ -19,31 +19,25 @@
 
 package io.bootique.agrest.v5;
 
-import io.bootique.BQModuleProvider;
-import io.bootique.bootstrap.BuiltModule;
-import io.bootique.cayenne.v42.CayenneModuleProvider;
-import io.bootique.jersey.JerseyModuleProvider;
+import io.bootique.junit5.BQModuleProviderChecker;
+import io.bootique.junit5.BQTest;
+import io.bootique.junit5.BQTestFactory;
+import io.bootique.junit5.BQTestTool;
+import org.junit.jupiter.api.Test;
 
-import java.util.Collection;
+@BQTest
+public class AgrestModuleTest {
 
-import static java.util.Arrays.asList;
+    @BQTestTool
+    final BQTestFactory testFactory = new BQTestFactory();
 
-public class AgrestModuleProvider implements BQModuleProvider {
-
-    @Override
-    public BuiltModule buildModule() {
-        return BuiltModule.of(new AgrestModule())
-                .provider(this)
-                .description("Integrates with Agrest framework v5")
-                .build();
+    @Test
+    public void autoLoadable() {
+        BQModuleProviderChecker.testAutoLoadable(AgrestModule.class);
     }
 
-    @Override
-    @Deprecated(since = "3.0", forRemoval = true)
-    public Collection<BQModuleProvider> dependencies() {
-        return asList(
-                new CayenneModuleProvider(),
-                new JerseyModuleProvider()
-        );
+    @Test
+    public void metadata() {
+        BQModuleProviderChecker.testMetadata(AgrestModule.class);
     }
 }
