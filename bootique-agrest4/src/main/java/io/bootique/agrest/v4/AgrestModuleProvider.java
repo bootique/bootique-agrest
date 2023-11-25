@@ -21,7 +21,7 @@ package io.bootique.agrest.v4;
 
 import io.bootique.BQModuleProvider;
 import io.bootique.bootstrap.BuiltModule;
-import io.bootique.cayenne.v42.CayenneModuleProvider;
+import io.bootique.cayenne.v42.CayenneModule;
 import io.bootique.jersey.JerseyModuleProvider;
 
 import java.util.Collection;
@@ -46,7 +46,7 @@ public class AgrestModuleProvider implements BQModuleProvider {
     @Deprecated(since = "3.0", forRemoval = true)
     public Collection<BQModuleProvider> dependencies() {
         return asList(
-                new CayenneModuleProvider(),
+                new CayenneModule(),
                 new JerseyModuleProvider()
         );
     }
