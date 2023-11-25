@@ -52,7 +52,7 @@ public class AgrestModule implements BQModule, BQModuleProvider {
 
     @Override
     public BuiltModule buildModule() {
-        return BuiltModule.of(new AgrestModule())
+        return BuiltModule.of(this)
                 .provider(this)
                 .description("Integrates with Agrest framework v5")
                 .build();
