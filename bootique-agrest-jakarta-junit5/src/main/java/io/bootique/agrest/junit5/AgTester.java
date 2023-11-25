@@ -71,7 +71,7 @@ public class AgTester {
     }
 
     /**
-     * @since 2.0.B1
+     * @since 2.0
      */
     public AgResponseMatcher delete() {
         return onResponse(request().delete());
