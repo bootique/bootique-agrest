@@ -20,7 +20,7 @@
 package io.bootique.agrest.v5;
 
 import io.bootique.BQModuleProvider;
-import io.bootique.bootstrap.BuiltModule;
+import io.bootique.ModuleCrate;
 import io.bootique.cayenne.v42.CayenneModule;
 import io.bootique.jersey.JerseyModuleProvider;
 
@@ -36,8 +36,8 @@ import static java.util.Arrays.asList;
 public class AgrestModuleProvider implements BQModuleProvider {
 
     @Override
-    public BuiltModule buildModule() {
-        return BuiltModule.of(new AgrestModule())
+    public ModuleCrate moduleCrate() {
+        return ModuleCrate.of(new AgrestModule())
                 .provider(this)
                 .description("Deprecated, can be replaced with 'bootique-agrest5-jakarta'.")
                 .build();
