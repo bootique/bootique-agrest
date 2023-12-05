@@ -26,6 +26,7 @@ import io.agrest.meta.AgEntityOverlay;
 import io.agrest.runtime.AgRuntime;
 import io.agrest.runtime.AgRuntimeBuilder;
 import io.bootique.ConfigModule;
+import io.bootique.ModuleCrate;
 import io.bootique.di.Binder;
 import io.bootique.di.Injector;
 import io.bootique.di.Provides;
@@ -48,6 +49,13 @@ public class AgrestModule extends ConfigModule {
      */
     public static AgrestModuleExtender extend(Binder binder) {
         return new AgrestModuleExtender(binder);
+    }
+
+    @Override
+    public ModuleCrate crate() {
+        return ModuleCrate.of(this)
+                .description("Deprecated, can be replaced with 'bootique-agrest5-jakarta'.")
+                .build();
     }
 
     @Override

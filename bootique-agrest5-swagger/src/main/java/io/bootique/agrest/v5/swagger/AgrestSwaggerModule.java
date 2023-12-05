@@ -22,9 +22,8 @@ import io.agrest.jaxrs2.openapi.modelconverter.AgEntityModelConverter;
 import io.agrest.jaxrs2.openapi.modelconverter.AgProtocolModelConverter;
 import io.agrest.jaxrs2.openapi.modelconverter.AgValueModelConverter;
 import io.agrest.runtime.AgRuntime;
-import io.bootique.BQModuleProvider;
+import io.bootique.BQModule;
 import io.bootique.ModuleCrate;
-import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
 import io.bootique.di.Provides;
 import io.bootique.swagger.SwaggerModule;
@@ -37,16 +36,15 @@ import javax.inject.Singleton;
  * @deprecated The users are encouraged to switch to Jakarta-based flavor
  */
 @Deprecated(since = "3.0", forRemoval = true)
-public class AgrestSwaggerModule implements BQModule, BQModuleProvider {
+public class AgrestSwaggerModule implements BQModule {
 
     public static AgrestSwaggerModuleExtender extend(Binder binder) {
         return new AgrestSwaggerModuleExtender(binder);
     }
 
     @Override
-    public ModuleCrate moduleCrate() {
+    public ModuleCrate crate() {
         return ModuleCrate.of(this)
-                .provider(this)
                 .description("Deprecated, can be replaced with 'bootique-agrest5-jakarta-swagger'.")
                 .build();
     }

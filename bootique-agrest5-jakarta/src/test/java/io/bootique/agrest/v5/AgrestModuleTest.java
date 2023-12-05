@@ -19,25 +19,14 @@
 
 package io.bootique.agrest.v5;
 
-import io.bootique.junit5.BQModuleProviderChecker;
-import io.bootique.junit5.BQTest;
-import io.bootique.junit5.BQTestFactory;
-import io.bootique.junit5.BQTestTool;
+import io.bootique.junit5.*;
 import org.junit.jupiter.api.Test;
 
 @BQTest
 public class AgrestModuleTest {
 
-    @BQTestTool
-    final BQTestFactory testFactory = new BQTestFactory();
-
     @Test
-    public void autoLoadable() {
-        BQModuleProviderChecker.testAutoLoadable(AgrestModule.class);
-    }
-
-    @Test
-    public void metadata() {
-        BQModuleProviderChecker.testMetadata(AgrestModule.class);
+    public void check() {
+        BQModuleTester.of(AgrestModule.class).testAutoLoadable().testConfig();
     }
 }

@@ -18,9 +18,8 @@
  */
 package io.bootique.agrest.v4.swagger;
 
-import io.bootique.BQModuleProvider;
+import io.bootique.BQModule;
 import io.bootique.ModuleCrate;
-import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
 
 /**
@@ -28,16 +27,15 @@ import io.bootique.di.Binder;
  * @deprecated The users are encouraged to switch to Agrest 5
  */
 @Deprecated(since = "3.0", forRemoval = true)
-public class AgrestSwaggerModule implements BQModule, BQModuleProvider {
+public class AgrestSwaggerModule implements BQModule {
 
     public static AgrestSwaggerModuleExtender extend(Binder binder) {
         return new AgrestSwaggerModuleExtender(binder);
     }
 
     @Override
-    public ModuleCrate moduleCrate() {
+    public ModuleCrate crate() {
         return ModuleCrate.of(this)
-                .provider(this)
                 .description("Deprecated, can be replaced with 'bootique-agrest5-jakarta-swagger'.")
                 .build();
     }

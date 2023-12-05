@@ -25,9 +25,8 @@ import io.agrest.jaxrs3.AgJaxrsFeature;
 import io.agrest.meta.AgEntityOverlay;
 import io.agrest.runtime.AgRuntime;
 import io.agrest.runtime.AgRuntimeBuilder;
-import io.bootique.BQModuleProvider;
+import io.bootique.BQModule;
 import io.bootique.ModuleCrate;
-import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
 import io.bootique.di.Injector;
 import io.bootique.di.Provides;
@@ -40,7 +39,7 @@ import java.util.Set;
 /**
  * @since 3.0
  */
-public class AgrestModule implements BQModule, BQModuleProvider {
+public class AgrestModule implements BQModule {
 
     /**
      * @param binder DI binder passed to the Module that invokes this method.
@@ -51,9 +50,8 @@ public class AgrestModule implements BQModule, BQModuleProvider {
     }
 
     @Override
-    public ModuleCrate moduleCrate() {
+    public ModuleCrate crate() {
         return ModuleCrate.of(this)
-                .provider(this)
                 .description("Integrates with Agrest framework v5")
                 .build();
     }

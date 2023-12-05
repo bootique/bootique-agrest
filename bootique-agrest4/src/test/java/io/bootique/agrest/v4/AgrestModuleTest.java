@@ -19,35 +19,15 @@
 
 package io.bootique.agrest.v4;
 
-import io.bootique.BQRuntime;
-import io.bootique.cayenne.v42.CayenneModule;
-import io.bootique.jersey.JerseyModule;
-import io.bootique.junit5.*;
+import io.bootique.junit5.BQModuleTester;
+import io.bootique.junit5.BQTest;
 import org.junit.jupiter.api.Test;
 
 @BQTest
-public class AgrestModuleProviderTest {
-
-    @BQTestTool
-    final BQTestFactory testFactory = new BQTestFactory();
+public class AgrestModuleTest {
 
     @Test
-    public void autoLoadable() {
-        BQModuleProviderChecker.testAutoLoadable(AgrestModuleProvider.class);
-    }
-
-    @Test
-    public void metadata() {
-        BQModuleProviderChecker.testMetadata(AgrestModuleProvider.class);
-    }
-
-    @Test
-    public void moduleDeclaresDependencies() {
-        final BQRuntime bqRuntime = testFactory.app().moduleProvider(new AgrestModuleProvider()).createRuntime();
-        BQRuntimeChecker.testModulesLoaded(bqRuntime,
-                CayenneModule.class,
-                JerseyModule.class,
-                AgrestModule.class
-        );
+    public void check() {
+        BQModuleTester.of(AgrestModule.class).testAutoLoadable().testConfig();
     }
 }

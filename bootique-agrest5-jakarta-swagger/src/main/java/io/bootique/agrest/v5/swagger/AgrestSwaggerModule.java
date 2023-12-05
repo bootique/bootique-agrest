@@ -22,9 +22,8 @@ import io.agrest.jaxrs3.openapi.modelconverter.AgEntityModelConverter;
 import io.agrest.jaxrs3.openapi.modelconverter.AgProtocolModelConverter;
 import io.agrest.jaxrs3.openapi.modelconverter.AgValueModelConverter;
 import io.agrest.runtime.AgRuntime;
-import io.bootique.BQModuleProvider;
+import io.bootique.BQModule;
 import io.bootique.ModuleCrate;
-import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
 import io.bootique.di.Provides;
 import io.bootique.swagger.SwaggerModule;
@@ -35,16 +34,15 @@ import javax.inject.Singleton;
 /**
  * @since 3.0
  */
-public class AgrestSwaggerModule implements BQModule, BQModuleProvider {
+public class AgrestSwaggerModule implements BQModule {
 
     public static AgrestSwaggerModuleExtender extend(Binder binder) {
         return new AgrestSwaggerModuleExtender(binder);
     }
 
     @Override
-    public ModuleCrate moduleCrate() {
+    public ModuleCrate crate() {
         return ModuleCrate.of(this)
-                .provider(this)
                 .description("Integrates Agrest components in the OpenAPI subsystem.")
                 .build();
     }

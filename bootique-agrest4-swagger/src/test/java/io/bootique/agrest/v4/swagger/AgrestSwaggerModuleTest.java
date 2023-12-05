@@ -18,14 +18,13 @@
  */
 package io.bootique.agrest.v4.swagger;
 
-import io.bootique.agrest.v4.swagger.AgrestSwaggerModule;
-import io.bootique.junit5.BQModuleProviderChecker;
+import io.bootique.junit5.BQModuleTester;
 import org.junit.jupiter.api.Test;
 
 public class AgrestSwaggerModuleTest {
 
     @Test
-    public void autoLoading() {
-        BQModuleProviderChecker.testAutoLoadable(AgrestSwaggerModule.class);
+    public void check() {
+        BQModuleTester.of(AgrestSwaggerModule.class).testAutoLoadable().testConfig();
     }
 }
