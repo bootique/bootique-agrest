@@ -24,7 +24,7 @@ import io.agrest.AgModuleProvider;
 import io.agrest.cayenne.AgCayenneBuilder;
 import io.agrest.runtime.AgBuilder;
 import io.agrest.runtime.AgRuntime;
-import io.bootique.ConfigModule;
+import io.bootique.BQModule;
 import io.bootique.ModuleCrate;
 import io.bootique.di.Binder;
 import io.bootique.di.Injector;
@@ -39,7 +39,7 @@ import java.util.Set;
  * @deprecated The users are encouraged to switch to Agrest 5
  */
 @Deprecated(since = "3.0", forRemoval = true)
-public class AgrestModule extends ConfigModule {
+public class AgrestModule implements BQModule {
 
     /**
      * @param binder DI binder passed to the Module that invokes this method.

@@ -25,7 +25,7 @@ import io.agrest.jaxrs2.AgJaxrsFeature;
 import io.agrest.meta.AgEntityOverlay;
 import io.agrest.runtime.AgRuntime;
 import io.agrest.runtime.AgRuntimeBuilder;
-import io.bootique.ConfigModule;
+import io.bootique.BQModule;
 import io.bootique.ModuleCrate;
 import io.bootique.di.Binder;
 import io.bootique.di.Injector;
@@ -41,7 +41,7 @@ import java.util.Set;
  * @deprecated The users are encouraged to switch to Jakarta-based flavor
  */
 @Deprecated(since = "3.0", forRemoval = true)
-public class AgrestModule extends ConfigModule {
+public class AgrestModule implements BQModule {
 
     /**
      * @param binder DI binder passed to the Module that invokes this method.
