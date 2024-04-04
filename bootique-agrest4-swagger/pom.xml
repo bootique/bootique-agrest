@@ -24,7 +24,7 @@
     <parent>
         <groupId>io.bootique.agrest</groupId>
         <artifactId>bootique-agrest-parent</artifactId>
-        <version>3.0-SNAPSHOT</version>
+        <version>3.0-M3</version>
     </parent>
 
     <artifactId>bootique-agrest4-swagger</artifactId>
