@@ -113,7 +113,6 @@
         <dependency>
             <groupId>io.bootique.jersey</groupId>
             <artifactId>bootique-jersey-jakarta</artifactId>
-            <scope>compile</scope>
         </dependency>
 
         <!-- Unit test dependencies -->
