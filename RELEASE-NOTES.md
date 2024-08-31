@@ -1,3 +1,7 @@
+## 3.0-M5
+
+* #92 Upgrade to Agrest 5.0-M20
+
 ## 3.0-M3
 
 * #90 Deprecate Agrest 4 integration modules
