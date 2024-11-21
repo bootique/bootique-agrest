@@ -43,7 +43,7 @@
             <dependency>
                 <groupId>io.bootique.swagger</groupId>
                 <artifactId>bootique-swagger-jakarta</artifactId>
-                <version>${bootique.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.agrest</groupId>
