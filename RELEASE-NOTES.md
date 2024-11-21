@@ -1,4 +1,4 @@
-## 3.0-M5
+## 3.0-M6
 
 * #92 Upgrade to Agrest 5.0-M20
 
