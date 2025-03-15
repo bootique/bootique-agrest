@@ -21,8 +21,8 @@ package io.bootique.agrest.v4;
 
 import io.agrest.runtime.AgRuntime;
 
-import javax.inject.Inject;
-import javax.inject.Provider;
+import jakarta.inject.Inject;
+import jakarta.inject.Provider;
 import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.FeatureContext;
 

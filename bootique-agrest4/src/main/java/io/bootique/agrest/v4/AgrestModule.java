@@ -32,7 +32,7 @@ import io.bootique.di.Provides;
 import io.bootique.jersey.JerseyModule;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 import java.util.Set;
 
 /**

@@ -29,7 +29,7 @@ import io.bootique.di.Provides;
 import io.bootique.swagger.SwaggerModule;
 import io.swagger.v3.core.util.PrimitiveType;
 
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 
 /**
  * @since 3.0
