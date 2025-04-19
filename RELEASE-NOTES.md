@@ -1,3 +1,7 @@
+## 3.0-RC1
+
+* #93 Upgrade to Agrest 5.0-RC1
+
 ## 3.0-M6
 
 * #92 Upgrade to Agrest 5.0-M20
