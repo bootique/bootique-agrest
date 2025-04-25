@@ -1,20 +1,19 @@
 package io.bootique.agrest.junit5;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.core.Form;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+
 import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
- * A DSL for sending Agrest requests and asserting responses.
- *
- * @deprecated The users are encouraged to switch to Jakarta-based flavor
+ * DSL for sending Agrest requests and asserting responses.
  */
-@Deprecated(since = "3.0", forRemoval = true)
 public class AgTester {
 
     private WebTarget target;

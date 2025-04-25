@@ -53,10 +53,6 @@
                         <groupId>com.fasterxml.jackson.core</groupId>
                         <artifactId>*</artifactId>
                     </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
@@ -72,7 +68,7 @@
             </dependency>
             <dependency>
                 <groupId>io.agrest</groupId>
-                <artifactId>agrest-jaxrs2</artifactId>
+                <artifactId>agrest-jaxrs3</artifactId>
                 <version>${agrest5.version}</version>
                 <exclusions>
                     <exclusion>
@@ -104,7 +100,7 @@
         </dependency>
         <dependency>
             <groupId>io.agrest</groupId>
-            <artifactId>agrest-jaxrs2</artifactId>
+            <artifactId>agrest-jaxrs3</artifactId>
         </dependency>
         <dependency>
             <groupId>io.agrest</groupId>
@@ -116,11 +112,7 @@
         </dependency>
         <dependency>
             <groupId>io.bootique.jersey</groupId>
-            <artifactId>bootique-jersey</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
+            <artifactId>bootique-jersey-jakarta</artifactId>
         </dependency>
 
         <!-- Unit test dependencies -->
@@ -136,7 +128,7 @@
         </dependency>
         <dependency>
             <groupId>io.bootique.jetty</groupId>
-            <artifactId>bootique-jetty-junit5</artifactId>
+            <artifactId>bootique-jetty-jakarta-junit5</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

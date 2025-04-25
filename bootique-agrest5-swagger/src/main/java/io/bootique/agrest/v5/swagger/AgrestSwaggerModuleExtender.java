@@ -18,7 +18,7 @@
  */
 package io.bootique.agrest.v5.swagger;
 
-import io.agrest.jaxrs2.openapi.AgSwaggerModule;
+import io.agrest.jaxrs3.openapi.AgSwaggerModule;
 import io.agrest.runtime.AgRuntimeBuilder;
 import io.bootique.ModuleExtender;
 import io.bootique.agrest.v5.AgrestModule;
@@ -27,9 +27,7 @@ import io.bootique.di.Binder;
 
 /**
  * @since 3.0
- * @deprecated The users are encouraged to switch to Jakarta-based flavor
  */
-@Deprecated(since = "3.0", forRemoval = true)
 public class AgrestSwaggerModuleExtender extends ModuleExtender<AgrestSwaggerModuleExtender> {
 
     private AgrestModuleExtender agrestExtender;

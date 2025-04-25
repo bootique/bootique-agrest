@@ -43,7 +43,7 @@ public class AgrestModuleOverlaysIT {
 
     @BQTestTool
     final BQTestFactory testFactory = new BQTestFactory();
-
+    
     @Test
     public void builderCallback() {
 

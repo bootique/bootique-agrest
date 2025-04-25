@@ -38,20 +38,12 @@
     </description>
 
     <modules>
-        <module>bootique-agrest4</module>
-        <module>bootique-agrest4-swagger</module>
-
         <module>bootique-agrest5</module>
         <module>bootique-agrest5-swagger</module>
-        <module>bootique-agrest5-jakarta</module>
-        <module>bootique-agrest5-jakarta-swagger</module>
-
         <module>bootique-agrest-junit5</module>
-        <module>bootique-agrest-jakarta-junit5</module>
     </modules>
 
     <properties>
-        <agrest4.version>4.10</agrest4.version>
         <agrest5.version>5.0-RC1</agrest5.version>
     </properties>
 

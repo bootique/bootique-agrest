@@ -21,11 +21,10 @@ package io.bootique.agrest.v5.swagger.api;
 import io.agrest.DataResponse;
 import io.bootique.agrest.v5.swagger.model.P1;
 import io.swagger.v3.oas.annotations.Parameter;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.UriInfo;
 
 @Path("agrest")
 public class TestApi {

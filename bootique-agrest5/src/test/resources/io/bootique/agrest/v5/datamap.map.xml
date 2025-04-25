@@ -3,7 +3,7 @@
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xsi:schemaLocation="http://cayenne.apache.org/schema/10/modelMap https://cayenne.apache.org/schema/10/modelMap.xsd"
 	 project-version="10">
-	<property name="defaultPackage" value="io.bootique.agrest.cayenne42.cayenne"/>
+	<property name="defaultPackage" value="io.bootique.agrest.jakarta.cayenne42.cayenne"/>
 	<property name="quoteSqlIdentifiers" value="true"/>
 	<db-entity name="e1">
 		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>

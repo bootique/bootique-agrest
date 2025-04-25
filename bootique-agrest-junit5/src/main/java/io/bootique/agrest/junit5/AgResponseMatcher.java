@@ -3,9 +3,9 @@ package io.bootique.agrest.junit5;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.bootique.jetty.junit5.JettyTester;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,9 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @since 2.0
- * @deprecated The users are encouraged to switch to Jakarta-based flavor
  */
-@Deprecated(since = "3.0", forRemoval = true)
 public class AgResponseMatcher {
 
     private static final Pattern NUMERIC_ID_MATCHER = Pattern.compile("\"id\":([\\d]+)");

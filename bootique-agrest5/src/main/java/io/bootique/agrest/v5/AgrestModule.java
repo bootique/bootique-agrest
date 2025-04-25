@@ -21,7 +21,7 @@ package io.bootique.agrest.v5;
 
 import io.agrest.AgModuleProvider;
 import io.agrest.cayenne.AgCayenneModule;
-import io.agrest.jaxrs2.AgJaxrsFeature;
+import io.agrest.jaxrs3.AgJaxrsFeature;
 import io.agrest.meta.AgEntityOverlay;
 import io.agrest.runtime.AgRuntime;
 import io.agrest.runtime.AgRuntimeBuilder;
@@ -38,9 +38,7 @@ import java.util.Set;
 
 /**
  * @since 3.0
- * @deprecated The users are encouraged to switch to Jakarta-based flavor
  */
-@Deprecated(since = "3.0", forRemoval = true)
 public class AgrestModule implements BQModule {
 
     /**
@@ -54,7 +52,7 @@ public class AgrestModule implements BQModule {
     @Override
     public ModuleCrate crate() {
         return ModuleCrate.of(this)
-                .description("Deprecated, can be replaced with 'bootique-agrest5-jakarta'.")
+                .description("Integrates with Agrest framework v5")
                 .build();
     }
 
