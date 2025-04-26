@@ -112,7 +112,7 @@
         </dependency>
         <dependency>
             <groupId>io.bootique.jersey</groupId>
-            <artifactId>bootique-jersey-jakarta</artifactId>
+            <artifactId>bootique-jersey</artifactId>
         </dependency>
 
         <!-- Unit test dependencies -->
