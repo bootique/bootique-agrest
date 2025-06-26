@@ -78,7 +78,7 @@ public class AgResponseMatcher {
     }
 
     /**
-     * @since 3.0.M2
+     * @since 3.0
      */
     public JsonNode getContentAsJson() {
         if (responseJsonContent == null) {
