@@ -24,7 +24,7 @@
     <parent>
         <groupId>io.bootique.agrest</groupId>
         <artifactId>bootique-agrest-parent</artifactId>
-        <version>4.0-M1</version>
+        <version>4.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>bootique-agrest-junit5</artifactId>
