@@ -71,11 +71,6 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.bootique.jetty</groupId>
-                <artifactId>bootique-jetty-junit5</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>io.bootique.cayenne</groupId>
                 <artifactId>bootique-cayenne42</artifactId>
                 <version>${project.version}</version>
@@ -83,11 +78,6 @@
             <dependency>
                 <groupId>io.bootique.cayenne</groupId>
                 <artifactId>bootique-cayenne42-junit5</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.bootique.jersey</groupId>
-                <artifactId>bootique-jersey</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
