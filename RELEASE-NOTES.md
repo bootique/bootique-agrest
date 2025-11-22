@@ -1,3 +1,7 @@
+## 3.0-RC2
+
+* #95 Upgrade to Agrest 5.0-RC2
+
 ## 3.0-RC1
 
 * #93 Upgrade to Agrest 5.0-RC1
