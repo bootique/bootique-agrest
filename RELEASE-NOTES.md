@@ -1,6 +1,14 @@
+## 4.0-M2
+
+* #95 Upgrade to Agrest 5.0-RC2
+
 ## 4.0-M1
 
 * #94 Remove deprecated modules: Agrest 4, Agrest 5 (javax flavor)
+
+## 3.0-RC2
+
+* #95 Upgrade to Agrest 5.0-RC2
 
 ## 3.0-RC1
 
