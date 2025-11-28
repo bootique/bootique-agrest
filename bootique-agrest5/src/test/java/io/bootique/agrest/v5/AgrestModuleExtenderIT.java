@@ -21,8 +21,6 @@ package io.bootique.agrest.v5;
 
 import io.agrest.AgModuleProvider;
 import io.agrest.runtime.AgRuntimeBuilder;
-import io.bootique.agrest.v5.AgBuilderCallback;
-import io.bootique.agrest.v5.AgrestModule;
 import io.bootique.jetty.junit5.JettyTester;
 import io.bootique.junit5.BQTest;
 import io.bootique.junit5.BQTestFactory;
@@ -31,8 +29,7 @@ import org.apache.cayenne.di.Binder;
 import org.apache.cayenne.di.Module;
 import org.junit.jupiter.api.Test;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @BQTest
 public class AgrestModuleExtenderIT {
@@ -45,9 +42,8 @@ public class AgrestModuleExtenderIT {
     @Test
     public void moduleProvider() {
 
-        Module module = mock(Module.class);
-        AgModuleProvider provider = mock(AgModuleProvider.class);
-        when(provider.module()).thenReturn(module);
+        TestModule module = new TestModule();
+        TestProvider provider = new TestProvider(module);
 
         testFactory.app("-s")
                 .autoLoadModules()
@@ -55,20 +51,59 @@ public class AgrestModuleExtenderIT {
                 .module(b -> AgrestModule.extend(b).addModuleProvider(provider))
                 .run();
 
-        verify(provider).module();
-        verify(module).configure(any(Binder.class));
+        assertTrue(provider.moduleCalled);
+        assertTrue(module.configureCalled);
     }
 
     @Test
     public void builderCallback() {
 
-        AgBuilderCallback callback = mock(AgBuilderCallback.class);
+        TestCallback callback = new TestCallback();
 
         testFactory.app("-s")
                 .autoLoadModules()
                 .module(b -> AgrestModule.extend(b).addBuilderCallback(callback))
                 .run();
 
-        verify(callback).configure(any(AgRuntimeBuilder.class));
+        assertTrue(callback.configureCalled);
+    }
+
+    static class TestCallback implements AgBuilderCallback {
+        boolean configureCalled;
+
+        @Override
+        public void configure(AgRuntimeBuilder builder) {
+            this.configureCalled = true;
+        }
+    }
+
+    static class TestModule implements Module {
+        boolean configureCalled;
+
+        @Override
+        public void configure(Binder binder) {
+            configureCalled = true;
+        }
+    }
+
+    static class TestProvider implements AgModuleProvider {
+
+        private final TestModule module;
+        boolean moduleCalled;
+
+        public TestProvider(TestModule module) {
+            this.module = module;
+        }
+
+        @Override
+        public Module module() {
+            this.moduleCalled = true;
+            return module;
+        }
+
+        @Override
+        public Class<? extends Module> moduleType() {
+            return TestModule.class;
+        }
     }
 }
