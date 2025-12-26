@@ -60,7 +60,7 @@ public class AgrestModule_Cayenne_IT {
             .module(cayenne.moduleWithTestHooks())
             .module(jetty.moduleReplacingConnectors())
             .module(b -> CayenneModule.extend(b).addProject("io/bootique/agrest/v5/cayenne-project.xml"))
-            .module(b -> JerseyModule.extend(b).addResource(R1.class))
+            .module(b -> JerseyModule.extend(b).addApiResource(R1.class))
             .createRuntime();
 
     @Test
