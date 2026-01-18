@@ -44,7 +44,7 @@
     </modules>
 
     <properties>
-        <agrest5.version>5.0-RC2</agrest5.version>
+        <agrest5.version>5.0</agrest5.version>
     </properties>
 
     <scm>
