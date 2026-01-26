@@ -29,7 +29,7 @@
 
     <groupId>io.bootique.agrest</groupId>
     <artifactId>bootique-agrest-parent</artifactId>
-    <version>4.0-SNAPSHOT</version>
+    <version>4.0-M3</version>
     <packaging>pom</packaging>
 
     <name>bootique-agrest-parent: Parent of Agrest/Bootique integration</name>
@@ -50,7 +50,7 @@
     <scm>
         <developerConnection>scm:git:ssh://git@github.com/bootique/bootique-agrest</developerConnection>
         <url>https://github.com/bootique/bootique-agrest</url>
-        <tag>HEAD</tag>
+        <tag>4.0-M3</tag>
     </scm>
 
     <dependencyManagement>
