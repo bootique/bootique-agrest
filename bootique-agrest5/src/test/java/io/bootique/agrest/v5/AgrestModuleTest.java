@@ -19,7 +19,8 @@
 
 package io.bootique.agrest.v5;
 
-import io.bootique.junit5.*;
+import io.bootique.junit.BQModuleTester;
+import io.bootique.junit.BQTest;
 import org.junit.jupiter.api.Test;
 
 @BQTest

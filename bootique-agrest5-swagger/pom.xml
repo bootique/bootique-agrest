@@ -71,7 +71,7 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>${jackson.version}</version>
+                <version>${jackson.annotations.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.jaxrs</groupId>
@@ -107,7 +107,7 @@
         <!-- Unit test dependencies -->
         <dependency>
             <groupId>io.bootique.jetty</groupId>
-            <artifactId>bootique-jetty-junit5</artifactId>
+            <artifactId>bootique-jetty-junit</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

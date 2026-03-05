@@ -118,12 +118,12 @@
         <!-- Unit test dependencies -->
         <dependency>
             <groupId>io.bootique</groupId>
-            <artifactId>bootique-junit5</artifactId>
+            <artifactId>bootique-junit</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.bootique.jetty</groupId>
-            <artifactId>bootique-jetty-junit5</artifactId>
+            <artifactId>bootique-jetty-junit</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -138,7 +138,7 @@
         </dependency>
         <dependency>
             <groupId>io.bootique.jdbc</groupId>
-            <artifactId>bootique-jdbc-junit5-derby</artifactId>
+            <artifactId>bootique-jdbc-junit-derby</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

@@ -27,9 +27,9 @@ import io.agrest.meta.AgSchema;
 import io.agrest.runtime.AgRuntime;
 import io.bootique.BQRuntime;
 import io.bootique.jetty.junit5.JettyTester;
-import io.bootique.junit5.BQTest;
-import io.bootique.junit5.BQTestFactory;
-import io.bootique.junit5.BQTestTool;
+import io.bootique.junit.BQTest;
+import io.bootique.junit.BQTestFactory;
+import io.bootique.junit.BQTestTool;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
