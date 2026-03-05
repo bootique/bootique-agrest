@@ -27,7 +27,7 @@ import io.bootique.Bootique;
 import io.bootique.agrest.v5.swagger.api.TestApi;
 import io.bootique.agrest.v5.swagger.model.P1;
 import io.bootique.jersey.JerseyModule;
-import io.bootique.jetty.junit5.JettyTester;
+import io.bootique.jetty.junit.JettyTester;
 import io.bootique.junit.BQApp;
 import io.bootique.junit.BQTest;
 import jakarta.ws.rs.core.Response;

@@ -40,7 +40,7 @@
     <modules>
         <module>bootique-agrest5</module>
         <module>bootique-agrest5-swagger</module>
-        <module>bootique-agrest-junit5</module>
+        <module>bootique-agrest-junit</module>
     </modules>
 
     <properties>
@@ -80,7 +80,7 @@
             </dependency>
             <dependency>
                 <groupId>io.bootique.cayenne</groupId>
-                <artifactId>bootique-cayenne42-junit5</artifactId>
+                <artifactId>bootique-cayenne42-junit</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

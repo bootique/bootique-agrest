@@ -21,7 +21,7 @@ package io.bootique.agrest.v5;
 
 import io.agrest.AgModuleProvider;
 import io.agrest.runtime.AgRuntimeBuilder;
-import io.bootique.jetty.junit5.JettyTester;
+import io.bootique.jetty.junit.JettyTester;
 import io.bootique.junit.BQTest;
 import io.bootique.junit.BQTestFactory;
 import io.bootique.junit.BQTestTool;

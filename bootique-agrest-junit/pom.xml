@@ -27,11 +27,11 @@
         <version>4.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bootique-agrest-junit5</artifactId>
+    <artifactId>bootique-agrest-junit</artifactId>
     <packaging>jar</packaging>
 
-    <name>bootique-agrest-junit5: Common JUnit5-based helper classes for test Agrest requests</name>
-    <description>Provides common JUnit5-based helper classes for test Agrest requests</description>
+    <name>bootique-agrest-junit: Common JUnit-based helper classes for test Agrest requests</name>
+    <description>Provides common JUnit-based helper classes for test Agrest requests</description>
 
     <dependencies>
         <dependency>
