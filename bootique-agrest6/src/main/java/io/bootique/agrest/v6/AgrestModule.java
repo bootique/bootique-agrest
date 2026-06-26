@@ -69,7 +69,7 @@ public class AgrestModule implements BQModule {
     AgRuntime provideAgRuntime(
             Injector injector,
             Set<AgModuleProvider> moduleProviders,
-            Set<AgEntityOverlay> entityOverlays,
+            Set<AgEntityOverlay<?>> entityOverlays,
             Set<AgBuilderCallback> builderCallbacks) {
 
         AgRuntimeBuilder builder = createBuilder(injector);

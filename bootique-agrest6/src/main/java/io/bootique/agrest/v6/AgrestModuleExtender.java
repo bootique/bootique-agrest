@@ -24,6 +24,7 @@ import io.agrest.meta.AgEntityOverlay;
 import io.bootique.ModuleExtender;
 import io.bootique.di.Binder;
 import io.bootique.di.SetBuilder;
+import io.bootique.di.TypeLiteral;
 
 /**
  * @since 3.0
@@ -32,7 +33,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     private SetBuilder<AgModuleProvider> moduleProviders;
     private SetBuilder<AgBuilderCallback> builderCallbacks;
-    private SetBuilder<AgEntityOverlay> entityOverlays;
+    private SetBuilder<AgEntityOverlay<?>> entityOverlays;
 
     public AgrestModuleExtender(Binder binder) {
         super(binder);
@@ -130,7 +131,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
         return builderCallbacks != null ? builderCallbacks : (builderCallbacks = newSet(AgBuilderCallback.class));
     }
 
-    private SetBuilder<AgEntityOverlay> contributeEntityOverlays() {
-        return entityOverlays != null ? entityOverlays : (entityOverlays = newSet(AgEntityOverlay.class));
+    private SetBuilder<AgEntityOverlay<?>> contributeEntityOverlays() {
+        return entityOverlays != null ? entityOverlays : (entityOverlays = newSet(new TypeLiteral<>(){}));
     }
 }
