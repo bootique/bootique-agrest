@@ -16,20 +16,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest.v5;
+package io.bootique.agrest.v6.swagger.model;
 
-import io.agrest.runtime.AgRuntimeBuilder;
+import io.agrest.annotation.AgAttribute;
 
-/**
- * A custom extension that allows users to customize Agrest stack during creation.
- *
- * @since 1.1
- * @deprecated since 4.0 in favor of Agrest 6. Use the {@code bootique-agrest6} module
- * ({@code io.bootique.agrest.v6.AgBuilderCallback}) instead.
- */
-@Deprecated(since = "4.0", forRemoval = true)
-@FunctionalInterface
-public interface AgBuilderCallback {
+public class P1 {
 
-    void configure(AgRuntimeBuilder builder);
+    @AgAttribute
+    public String getA() {
+        return "";
+    }
+
+    // not an Ag property
+    public String getB() {
+        return "";
+    }
 }

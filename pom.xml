@@ -40,11 +40,14 @@
     <modules>
         <module>bootique-agrest5</module>
         <module>bootique-agrest5-swagger</module>
+        <module>bootique-agrest6</module>
+        <module>bootique-agrest6-swagger</module>
         <module>bootique-agrest-junit</module>
     </modules>
 
     <properties>
         <agrest5.version>5.0</agrest5.version>
+        <agrest6.version>6.0-M1</agrest6.version>
     </properties>
 
     <scm>
@@ -78,6 +81,16 @@
             <dependency>
                 <groupId>io.bootique.cayenne</groupId>
                 <artifactId>bootique-cayenne42-junit</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.bootique.cayenne</groupId>
+                <artifactId>bootique-cayenne50</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.bootique.cayenne</groupId>
+                <artifactId>bootique-cayenne50-junit</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

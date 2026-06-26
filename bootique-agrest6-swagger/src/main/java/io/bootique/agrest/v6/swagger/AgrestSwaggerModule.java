@@ -16,11 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest.v5.swagger;
+package io.bootique.agrest.v6.swagger;
 
-import io.agrest.jaxrs3.openapi.modelconverter.AgEntityModelConverter;
-import io.agrest.jaxrs3.openapi.modelconverter.AgProtocolModelConverter;
-import io.agrest.jaxrs3.openapi.modelconverter.AgValueModelConverter;
+import io.agrest.jaxrs.openapi.modelconverter.AgEntityModelConverter;
+import io.agrest.jaxrs.openapi.modelconverter.AgProtocolModelConverter;
+import io.agrest.jaxrs.openapi.modelconverter.AgValueModelConverter;
 import io.agrest.runtime.AgRuntime;
 import io.bootique.BQModule;
 import io.bootique.ModuleCrate;
@@ -33,10 +33,7 @@ import jakarta.inject.Singleton;
 
 /**
  * @since 3.0
- * @deprecated since 4.0 in favor of Agrest 6. Use the {@code bootique-agrest6-swagger} module
- * ({@code io.bootique.agrest.v6.swagger.AgrestSwaggerModule}) instead.
  */
-@Deprecated(since = "4.0", forRemoval = true)
 public class AgrestSwaggerModule implements BQModule {
 
     public static AgrestSwaggerModuleExtender extend(Binder binder) {
@@ -47,7 +44,6 @@ public class AgrestSwaggerModule implements BQModule {
     public ModuleCrate crate() {
         return ModuleCrate.of(this)
                 .description("Integrates Agrest components in the OpenAPI subsystem.")
-                .deprecated(true)
                 .build();
     }
 

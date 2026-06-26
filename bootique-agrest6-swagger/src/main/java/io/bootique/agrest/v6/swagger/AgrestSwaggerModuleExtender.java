@@ -16,21 +16,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest.v5.swagger;
+package io.bootique.agrest.v6.swagger;
 
-import io.agrest.jaxrs3.openapi.AgSwaggerModule;
+import io.agrest.jaxrs.openapi.AgSwaggerModule;
 import io.agrest.runtime.AgRuntimeBuilder;
 import io.bootique.ModuleExtender;
-import io.bootique.agrest.v5.AgrestModule;
-import io.bootique.agrest.v5.AgrestModuleExtender;
+import io.bootique.agrest.v6.AgrestModule;
+import io.bootique.agrest.v6.AgrestModuleExtender;
 import io.bootique.di.Binder;
 
 /**
  * @since 3.0
- * @deprecated since 4.0 in favor of Agrest 6. Use the {@code bootique-agrest6-swagger} module
- * ({@code io.bootique.agrest.v6.swagger.AgrestSwaggerModuleExtender}) instead.
  */
-@Deprecated(since = "4.0", forRemoval = true)
 public class AgrestSwaggerModuleExtender extends ModuleExtender<AgrestSwaggerModuleExtender> {
 
     private AgrestModuleExtender agrestExtender;

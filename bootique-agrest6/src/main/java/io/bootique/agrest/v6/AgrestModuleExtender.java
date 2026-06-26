@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package io.bootique.agrest.v5;
+package io.bootique.agrest.v6;
 
 import io.agrest.AgModuleProvider;
 import io.agrest.meta.AgEntityOverlay;
@@ -27,10 +27,7 @@ import io.bootique.di.SetBuilder;
 
 /**
  * @since 3.0
- * @deprecated since 4.0 in favor of Agrest 6. Use the {@code bootique-agrest6} module
- * ({@code io.bootique.agrest.v6.AgrestModuleExtender}) instead.
  */
-@Deprecated(since = "4.0", forRemoval = true)
 public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
 
     private SetBuilder<AgModuleProvider> moduleProviders;

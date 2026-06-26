@@ -17,11 +17,11 @@
  * under the License.
  */
 
-package io.bootique.agrest.v5;
+package io.bootique.agrest.v6;
 
 import io.agrest.AgModuleProvider;
 import io.agrest.cayenne.AgCayenneModule;
-import io.agrest.jaxrs3.AgJaxrsFeature;
+import io.agrest.jaxrs.AgJaxrsFeature;
 import io.agrest.meta.AgEntityOverlay;
 import io.agrest.runtime.AgRuntime;
 import io.agrest.runtime.AgRuntimeBuilder;
@@ -31,17 +31,14 @@ import io.bootique.di.Binder;
 import io.bootique.di.Injector;
 import io.bootique.di.Provides;
 import io.bootique.jersey.JerseyModule;
-import org.apache.cayenne.configuration.server.ServerRuntime;
+import org.apache.cayenne.runtime.CayenneRuntime;
 
 import jakarta.inject.Singleton;
 import java.util.Set;
 
 /**
  * @since 3.0
- * @deprecated since 4.0 in favor of Agrest 6. Use the {@code bootique-agrest6} module
- * ({@code io.bootique.agrest.v6.AgrestModule}) instead.
  */
-@Deprecated(since = "4.0", forRemoval = true)
 public class AgrestModule implements BQModule {
 
     /**
@@ -55,8 +52,7 @@ public class AgrestModule implements BQModule {
     @Override
     public ModuleCrate crate() {
         return ModuleCrate.of(this)
-                .description("Integrates with Agrest framework v5")
-                .deprecated(true)
+                .description("Integrates with Agrest framework v6")
                 .build();
     }
 
@@ -96,8 +92,8 @@ public class AgrestModule implements BQModule {
     private AgRuntimeBuilder createBuilder(Injector injector) {
         AgRuntimeBuilder builder = AgRuntime.builder();
 
-        if (injector.hasProvider(ServerRuntime.class)) {
-            ServerRuntime cayenneRuntime = injector.getInstance(ServerRuntime.class);
+        if (injector.hasProvider(CayenneRuntime.class)) {
+            CayenneRuntime cayenneRuntime = injector.getInstance(CayenneRuntime.class);
             builder.module(AgCayenneModule.build(cayenneRuntime));
         }
 

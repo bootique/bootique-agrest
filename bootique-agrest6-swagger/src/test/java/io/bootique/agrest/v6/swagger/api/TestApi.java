@@ -16,20 +16,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest.v5;
+package io.bootique.agrest.v6.swagger.api;
 
-import io.agrest.runtime.AgRuntimeBuilder;
+import io.agrest.DataResponse;
+import io.bootique.agrest.v6.swagger.model.P1;
+import io.swagger.v3.oas.annotations.Parameter;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.UriInfo;
 
-/**
- * A custom extension that allows users to customize Agrest stack during creation.
- *
- * @since 1.1
- * @deprecated since 4.0 in favor of Agrest 6. Use the {@code bootique-agrest6} module
- * ({@code io.bootique.agrest.v6.AgBuilderCallback}) instead.
- */
-@Deprecated(since = "4.0", forRemoval = true)
-@FunctionalInterface
-public interface AgBuilderCallback {
+@Path("agrest")
+public class TestApi {
 
-    void configure(AgRuntimeBuilder builder);
+    @GET
+    public DataResponse<P1> get(@Parameter @Context UriInfo uriInfo) {
+        throw new UnsupportedOperationException("the behavior is irrelevant. All we care about is the method signature");
+    }
 }

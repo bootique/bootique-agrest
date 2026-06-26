@@ -1,3 +1,7 @@
+## 4.0-M4
+
+* #97 Agrest 6 module (to be our primary Agrest)
+
 ## 4.0-M2
 
 * #95 Upgrade to Agrest 5.0-RC2

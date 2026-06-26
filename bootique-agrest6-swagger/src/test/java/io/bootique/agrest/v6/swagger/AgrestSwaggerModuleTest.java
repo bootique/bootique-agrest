@@ -16,20 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.agrest.v5;
+package io.bootique.agrest.v6.swagger;
 
-import io.agrest.runtime.AgRuntimeBuilder;
+import io.bootique.junit.BQModuleTester;
+import org.junit.jupiter.api.Test;
 
-/**
- * A custom extension that allows users to customize Agrest stack during creation.
- *
- * @since 1.1
- * @deprecated since 4.0 in favor of Agrest 6. Use the {@code bootique-agrest6} module
- * ({@code io.bootique.agrest.v6.AgBuilderCallback}) instead.
- */
-@Deprecated(since = "4.0", forRemoval = true)
-@FunctionalInterface
-public interface AgBuilderCallback {
+public class AgrestSwaggerModuleTest {
 
-    void configure(AgRuntimeBuilder builder);
+    @Test
+    public void check() {
+        BQModuleTester.of(AgrestSwaggerModule.class).testAutoLoadable().testConfig();
+    }
 }
