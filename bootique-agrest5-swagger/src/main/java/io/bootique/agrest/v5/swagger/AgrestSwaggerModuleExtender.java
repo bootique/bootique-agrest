@@ -27,8 +27,7 @@ import io.bootique.di.Binder;
 
 /**
  * @since 3.0
- * @deprecated since 4.0 in favor of Agrest 6. Use the {@code bootique-agrest6-swagger} module
- * ({@code io.bootique.agrest.v6.swagger.AgrestSwaggerModuleExtender}) instead.
+ * @deprecated in favor of Agrest 6 and {@code bootique-agrest6-swagger} module
  */
 @Deprecated(since = "4.0", forRemoval = true)
 public class AgrestSwaggerModuleExtender extends ModuleExtender<AgrestSwaggerModuleExtender> {

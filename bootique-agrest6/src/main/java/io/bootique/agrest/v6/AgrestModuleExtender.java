@@ -21,6 +21,7 @@ package io.bootique.agrest.v6;
 
 import io.agrest.AgModuleProvider;
 import io.agrest.meta.AgEntityOverlay;
+import io.agrest.runtime.AgRuntimeBuilder;
 import io.bootique.ModuleExtender;
 import io.bootique.di.Binder;
 import io.bootique.di.SetBuilder;
@@ -66,7 +67,7 @@ public class AgrestModuleExtender extends ModuleExtender<AgrestModuleExtender> {
      * @since 3.0
      */
     public AgrestModuleExtender skipNullProperties() {
-        return addBuilderCallback(b -> b.skipNullProperties());
+        return addBuilderCallback(AgRuntimeBuilder::skipNullProperties);
     }
 
     /**

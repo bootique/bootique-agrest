@@ -24,8 +24,7 @@ import io.agrest.runtime.AgRuntimeBuilder;
  * A custom extension that allows users to customize Agrest stack during creation.
  *
  * @since 1.1
- * @deprecated since 4.0 in favor of Agrest 6. Use the {@code bootique-agrest6} module
- * ({@code io.bootique.agrest.v6.AgBuilderCallback}) instead.
+ * @deprecated in favor of Agrest 6 and {@code bootique-agrest6} module
  */
 @Deprecated(since = "4.0", forRemoval = true)
 @FunctionalInterface
