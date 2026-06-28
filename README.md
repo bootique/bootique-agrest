@@ -18,7 +18,7 @@
   -->
 
 [![build test deploy](https://github.com/bootique/bootique-agrest/actions/workflows/maven.yml/badge.svg)](https://github.com/bootique/bootique-agrest/actions/workflows/maven.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/io.bootique.agrest/bootique-agrest.svg?colorB=brightgreen)](https://search.maven.org/artifact/io.bootique.agrest/bootique-agrest/)
+[![Maven Central](https://img.shields.io/maven-central/v/io.bootique.agrest/bootique-agrest-parent.svg?colorB=brightgreen)](https://search.maven.org/artifact/io.bootique.agrest/bootique-agrest-parent/)
 
 [AgRest (ex LinkRest)](https://agrest.io) integration module for [Bootique](http://bootique.io).
 See usage example [bootique-agrest-demo](https://github.com/bootique-examples/bootique-agrest-demo).
