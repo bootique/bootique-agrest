@@ -1,3 +1,7 @@
+## 4.0-M6
+
+* #98 Upgrade to Agrest 6.0-M2
+
 ## 4.0-M4
 
 * #97 Agrest 6 module (to be our primary Agrest)

@@ -47,7 +47,7 @@
 
     <properties>
         <agrest5.version>5.0</agrest5.version>
-        <agrest6.version>6.0-M1</agrest6.version>
+        <agrest6.version>6.0-M2</agrest6.version>
     </properties>
 
     <scm>
