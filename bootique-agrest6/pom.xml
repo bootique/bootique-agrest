@@ -45,6 +45,11 @@
                 <artifactId>agrest-engine</artifactId>
                 <version>${agrest6.version}</version>
                 <exclusions>
+                    <!-- agrest-engine pins an older SLF4J than Bootique declares -->
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>org.apache.cayenne</groupId>
                         <artifactId>*</artifactId>
@@ -97,6 +102,11 @@
         <dependency>
             <groupId>io.agrest</groupId>
             <artifactId>agrest-engine</artifactId>
+        </dependency>
+        <!-- Fix the version of the "agrest-engine" transitive dependency -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
         </dependency>
         <dependency>
             <groupId>io.agrest</groupId>
