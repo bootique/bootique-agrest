@@ -1,3 +1,7 @@
+## 4.0-M7
+
+* #99 Upgrade to Agrest 6.0-M3
+
 ## 4.0-M6
 
 * #98 Upgrade to Agrest 6.0-M2

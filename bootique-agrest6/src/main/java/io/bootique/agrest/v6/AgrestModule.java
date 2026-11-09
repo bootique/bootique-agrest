@@ -31,7 +31,7 @@ import io.bootique.di.Binder;
 import io.bootique.di.Injector;
 import io.bootique.di.Provides;
 import io.bootique.jersey.JerseyModule;
-import org.apache.cayenne.runtime.CayenneRuntime;
+import org.apache.cayenne.CayenneRuntime;
 
 import jakarta.inject.Singleton;
 import java.util.Set;
